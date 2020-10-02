@@ -48,7 +48,6 @@
 % Only include extra packages if you really need them. Common packages are:
 \usepackage{graphicx}	% Including figure files
 \usepackage{amsmath}	% Advanced maths commands
-\usepackage{amssymb}	% Extra maths symbols
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -250,18 +249,18 @@
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
-\author[H.P. Osborn et al.]{H.P. Osborn,$^{{1},{2}}$\thanks{E-mail: hugh.osborn@space.unibe.ch}
-D.J. Armstrong,$^{3,4}$ % D.J.Armstrong@warwick.ac.uk
-V. Adibekyan,$^{5}$ % Vardan.Adibekyan@astro.up.pt
-E. Delgado-Mena,$^{5}$
-G. King,$^{3,4}$ %
-\newauthor
-J.F. Otegi,$^{6}$ %
+\author[H.P. Osborn et al.]{
+\parbox{\textwidth}{H.P. Osborn,$^{{1},{2}}$\thanks{E-mail: hugh.osborn@space.unibe.ch},
+D.J. Armstrong$^{3,4}$, % D.J.Armstrong@warwick.ac.uk
+V. Adibekyan$^{5}$, % Vardan.Adibekyan@astro.up.pt
+E. Delgado-Mena$^{5}$,
+G. King$^{3,4}$, %
+J.F. Otegi$^{6}$, %
 N.C. Santos,$^{5,7}$ % Nuno.Santos@astro.up.pt
-\\
+ }\\
 % List of institutions
 $^{1}$NCCR/PlanetS, Centre for Space \& Habitability, University of Bern, Bern, Switzerland\\
-$^{2}$Department of Physics and Kavli Institute for Astrophysics and Space Research, MIT, 70 Vassar Street, Cambridge, MA 02139,USA\\
+$^{2}$Department of Physics and Kavli Institute for Astrophysics and Space Research, MIT, 70 Vassar Street, Cambridge, MA 02139, USA\\
 $^{3}$Centre for Exoplanets and Habitability, University of Warwick, Gibbet Hill Road, Coventry, CV4 7AL, UK\\
 $^{4}$Department of Physics, University of Warwick, Gibbet Hill Road, Coventry CV4 7AL, UK \\
 $^{5}$Instituto de Astrof\'isica e Ci\^encias do Espa\c{c}o, Universidade do Porto, CAUP, Rua das Estrelas, 4150-762 Porto, Portugal\\
@@ -396,7 +395,7 @@ As a cross-reference, these models were
 
 \subsubsection{Treatment of photometry}
 
-In the case of TESS data, although a Lomb-Scargle periodogram of the raw TESS lightcurve also shows peak variability with a period around 25d, the processed PDC lightcurve is flat, likely as variability on the order of a TESS orbit ($$\sim 14d$) are removed during processing.
+In the case of TESS data, although a Lomb-Scargle periodogram of the raw TESS lightcurve also shows peak variability with a period around 25d, the processed PDC lightcurve is flat, likely as variability on the order of a TESS orbit ($\sim 14d$) are removed during processing.
 
 \subsection{Other potential planet candidates}
 Both Kepler and TESS have shown that multi-planet systems of small planets in resonant orbits close to their star are common \citep{?}.
@@ -407,7 +406,7 @@ We ran the \texttt{transit least squares} algorithm \citep{heller} on the model-
 Present in the RV periodogram (and, interestingly, not in the activity periodograms) is a relatively strong peak at around 7 days.
 The best-fitting combined two-planet model (limiting planet c to non-transiting solutions) produces an outer planet with a potential mass of $TBD$ on a period of $TBD$.
 The parameters for the planet b remain within errorbars 
-Although \exoplanet does not allow the computation of Bayesian evidence, we can use the log likelihoods of the best-fitting 1-planet model with the best-fitting 2-planet model to compute the difference in Bayesian Inference Criterium ($\Delta{\rm BIC}$.
+Although \texttt{exoplanet} does not allow the computation of Bayesian evidence, we can use the log likelihoods of the best-fitting 1-planet model with the best-fitting 2-planet model to compute the difference in Bayesian Inference Criterium ($\Delta{\rm BIC}$.
 This value is $TBD$ in favour of a TBD.
 However, such a peak also corresponds to exactly $P_{\rm rot}/3$, and may be an alias of the rotation period.
 
@@ -420,54 +419,54 @@ However, the low-SNR nature of this planet means that no significant TTVs are cu
 
 Normally the next section describes the techniques the authors used.
 It is frequently split into subsections, such as Section~\ref{sec:maths} below.
-
-\begin{table*}[t]
-    \centering
-    \caption{Catalogued, measured and derived properties of \Tstar\ and \Tplanet. 
-    % Pete - I commented out the following cos its not needed I think
-    %Asymmetric errors are reported in brackets and correspond to the difference between the median and the 16$^{th}$ (lower value) and 84$^{th}$ (upper value) percentile. Asymmetric errors which differed by a factor of 2 are reported in quadrature as symmetric uncertainties with $\pm$.
-    }
-    \begin{tabular}{cc|cc}
-    \hline
-    \hline
-    \multicolumn{2}{l|}{Catalogue data} & \multicolumn{2}{l}{Model parameters}     \\
-    \hline
-%Gaia Source ID & \TGAIAid        & $T_0$ (BJD-TDB) & \TfitTO  \\
-TIC ID & \TICstar        & $T_0$ (BJD-TDB) & \Ttzero  \\
-R.A.  &  \Tstarra      & $P$ (d) &  \TP \\
-decl.  & \Tstardec     & $b$  & \Tb \\
-G & \TGAIAGmag         & $u_{\rm TESS}(0)$ & \Tuzero \\
-%BP & \TGAIABPmag                 & $b$          & \Tfitb \\
-%RP & \TGAIARPmag                &  $h_{1,\rm \tess}$  & \TfithItess  \\
-pmRA (\masy)   & \TGAIAPMRA  & $u_{\rm TESS}(1)$ & \Tuone \\
-pmDec (\masy)  & \TGAIAPMDec &  $K_\star$ (\kms) & \TlogK \\
-Parallax ($\rm mas$) & \TGAIAplx 
-\tess\ (T)   & \TESSTmag 
-% APASS9 (B) & \APASSBmag 
-% APASS9 (V) & \APASSVmag & $\sqrt{e}\sin \omega$ & \Tfitfs  \\
-% APASS9 (g') & \APASSgmag & $\sqrt{e}\cos \omega$& \Tfitfc  \\
-% APASS9 (r') & \APASSrmag &  $\gamma$ (\kms)& \TfitV \\ 
-% APASS9 (i') &\APASSimag & $\Delta \gamma_{\rm FEROS}$ (\kms)& \TfitHF\\
-\cline{3-4}
-2MASS (J)  & \MASSJ  &  \multicolumn{2}{l}{Derived planet properties} \\
-\cline{3-4}
-2MASS (H)  & \MASSH  & \mpl\ (\mjup) & \Tplanetmass \\
-2MASS (K$_{\rm s}$)& \MASSK &  \rpl\ (\rjup) &  \Tplanetradius  \\
-\cline{1-2}
-\multicolumn{2}{l|}{Stellar parameters} &  $a\,(\rm au)$ & \Tpa \\  
-\cline{1-2}
-\teff\ (K) &  \Tteff & e & \Tfite   \\
-\feh\ ($\rm dex$) &  \TFeH &  $\omega$ (deg) & \Tfitw \\  
-$\log g_\star$ ($\rm dex$) &  \Tlogg &  $i$ (deg) & \Tpincl  \\
-%\vsini\ (\kms) & \Trotation  &  $T_{\rm dur}$ (hr) & \Tfitdur \\
-\mstar\ (\msun) &  \TMs  & $g_p$ (\mss)& \Tpgrav\\
-\rstar\ (\rsun) & \TRs  & $T_{\rm eq}$ $(\rm K)$ & \Teq  \\
-%$\rho_\star$\ ($\rho_{\sun}$) & \Tstardensity & $\rho_{p}$\ (g\,cm$^{-3}$) & \Tpden  \\
-%Age $(\rm Gyr)$ & \Tstarage & $H_p$ (km)& \TpH \\
-\hline
-    \end{tabular}
-    \label{table:datatable}
-\end{table*}
+%
+%\begin{table*}[t]
+%    \centering
+%    \caption{Catalogued, measured and derived properties of \Tstar\ and \Tplanet. 
+%    % Pete - I commented out the following cos its not needed I think
+%    %Asymmetric errors are reported in brackets and correspond to the difference between the median and the 16$^{th}$ (lower value) and 84$^{th}$ (upper value) percentile. Asymmetric errors which differed by a factor of 2 are reported in quadrature as symmetric uncertainties with $\pm$.
+%    }
+%    \begin{tabular}{cc|cc}
+%    \hline
+%    \hline
+%    \multicolumn{2}{l}{Catalogue data} & \multicolumn{2}{l}{Model parameters}     \\
+%    \hline
+%%Gaia Source ID & \TGAIAid        & $T_0$ (BJD-TDB) & \TfitTO  \\
+%TIC ID & \TICstar        & $T_0$ (BJD-TDB) & \Ttzerozero  \\
+%R.A.  &  \Tstarra      & $P$ (d) &  \TP \\
+%decl.  & \Tstardec     & $b$  & \Tb \\
+%G & \TGAIAGmag         & $u_{\rm TESS}(0)$ & \Tuzero \\
+%%BP & \TGAIABPmag                 & $b$          & \Tfitb \\
+%%RP & \TGAIARPmag                &  $h_{1,\rm \tess}$  & \TfithItess  \\
+%pmRA (\masy)   & \TGAIAPMRA  & $u_{\rm TESS}(1)$ & \Tuone \\
+%pmDec (\masy)  & \TGAIAPMDec &  $K_\star$ (\kms) & \TlogK \\
+%Parallax ($\rm mas$) & \TGAIAplx 
+%\tess\ (T)   & \TESSTmag 
+%% APASS9 (B) & \APASSBmag 
+%% APASS9 (V) & \APASSVmag & $\sqrt{e}\sin \omega$ & \Tfitfs  \\
+%% APASS9 (g') & \APASSgmag & $\sqrt{e}\cos \omega$& \Tfitfc  \\
+%% APASS9 (r') & \APASSrmag &  $\gamma$ (\kms)& \TfitV \\ 
+%% APASS9 (i') &\APASSimag & $\Delta \gamma_{\rm FEROS}$ (\kms)& \TfitHF\\
+%\cline{3-4}
+%2MASS (J)  & \MASSJ  &  \multicolumn{2}{l}{Derived planet properties} \\
+%\cline{3-4}
+%2MASS (H)  & \MASSH  & \mpl\ (\mjup) & \Tplanetmass \\
+%2MASS (K$_{\rm s}$)& \MASSK &  \rpl\ (\rjup) &  \Tplanetradius  \\
+%\cline{1-2}
+%\multicolumn{2}{l|}{Stellar parameters} &  $a\,(\rm au)$ & \Tpa \\  
+%\cline{1-2}
+%\teff\ (K) &  \Tteff & e & \Tfite   \\
+%\feh\ ($\rm dex$) &  \TFeH &  $\omega$ (deg) & \Tfitw \\  
+%$\log g_\star$ ($\rm dex$) &  \Tlogg &  $i$ (deg) & \Tpincl  \\
+%%\vsini\ (\kms) & \Trotation  &  $T_{\rm dur}$ (hr) & \Tfitdur \\
+%\mstar\ (\msun) &  \TMs  & $g_p$ (\mss)& \Tpgrav\\
+%\rstar\ (\rsun) & \TRs  & $T_{\rm eq}$ $(\rm K)$ & \Teq  \\
+%%$\rho_\star$\ ($\rho_{\sun}$) & \Tstardensity & $\rho_{p}$\ (g\,cm$^{-3}$) & \Tpden  \\
+%%Age $(\rm Gyr)$ & \Tstarage & $H_p$ (km)& \TpH \\
+%\hline
+%    \end{tabular}
+%    \label{table:datatable}
+%\end{table*}
 
 \begin{figure*}
 \makebox[\textwidth][c]{
