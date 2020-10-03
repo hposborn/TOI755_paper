@@ -235,6 +235,7 @@
 \newcommand{\TTplanet}{TOI-755.01}
 \newcommand{\Tstar}{HD\,110113}
 \newcommand{\Tplanet}{HD\,110113\,b}
+\newcommand{\Tplanetc}{HD\,110113\,c}
 \newcommand{\TGAIAid}{6133384959942131968}
 \newcommand{\TICstar}{TIC-73228647}
 \newcommand{\Tperiodshort}{2.5}
@@ -256,8 +257,8 @@ V. Adibekyan$^{5}$, % Vardan.Adibekyan@astro.up.pt
 E. Delgado-Mena$^{5}$,
 G. King$^{3,4}$, %
 J.F. Otegi$^{6}$, %
-N.C. Santos,$^{5,7}$ % Nuno.Santos@astro.up.pt
- }\\
+N.C. Santos$^{5,7}$, % Nuno.Santos@astro.up.pt
+}\\
 % List of institutions
 $^{1}$NCCR/PlanetS, Centre for Space \& Habitability, University of Bern, Bern, Switzerland\\
 $^{2}$Department of Physics and Kavli Institute for Astrophysics and Space Research, MIT, 70 Vassar Street, Cambridge, MA 02139, USA\\
@@ -272,7 +273,7 @@ $^{7}$Departamento de F\'isica e Astronomia, Faculdade de Ci\^{e}ncias, Universi
 \date{Accepted XXX. Received YYY; in original form ZZZ}
 
 % Enter the current year, for the copyright statements etc.
-\pubyear{2015}
+\pubyear{2020}
 
 % Don't change these lines
 \begin{document}
@@ -282,11 +283,11 @@ $^{7}$Departamento de F\'isica e Astronomia, Faculdade de Ci\^{e}ncias, Universi
 
 % Abstract of the paper
 \begin{abstract}
-We report the discovery of \Tplanet\,(\TTplanet), a transiting mini-Neptune exoplanet on a 2.5-day orbit around a sunlike G-type star (\teff= $5730$K).
-Using \tess\,photometry and \harps\,radial velocities, we find \Tplanet\, has a radius of \Trplzero \rearth\, and a mass of \TMpzero \mearth.
-The resulting density of \Trhopgcmthreezero\gcm\,is significantly lower than would be expected from a pure-rock world, therefore \Tplanet\,must be a mini-Neptune with significant volatile atmosphere.
-Given the high incidental flux and low surface-gravity of the planet, we find it unusual that \Tplanet\, was able to hold onto it's atmosphere over its $\sim4$Gyr lifetime.
-We also find a non-transiting planet with a mass of \TMpone \mearth and a period of \TPone d, although a strong stellar rotation signal with period \Tperiod d impedes its confirmation.
+We report the discovery of \Tplanet{}(\TTplanet{}), a transiting mini-Neptune exoplanet on a 2.5-day orbit around a sunlike G-type star (\teff{}= $5730$K).
+Using \tess{} photometry and \harps{} radial velocities, we find \Tplanet{} has a radius of \Trplzero{}\rearth{} and a mass of \TMpzero{} \mearth{}.
+The resulting density of \Trhopgcmthreezero{}\gcm{} is significantly lower than would be expected from a pure-rock world, therefore \Tplanet{} must be a mini-Neptune with significant volatile atmosphere.
+Given the high incidental flux and low surface-gravity of the planet, we find it unusual that \Tplanet{} was able to hold onto it's atmosphere over its $\sim4$Gyr lifetime.
+We also find a non-transiting planet with a mass of \TMpone{} \mearth{} and a period of \TPone{}d, although a strong stellar rotation signal with period \Tperiod{}d impedes its confirmation.
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -305,7 +306,7 @@ planets and satellites: detection -- stars: individual: HD110113
 \section{Observations}
 
 \subsection{TESS photometry}
-\Tstar was observed during \tess sector 10 with 2-minute cadence for 22.5 days, excluding a 2.5 day gap between TESS orbits to downlink data.
+\Tstar{} was observed during \tess{} sector 10 with 2-minute cadence for 22.5 days, excluding a 2.5 day gap between TESS orbits to downlink data.
 The lightcurve was processed using the Pre-Search Data Conditioning (PDC) pipeline, producing precise detrended photometry with typical precision of 150ppm/hr.
 This lightcurve was then searched for exoplanetary candidates with the SPOC (Science Processing Operations Centre).
 Vetting identified a strong candidate with a period of 2.54, a depth of only 400ppm and a Signal to Noise Ratio (SNR) of 7.6.
@@ -340,18 +341,30 @@ was taken from Sousa et al. (2008).
 \subsubsection{Treatment of Radial Velocities}
 All RV indicator statistics showed clear signs of stellar variability, likely due to the presence of starspots.
 To remove this stellar activity we first turned to linear decorrelation of the RV signal using RV indicators.
-The FWHM and S-index showed the clearest rotational signals, so selected these and used the decorrelation technique provided with the DACE radvel python package \citep{2015ASPC..495....7B}.
-Despite the activity indicators removing much of the stellar variability signal, the peak at \Tperiod remained strong in the radial velocity timeseries.
-After removing the rotation signal at \Tperiod by fitting a Keplerian, the next strongest signals were at \TPzero$d$ and \TPone$d$, followed by signals on longer periods which are most likely spurious due to rotational and observational aliases.
+The FWHM and S-index showed the clearest rotational signals, so we selected these and used the decorrelation technique provided with the DACE spectroscopy python package \citep{2015ASPC..495....7B}\footnote{\url{https://dace.unige.ch/tutorials/?tutorialId=34}}.
+Despite the activity indicators removing much of the stellar variability signal, the peak at \Tperiod{} remained strong in the radial velocity timeseries (see Figure \ref{fig:rv_decorr}).
+After removing the rotation signal at $23.68\pm0.08$ by fitting a Keplerian, the next strongest signals were at $6.73\pm0.03d$ and $2.541\pm0.0008d$ with amplitudes of $3.88\pm0.31 ms^{-1}$ and $2.55\pm0.31$ respectively. This was followed by signals on longer periods which are most likely spurious due to rotational and observational aliases.
 
 % (see Figure \ref{fig:LS}), therefore we chose this as the indicator with which to train a GP.
-Instead of performing linear decorrelation, which clearly was not capable of adequately removing stellar rotation, we applied the same Gaussian process model to S-index, FWHM, and radial velocity simultaneously. 
-The GP kernel used is a so-called "rotational" kernel built from the combination of two SHO kernels in \texttt{celerite}.
-Amplitude and mean function of each GP would differ
+Although this linear decorrelation and Keplerian-fitted rotation period was able to reveal the planetary RV signals, stellar variability cannot in general be modelled as a Keplerian.
+Instead we turned to a Gaussian process (GP) model to model the impact of rotation on the RVs.
+One GP kernel well-suited to stellar rotation is to use a decay term multiplied by a mix of rotational terms corresponding to $P_{\rm rot}$ and $P_{\rm rot}/2$, which we built using \texttt{celerite} \citep{foreman2017fast}.
+In order to limit the impact of the GP on the planetary RV signal, we fitted activity time series and RV timeseries simultaneously with the same GP kernel, as these should follow the same RV distribution with the exception of planetary signals.
+To do this, the hyper-parameters for rotation period, decay timescale, the mix factor, and the signal quality ($Q$ \& $\delta Q$) were kept constant, while the signal amplitude \& mean were taken from three different distributions corresponding to each of S-index, FWHM and RV. Also included for each indicator was a jitter term to model noise not included by measurement errors and prevent GP over-fitting.
 %To train the GP we used a Rotational kernel , with a fifth parameter to include excess jitter in the measurements. 
-All parameters were given broad priors, although the rotation period was constrained to the value obtained from a Lomb-Scargle periodogram with a standard deviation of 40\%.
+All hyper-parameters were given broad priors, although the rotation period was constrained to the value obtained from a Lomb-Scargle periodogram with a standard deviation of 40\%.
 %We optimised this model and then ran a Hamiltonian Monte Carlo to produce 1200 samples from which to use as priors in our RV GP model. The resulting GP model fit is shown in figure \ref{SindexFig}.
 
+A 2-parameter (e.g. linear) trend term was included to model potential drift in the RVs.
+
+\begin{figure}
+	% To include a figure from a file named example.*
+	% Allowable file formats are eps or ps if compiling using latex
+	% or pdf, png, jpg if compiling using pdflatex
+	\includegraphics[width=\columnwidth]{TOI755_decorrelation_periodograms}
+    \caption{Periodograms of RVs after linear decorrelation with S-index and FWHM. The upper panel shows the raw periodogram, while subsequent panels show the periodogram after the removal of the previously marked peak. The 2.54d peak is accompanied by a significant peak at the 1-day sampling alias (1.65d), but the knowledge of a 2.54d planet in the TESS photometry breaks this degeneracy.}
+    \label{fig:rv_decorr}
+\end{figure}
 % \begin{figure}
 % 	% To include a figure from a file named example.*
 % 	% Allowable file formats are eps or ps if compiling using latex
@@ -366,36 +379,59 @@ All parameters were given broad priors, although the rotation period was constra
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\columnwidth]{Combined_RV_plots_3_GPs.pdf}
-    \caption{S-index, FWHM and RV timeseries, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries showing the sum of the two planets models, and their uncertainties. At the very bottom the full model residuals are shown, with an RMS of only 1.50m/s, only 14cm/s above the average HARPS measurement uncertainties.}
+	\includegraphics[width=\textwidth]{Combined_RV_plots_3_GPs.pdf}
+    \caption{S-index, FWHM and RV timeseries, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries showing the sum of the two planets models, and their uncertainties. At the very bottom the full model residuals are shown, with an RMS of only 1.50\ms{} only 0.14\ms{} above the average HARPS measurement uncertainties.}
     \label{fig:RVs}
 \end{figure}
 \twocolumn
 
-We used PyMC3's "Interpolated" prior function to build specific prior functions for timescale, period, factor and mixing parameters such that their prior probability matched the posterior probabilities from the S-index those from the output of the S-index-trained model.
-We initially tried to use the same kernel hyperparameters to predict both RV and photometric time series deviations, this proved to not be possible, likely because the effect of stellar variability on photometry is not necessarily at the same timescale as for RVs \citep{10.1111/j.1365-2966.2011.19960.x}.
-Instead we used a separate, single-SHO kernel with $Q=1/\sqrt{2}$ to model the photometric stellar variability.
-This was also trained on a dataset without a planetary signal, as above for RVs, but in this case the out-of-transit photometry was used.
-
-We modelled the log amplitude of both the RV (logK) and transit (logRp/Rs) signals to guard against negative masses or radii.
-Eccentricity was taken from the Kipping prior (), quadratic limb darkening parameters were reparameterised according to the \texttt{exoplanet} implementation of Kipping et al, and ror \& b were similarly reparameterised following the \texttt{exoplanet} implementation of Espinoza et al.
-The compiled model was then optimised and sampled with \texttt{PyMC}'s NUTS sampler built into \texttt{exoplanet}, producing 2400 independent samples.
-
-The results from the combined model are shown in figure \ref{fig:Sindex} and table \ref{table:datatable}.
 \begin{figure}
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\columnwidth]{Sindex_RV_training}
-    \caption{A timeseries of HARPS S-index, along with the best-fit Gaussian process model}
-    \label{fig:Sindex}
+	\includegraphics[width=\columnwidth]{Phase_folded_RV_plots_3_GPs}
+    \caption{The phase-folded RV lightcurves for \Tplanet{} and \Tplanetc{}.}
+    \label{fig:phase_fold_rvs}
 \end{figure}
+
+\subsubsection{Treatment of Photometry}
+First, we normalised the \texttt{PDC\_SAP} timeseries and masked anomalous flux points from the timeseries by cutting data more than $4.2\sigma$ above both preceding and succeeding neighbours.
+
+We initially tried to use the same \texttt{celerite} GP kernel to predict both RV and photometric time series deviations.
+This proved to not be possible, likely because the effect of stellar variability on photometry is not necessarily at the same timescale as for RVs \citep{10.1111/j.1365-2966.2011.19960.x}.
+Similarly, although a Lomb-Scargle periodogram of the raw TESS lightcurve does show a peak with a period around 25d, the processed \texttt{PDC\_SAP} lightcurve is flat, likely as variability on  the order of a TESS orbit ($\sim 14d$) are removed during processing.
+Instead we used a separate, single-SHO kernel with quality $Q=1/\sqrt{2}$ to model the photometric stellar variability.
+To produce the initial hyperparameters and priors for the combined analysis, we first fitted this GP to the photometry with planetary transits cut. The interpolated posterior distributions from this analysis then provided the priors for the combined analysis.
+A jitter term was also included to model the effect of high-frequency noise not fully encapsulated by the photon noise (e.g. stellar jitter).
+
+We modelled the limb darkening using two approaches - one where limb darkening is fitted for for the data alone using the reparameterisation of \citet{kipping2013efficient}, and another where the theoretical limb darkening parameters for the star as generated by \citet{claret2017limb} are used as priors for the analysis.
+We found the resulting distributions to be consistent, and chose to use the constrained approach in the final modelling.
+Radius ratio $R_p/R_s$ was treated using the log amplitude to avoid negative values, and $R_p/R_s$ \& b were reparameterised following the \texttt{exoplanet} implementation of \citet{espinoza2018efficient}.
+
+As ground-based photometry was unable to produce significant transit measurements, we restrict this analysis to only the \tess{} photometry and \harps{} spectroscopy.
+
+\subsubsection{Combined Model}
+The keplerian orbits for the two planets were given priors according to the \citet{kipping2013parametrizing} beta distribution
+
+The combined model, built using \textsf{exoplanet} \citep{exoplanet} package, was sampled using the No-U Turn Sampler (NUTS) in the Hamiltonian Monte Carlo \texttt{PyMC} back-end \citep{exoplanet:pymc3} to produce 3600 independent samples (after 500 steps tune-in).
+
+The compiled model was then optimised and sampled with \texttt{PyMC}'s NUTS sampler built into \texttt{exoplanet}, producing 2400 independent samples.
+
+The results from the combined model are shown in figure \ref{fig:Sindex} and table \ref{table:datatable}.
+
+\onecolumn
+\begin{figure*}
+	% To include a figure from a file named example.*
+	% Allowable file formats are eps or ps if compiling using latex
+	% or pdf, png, jpg if compiling using pdflatex
+	\includegraphics[width=\textwidth]{Combined_phot_plot_3_GPs}
+    \caption{\tess{} photometry, where black dots represent individual 2-minute cadence data and dark circles (with errorbars) represent 30-minute bins. Upper left: \tess{} \texttt{PDC\_SAP} time series with best-fit GP model (both offset by 3.5ppt), and GP-subtracted lightcurve with the best-fit transit model over-plotted (no offset). Lower left: residuals, with both GP model and transit models subtracted from the lightcurve. Upper right: phase-folded lightcurve of \Tplanet{} zoomed to the transit. Lower right: phase-folded residuals. }
+    \label{fig:photometry}
+\end{figure*}
+\twocolumn
 
 As a cross-reference, these models were
 
-\subsubsection{Treatment of photometry}
-
-In the case of TESS data, although a Lomb-Scargle periodogram of the raw TESS lightcurve also shows peak variability with a period around 25d, the processed PDC lightcurve is flat, likely as variability on the order of a TESS orbit ($\sim 14d$) are removed during processing.
 
 \subsection{Other potential planet candidates}
 Both Kepler and TESS have shown that multi-planet systems of small planets in resonant orbits close to their star are common \citep{?}.
@@ -468,19 +504,19 @@ It is frequently split into subsections, such as Section~\ref{sec:maths} below.
 %    \label{table:datatable}
 %\end{table*}
 
-\begin{figure*}
-\makebox[\textwidth][c]{
- \includegraphics[width=\paperwidth]{Combined_Model_plots_2xGP_smooth}
-}
-\caption{Photometric \& RV time series.
-Detrended \tess Lightcurve both with and without best-fit Gaussian Process; transit model lightcurve residuals after subtraction of GP and transit model (centre left);
-Phase-folded lightcurve centred on transit with best-fit model (upper right); Phase-folded model residuals (centre right);
-Detrended \harps RVs both with and without S-index-trained Gaussian Process model (lower left); 
-RV residual time series after subtraction of GP and planet model (bottom left);
-Phase-folded RVs with best-fit RV model (lower right); Phase-folded RV residuals (bottom right).
-}
-\label{FullTransitFits0}
-\end{figure*}
+% \begin{figure*}
+% \makebox[\textwidth][c]{
+%  \includegraphics[width=\paperwidth]{Combined_Model_plots_2xGP_smooth}
+% }
+% \caption{Photometric \& RV time series.
+% Detrended \tess Lightcurve both with and without best-fit Gaussian Process; transit model lightcurve residuals after subtraction of GP and transit model (centre left);
+% Phase-folded lightcurve centred on transit with best-fit model (upper right); Phase-folded model residuals (centre right);
+% Detrended \harps RVs both with and without S-index-trained Gaussian Process model (lower left); 
+% RV residual time series after subtraction of GP and planet model (bottom left);
+% Phase-folded RVs with best-fit RV model (lower right); Phase-folded RV residuals (bottom right).
+% }
+% \label{FullTransitFits0}
+% \end{figure*}
 
 \subsection{Discussion}
 
@@ -518,6 +554,10 @@ The last numbered section should briefly summarise what has been done, and descr
 the final conclusions which the authors draw from their work.
 
 \section*{Acknowledgements}
+This research made use of \textsf{exoplanet} \citep{exoplanet} and its
+dependencies \citep{exoplanet:agol19, exoplanet:astropy13, exoplanet:astropy18,
+exoplanet:exoplanet, exoplanet:foremanmackey17, exoplanet:foremanmackey18,
+exoplanet:luger18, exoplanet:pymc3, exoplanet:theano}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
