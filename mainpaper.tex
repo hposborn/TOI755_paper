@@ -349,13 +349,14 @@ After removing the rotation signal at $23.68\pm0.08$ by fitting a Keplerian, the
 Although this linear decorrelation and Keplerian-fitted rotation period was able to reveal the planetary RV signals, stellar variability cannot in general be modelled as a Keplerian.
 Instead we turned to a Gaussian process (GP) model to model the impact of rotation on the RVs.
 One GP kernel well-suited to stellar rotation is to use a decay term multiplied by a mix of rotational terms corresponding to $P_{\rm rot}$ and $P_{\rm rot}/2$, which we built using \texttt{celerite} \citep{foreman2017fast}.
-In order to limit the impact of the GP on the planetary RV signal, we fitted activity time series and RV timeseries simultaneously with the same GP kernel, as these should follow the same RV distribution with the exception of planetary signals.
-To do this, the hyper-parameters for rotation period, decay timescale, the mix factor, and the signal quality ($Q$ \& $\delta Q$) were kept constant, while the signal amplitude \& mean were taken from three different distributions corresponding to each of S-index, FWHM and RV. Also included for each indicator was a jitter term to model noise not included by measurement errors and prevent GP over-fitting.
+In order to limit the impact of the GP on the planetary RV signal, we fitted activity time series and RV timeseries simultaneously with the same GP kernel, as these should follow the same underlying variations with the exception of planetary signals.
+To do this, the hyper-parameters for rotation period, decay timescale, the mix factor, and the signal quality ($Q$ \& $\delta Q$) were kept constant, while the signal amplitude \& mean were taken from three different distributions corresponding to each of S-index, FWHM and RV. 
+For each time-series we also used a jitter term to model noise not included by measurement errors and to prevent GP over-fitting.
 %To train the GP we used a Rotational kernel , with a fifth parameter to include excess jitter in the measurements. 
 All hyper-parameters were given broad priors, although the rotation period was constrained to the value obtained from a Lomb-Scargle periodogram with a standard deviation of 40\%.
 %We optimised this model and then ran a Hamiltonian Monte Carlo to produce 1200 samples from which to use as priors in our RV GP model. The resulting GP model fit is shown in figure \ref{SindexFig}.
 
-A 2-parameter (e.g. linear) trend term was included to model potential drift in the RVs.
+A 2-parameter (e.g. linear) trend term was included to model potential long-term drift in the RVs.
 
 \begin{figure}
 	% To include a figure from a file named example.*
@@ -380,7 +381,7 @@ A 2-parameter (e.g. linear) trend term was included to model potential drift in 
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
 	\includegraphics[width=\textwidth]{Combined_RV_plots_3_GPs.pdf}
-    \caption{S-index, FWHM and RV timeseries, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries showing the sum of the two planets models, and their uncertainties. At the very bottom the full model residuals are shown, with an RMS of only 1.50\ms{} only 0.14\ms{} above the average HARPS measurement uncertainties.}
+    \caption{S-index, FWHM and RV timeseries, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries showing the sum of the two planets models, and their uncertainties. At the very bottom the full model residuals are shown, with an RMS of only 1.50\ms{} only 0.11\ms{} above the average HARPS measurement uncertainties.}
     \label{fig:RVs}
 \end{figure}
 \twocolumn
@@ -401,7 +402,7 @@ We initially tried to use the same \texttt{celerite} GP kernel to predict both R
 This proved to not be possible, likely because the effect of stellar variability on photometry is not necessarily at the same timescale as for RVs \citep{10.1111/j.1365-2966.2011.19960.x}.
 Similarly, although a Lomb-Scargle periodogram of the raw TESS lightcurve does show a peak with a period around 25d, the processed \texttt{PDC\_SAP} lightcurve is flat, likely as variability on  the order of a TESS orbit ($\sim 14d$) are removed during processing.
 Instead we used a separate, single-SHO kernel with quality $Q=1/\sqrt{2}$ to model the photometric stellar variability.
-To produce the initial hyperparameters and priors for the combined analysis, we first fitted this GP to the photometry with planetary transits cut. The interpolated posterior distributions from this analysis then provided the priors for the combined analysis.
+To produce the initial hyperparameters and priors for the combined analysis and reduce the possibility of the GPs attempting to model out the transits themselves, we first fitted this GP to the photometry with planetary transits cut. The interpolated posterior distributions from this analysis then provided the priors for the combined analysis.
 A jitter term was also included to model the effect of high-frequency noise not fully encapsulated by the photon noise (e.g. stellar jitter).
 
 We modelled the limb darkening using two approaches - one where limb darkening is fitted for for the data alone using the reparameterisation of \citet{kipping2013efficient}, and another where the theoretical limb darkening parameters for the star as generated by \citet{claret2017limb} are used as priors for the analysis.
@@ -411,13 +412,15 @@ Radius ratio $R_p/R_s$ was treated using the log amplitude to avoid negative val
 As ground-based photometry was unable to produce significant transit measurements, we restrict this analysis to only the \tess{} photometry and \harps{} spectroscopy.
 
 \subsubsection{Combined Model}
-The keplerian orbits for the two planets were given priors according to the \citet{kipping2013parametrizing} beta distribution
+We modelled full keplerian orbits for the two planets, with eccentricity priors according to the \citet{kipping2013parametrizing} beta distribution.
+
+Monte Carlo sampling, while able to explore the parameter space around a best-fit solution, does not deal well with exploring unconstrained parameters with multiple local minima. 
+This is specifically true with planetary period and epoch, especially in the case of the 6.7d planet which does not appear to have corresponding transit events. 
+Therefore, in order to allow our model to explore a single solution, we included normal priors on period and $t_0$ using the values and uncertainties from the TOI catalogue in the case of the $2.54$d planet, and from the RV periodogram in the case of the $6.7$d planet.
 
 The combined model, built using \textsf{exoplanet} \citep{exoplanet} package, was sampled using the No-U Turn Sampler (NUTS) in the Hamiltonian Monte Carlo \texttt{PyMC} back-end \citep{exoplanet:pymc3} to produce 3600 independent samples (after 500 steps tune-in).
 
-The compiled model was then optimised and sampled with \texttt{PyMC}'s NUTS sampler built into \texttt{exoplanet}, producing 2400 independent samples.
-
-The results from the combined model are shown in figure \ref{fig:Sindex} and table \ref{table:datatable}.
+The results from the combined model are shown in table \ref{table:datatable}, with the \harps{} RV timeseries and best-fit models shown in figure \ref{fig:RVs}, phase-folded RVs and model shown in figure \ref{fig:phase_fold_rvs}, and \tess{} photometry and best-fit light curves shown in figure \ref{fig:photometry}.
 
 \onecolumn
 \begin{figure*}
@@ -547,6 +550,80 @@ It is frequently split into subsections, such as Section~\ref{sec:maths} below.
 	\end{tabular}
 \end{table}
 
+\onecolumn
+\centering
+\begin{table*}
+\caption{List of free parameters used in the \texttt{exoplanet} combined analysis of the \tess{} light curve and \harps{} radial velocities with their associated prior and posterior distributions.}
+\label{tab:plantparlong}
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+\hline
+Parameter & Prior & Posterior\\
+\hline
+\hline
+\multicolumn{3}{l}{\it Stellar parameters}\\
+Stellar surface temperature, \teff{} [K] &  $\mathcal{N}(5732.0,16.0)$  &   $ 5731.0 \pm 16.0 $ \\
+Stellar surface gravity, \logg{} [cgs] &  $\mathcal{N}(4.46,0.02)$  &   $ 4.46 \pm 0.02 $ \\
+Stellar Metallicity \feh{} &  $\mathcal{N}(0.14,0.02)$  &   $ 0.14 \pm 0.02 $ \\
+Stellar Mass, $M_s$ [$M_{\odot}$] &  $\mathcal{N}(0.997,0.0095)$  &   $ 0.9968 \pm 0.0096 $ \\
+Stellar Radius, $R_s$ [$R_{\odot}$] &  $\mathcal{N}(1.035,0.026)$  &   $ 1.033^{+0.025}_{-0.026} $ \\
+\hline
+\multicolumn{3}{l}{\it Orbital parameters}\\
+Transit Epoch, $t_0$ [BJD-2457000] b &  $\mathcal{N}(1570.101893,0.1)$  &   $ 1570.1009 \pm 0.0042 $ \\
+Transit Epoch, $t_0$ [BJD-2457000] c &  $\mathcal{N}(1798.1334,13.5)$  &   $ 1798.11^{+0.19}_{-0.26} $ \\
+Orbital Period, $P$ [d] b &  $\mathcal{N}_{\mathcal{U}}(2.540455,0.000708,2.35,2.6)$  &   $ 2.54074 \pm 0.00043 $ \\
+Orbital Period, $P$ [d] c &  $\mathcal{N}_{\mathcal{U}}(6.7285,0.00541,6.65,6.8)$  &   $ 6.7329 \pm 0.0048 $ \\
+Orbital Eccentricity b &  $\beta(0.867;3.03)$  &   $ 0.092^{+0.079}_{-0.067} $ \\
+Orbital Eccentricity c &  $\beta(0.867;3.03)$  &   $ 0.063^{+0.094}_{-0.048} $ \\
+Argument of periasteron, $\Omega$ b &  $\mathcal{U}(-\pi,\pi)^{\tnote{a}}$  &   $ -0.2 \pm 1.0 $ \\
+Argument of periasteron, $\Omega$ c &  $\mathcal{U}(-\pi,\pi)^{\tnote{a}}$  &   $ -0.1 \pm 1.2 $ \\
+\hline
+\multicolumn{3}{l}{\it Photometric parameters}\\
+log radius ratio [$\log{R_p/R_s}$] b &  $\mathcal{U}(-4.6,-2.3)$  &   $ -3.939 \pm 0.07 $ \\
+log radius ratio [$\log{R_p/R_s}$] c &  $\mathcal{U}(-11.51,-2.3)$  &   $ -7.7 \pm 2.6 $ \\
+Transit Impact Parameter b & $\mathcal{U}(0,1+R_p/R_s)^{\tnote{b}}$  &   $ 0.43 \pm 0.21 $ \\
+Transit Impact Parameter c & $\mathcal{U}(0,1+R_p/R_s)^{\tnote{b}}$  &   $ 0.5 \pm 0.34 $ \\
+Quadratic Limb Darkening $a_{\rm LD}$ &  $\mathcal{N}_{\mathcal{U}}(0.367,0.1,0.0,1.0)$  &   $ 0.371 \pm 0.1 $ \\
+Quadratic Limb Darkening $b_{\rm LD}$ &  $\mathcal{N}_{\mathcal{U}}(0.21,0.1,0.0,1.0)$  &   $ 0.216^{+0.098}_{-0.093} $ \\
+Photometric jitter [$\log{\rm ppt}$] &  $\mathcal{N}(-0.158,3.0)$  &   $ -4.8^{+1.0}_{-1.6} $ \\
+Photometric GP power & $\mathcal{I}{0.014,0.006}^{\tnote{c}}$  &   $ 0.0118^{+0.0034}_{-0.0025} $ \\
+Photometric GP frequency [$d^{-1}$] & $\mathcal{I}{3.525,0.651}^{\tnote{c}}$  &   $ 3.61 \pm 0.42 $ \\
+Photometric GP mean [ppt] & $\mathcal{I}{0.008,0.036}^{\tnote{c}}$  &   $ 0.009^{+0.032}_{-0.035} $ \\
+\hline
+\multicolumn{3}{l}{\harps{} parameters}\\
+log RV semi-amplitude b &  $\mathcal{N}(0.693,10.0)$  &   $ 0.77 \pm 0.13 $ \\
+log RV semi-amplitude c &  $\mathcal{N}(0.693,10.0)$  &   $ 1.27 \pm 0.11 $ \\
+RV trend - intercept at BJD=2458779.717 [\ms{}] &  $\mathcal{N}(0.0,0.1)$  &   $ 0.0126^{+0.0056}_{-0.005} $ \\
+RV trend - gradient [\ms{}$d^{-1}$] &  $\mathcal{N}(0.0,1.0)$  &   $ -0.02 \pm 0.96 $ \\
+\harps{} log jitter RV [\ms{}] &  $\mathcal{N}(-0.5,2.0)$  &   $ -0.3 \pm 0.9 $ \\
+\harps{} log jitter S index &  $\mathcal{N}(-0.5,2.0)$  &   $ -12.28 \pm 0.41 $ \\
+\harps{} log jitter FWHM [\ms{}] &  $\mathcal{N}(-0.5,2.0)$  &   $ -1.3^{+1.5}_{-1.7} $ \\
+\harps{} mean RV [\ms{}] &  $\mathcal{N}(0.0,7.3303)$  &   $ -0.4 \pm 2.2 $ \\
+\harps{} mean S index &  $\mathcal{N}(0.0,0.0094)$  &   $ -0.0006 \pm 0.0013 $ \\
+\harps{} mean FWHM [\ms{}] &  $\mathcal{N}(7287.75,7.4997)$  &   $ 7286.8 \pm 1.2 $ \\
+\harps{} GP log amplitude RV [\ms{}] &  $\mathcal{N}(-0.621,8.0)$  &   $ 3.68 \pm 0.4 $ \\
+\harps{} GP log amplitude S index &  $\mathcal{N}(-13.937,8.0)$  &   $ -9.66 \pm 0.4 $ \\
+\harps{} GP log amplitude FWHM [\ms{}] &  $\mathcal{N}(-0.575,8.0)$  &   $ 2.92^{+0.63}_{-0.84} $ \\
+\harps{} GP decay log timescale, $\log{\tau}/\log{d}$ &  $\mathcal{U}(-0.061,5.0)$  &   $ 2.4 \pm 1.7 $ \\
+\harps{} GP log rotation period, $\log{P_{\rm rot}}/\log{d}$ &  $\mathcal{N}_{\mathcal{U}}(3.02,0.4,1.1,4.38)$  &   $ 3.049^{+0.076}_{-0.046} $ \\
+\harps{} GP log quality &  $\mathcal{N}(1.0,10.0)$  &   $ -0.7^{+1.6}_{-3.3} $ \\
+\harps{} GP log quality differential &  $\mathcal{N}(2.0,10.0)$  &   $ 0.5^{+1.3}_{-6.3} $ \\
+$P_{\rm rot}$ - $P_{\rm rot}/2$ mix factor &  $\mathcal{U}(0,1)$  &   $ 0.05^{+0.11}_{-0.04} $ \\
+\hline
+\hline
+\end{tabular}
+\tablefoot{$\mathcal{N}(\mu;\sigma^{2})$ is a normal distribution with mean $\mu$ and width $\sigma^{2}$, $\mathcal{U}(a;b)$ is a uniform distribution between $a$ and $b$, $\mathcal{N}_{\mathcal{U}}(\mu;\sigma^{2},a,b)$ is a normal distribution with mean $\mu$ and width $\sigma^{2}$ multiplied with a uniform distribution between $a$ and $b$, $\beta(a;b)$ is a Beta distribution with parameters $a$ and $b$, and $\mathcal{I}(\mu;\sigma^2)$ is a distribution directly interpolated from the output of a pre-trained distribution with mean $\mu$ and standard deviation $\sigma^2$. 
+Posterior values and uncertainties represent the median and $1\sigma$ error boundaries.
+All other values (e.g. presented in Table \ref{tab:plantparshort}) are directly determined from these fitted quantities.
+\tnote{a} Described in \citet{kipping2013parametrizing}. 
+\tnote{a} Reparameterised in \texttt{exoplanet} to avoid discontinuities at $\pm\pi$.
+\tnote{c} \texttt{exoplanet} reparameterization of \citet{espinoza2018efficient}.
+\tnote{e} \texttt{PyMc3} Interpolation function of pre-trained GP.} %citation to Kipping (2013)
+\end{center}
+\label{AllPriors}
+\end{table*}%
+\twocolumn
 
 \section{Conclusions}
 
