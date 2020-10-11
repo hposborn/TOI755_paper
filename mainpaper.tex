@@ -458,7 +458,7 @@ A 2-parameter (e.g. linear) trend term was included to model potential long-term
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
 	\includegraphics[width=\columnwidth, trim={0.3cm 1.1cm 0.8cm 1.3cm}]{TOI755_decorrelation_periodograms}
-    \caption{Periodograms of RVs after linear decorrelation with S-index and FWHM. The upper panel shows the raw periodogram, while subsequent panels show the periodogram after the removal of the previously marked peak. The 2.54d peak is accompanied by a significant peak at the 1-day sampling alias (1.65d), but the knowledge of a 2.54d planet in the TESS photometry breaks this degeneracy.}
+    \caption{Periodograms of RVs after linear decorrelation with S-index and FWHM. The upper panel shows the raw periodogram, while subsequent panels show the periodogram after the removal of the previously marked peak. The 2.54d peak is accompanied by a significant peak at the 1-day sampling alias (1.65d), but the knowledge of a 2.54d planet in the TESS photometry breaks this degeneracy. The remaining peaks in the final periodogram are likely due to sampling aliases associated with the $\sim60$d span of observations.}
     \label{fig:rv_decorr}
 \end{figure}
 % \begin{figure}
@@ -474,8 +474,8 @@ A 2-parameter (e.g. linear) trend term was included to model potential long-term
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\textwidth, trim={0.85cm 0.8 1.9cm 0.4cm}]{Combined_RV_plots_3_GPs.pdf}
-    \caption{S-index, FWHM and RV timeseries, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries showing the sum of the two planets models, and their uncertainties. At the very bottom the full model residuals are shown, with an RMS of only 1.50\ms{} only 0.11\ms{} above the average HARPS measurement uncertainties.}
+	\includegraphics[width=\textwidth, trim={0.85cm 0.8 1.9cm 0.4cm}]{Combined_RV_plots_3_GPs_nontransiting_c.pdf}
+    \caption{S-index, FWHM and RV timeseries, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries (purple points), plus the modelled planets and background trend. At the very bottom the full model residuals are shown, with an RMS of only 1.31\ms{} - extremely close to the median HARPS measurement uncertainty (1.36\ms{}).}
     \label{fig:RVs}
 \end{figure*}
 
@@ -483,7 +483,7 @@ A 2-parameter (e.g. linear) trend term was included to model potential long-term
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\columnwidth, trim={0.1cm 0.8cm 1.0cm 0.85cm}]{Phase_folded_RV_plots_3_GPs}
+	\includegraphics[width=\columnwidth, trim={0.1cm 0.8cm 1.0cm 0.85cm}]{Phase_folded_RV_plots_3_GPs_nontransiting_c.pdf}
     \caption{The phase-folded RV lightcurves for \Tplanet{} and \Tplanetc{}.}
     \label{fig:phase_fold_rvs}
 \end{figure}
@@ -520,7 +520,7 @@ The results from the combined model are shown in table \ref{table:datatable}, wi
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
 	%[left,bottom,right,top]
-	\includegraphics[width=\textwidth, trim={1.45cm 0.2 0.95cm 0.5}]{Combined_phot_plot_3_GPs}
+	\includegraphics[width=\textwidth, trim={1.45cm 0.2 0.95cm 0.5}]{Combined_phot_plot_3_GPs_nontransiting_c.pdf}
     \caption{\tess{} photometry, where black dots represent individual 2-minute cadence data and dark circles (with errorbars) represent 30-minute bins. Upper left: \tess{} \texttt{PDC\_SAP} time series with best-fit GP model (both offset by 3.5ppt), and GP-subtracted lightcurve with the best-fit transit model over-plotted (no offset). Lower left: residuals, with both GP model and transit models subtracted from the lightcurve. Upper right: phase-folded lightcurve of \Tplanet{} zoomed to the transit. Lower right: phase-folded residuals. }
     \label{fig:photometry}
 \end{figure*}
