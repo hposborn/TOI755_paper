@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.2)  2 OCT 2020 18:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.2)  27 OCT 2020 14:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -419,7 +419,10 @@ LaTeX Info: Redefining \not on input line 2598.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2020/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box47
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
@@ -442,55 +445,58 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count278
-\l__pdf_internal_box=\box47
+\l__pdf_internal_box=\box48
 )
-(./mainpaper.aux)
+(./mainpaper.aux
+
+LaTeX Warning: Label `fig:MR_Diagram' multiply defined.
+
+)
 \openout1 = `mainpaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 278.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 307.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line
- 278.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/omlntxmi.fd
+ 307.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 278.
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 278.
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 278.
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 278.
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 278.
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 307.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 307.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 307.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 307.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 307.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 307.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 
-278.
+307.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 278.
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 307.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 307.
 LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line
- 278.
+ 307.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 278.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 307.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 307.
 LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input lin
-e 278.
+e 307.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    ... okay on input line 307.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -526,7 +532,7 @@ LaTeX Font Info:    ... okay on input line 278.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box48
+\AtBeginShipoutBox=\box49
 (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
 
@@ -535,7 +541,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 278.
+Package hyperref Info: Link coloring ON on input line 307.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -549,9 +555,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count279
 )
-LaTeX Info: Redefining \ref on input line 278.
-LaTeX Info: Redefining \pageref on input line 278.
-LaTeX Info: Redefining \nameref on input line 278.
+LaTeX Info: Redefining \ref on input line 307.
+LaTeX Info: Redefining \pageref on input line 307.
+LaTeX Info: Redefining \nameref on input line 307.
  (./mainpaper.out) (./mainpaper.out)
 \@outlinefile=\write3
 \openout3 = `mainpaper.out'.
@@ -563,7 +569,7 @@ LaTeX Info: Redefining \nameref on input line 278.
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count282
 \scratchdimen=\dimen159
-\scratchbox=\box49
+\scratchbox=\box50
 \nofMPsegments=\count283
 \nofMParguments=\count284
 \everyMPshowfont=\toks28
@@ -582,282 +588,519 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 17.28pt on input line 281.
+(Font)              scaled to size 17.28pt on input line 310.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 17.28pt on input line 281.
+(Font)              scaled to size 17.28pt on input line 310.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 281.
+(Font)              scaled to size 14.4pt on input line 310.
 LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input lin
-e 281.
+e 310.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 281.
+(Font)              scaled to size 14.4pt on input line 310.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.5pt on input line 281.
+(Font)              scaled to size 10.5pt on input line 310.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.9pt on input line 281.
+(Font)              scaled to size 7.9pt on input line 310.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 281.
+(Font)              size <10.95> substituted on input line 310.
 
 LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 
-281.
+310.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 
-281.
+310.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 
-281.
+310.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Trying to load font information for T1+ntxsups on input lin
-e 281.
+e 310.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/t1ntxsups.fd
 File: t1ntxsups.fd 2015/01/17 v1.0
 )
 LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
-(Font)              scaled to size 14.4pt on input line 281.
+(Font)              scaled to size 14.4pt on input line 310.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 281.
+(Font)              scaled to size 8.0pt on input line 310.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 8.0pt on input line 281.
+(Font)              scaled to size 8.0pt on input line 310.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 281.
+(Font)              scaled to size 8.0pt on input line 310.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 281.
+(Font)              scaled to size 6.2pt on input line 310.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 281.
+(Font)              scaled to size 5.5pt on input line 310.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 281.
+(Font)              size <5> substituted on input line 310.
 
 
-Overfull \hbox (3.6pt too wide) in paragraph at lines 281--281
+Overfull \hbox (2.00002pt too wide) in paragraph at lines 310--310
 [][]  
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 9.0pt on input line 284.
+(Font)              scaled to size 9.0pt on input line 313.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 284.
+(Font)              scaled to size 10.0pt on input line 313.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 285.
+(Font)              scaled to size 10.0pt on input line 314.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 285.
+(Font)              scaled to size 7.3pt on input line 314.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 286.
+(Font)              scaled to size 10.0pt on input line 315.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 294.
+(Font)              scaled to size 10.0pt on input line 323.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 308.
-
-Package natbib Warning: Citation `2015ASPC..495....7B' on page 1 undefined on i
-nput line 318.
-
+(Font)              scaled to size 9.0pt on input line 332.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 329.
+(Font)              scaled to size 9.0pt on input line 336.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 336.
+(Font)              scaled to size 8.0pt on input line 347.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 336.
+(Font)              scaled to size 6.2pt on input line 347.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 336.
+e 347.
+
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 336.
+(Font)              scaled to size 8.0pt on input line 347.
  [1{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-
-Package natbib Warning: Citation `2015ASPC..495....7B' on page 2 undefined on i
-nput line 343.
-
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-349.
+356.
+
 (/usr/local/texlive/2020/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 349.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 364.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 364.
- [2
-
-]
-<Combined_RV_plots_3_GPs.pdf, id=86, 614.295pt x 271.0125pt>
-File: Combined_RV_plots_3_GPs.pdf Graphic file (type pdf)
-<use Combined_RV_plots_3_GPs.pdf>
-Package pdftex.def Info: Combined_RV_plots_3_GPs.pdf  used on input line 369.
-(pdftex.def)             Requested size: 504.0pt x 222.35573pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
- has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.373 \twocolumn
-                 <./Combined_RV_plots_3_GPs.pdf>]
-
-Package natbib Warning: Citation `10.1111/j.1365-2966.2011.19960.x' on page 4 u
-ndefined on input line 376.
-
-
-LaTeX Warning: Reference `table:datatable' on page 4 undefined on input line 38
-4.
-
-<Sindex_RV_training.pdf, id=122, 578.16pt x 578.16pt>
-File: Sindex_RV_training.pdf Graphic file (type pdf)
-<use Sindex_RV_training.pdf>
-Package pdftex.def Info: Sindex_RV_training.pdf  used on input line 389.
-(pdftex.def)             Requested size: 240.0pt x 239.99368pt.
-
-Package natbib Warning: Citation `?' on page 4 undefined on input line 401.
-
-
-Underfull \vbox (badness 1881) has occurred while \output is active []
-
-
-
-Package natbib Warning: Citation `heller' on page 4 undefined on input line 404
-.
-
+(Font)              scaled to size 9.0pt on input line 356.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 416.
+(Font)              scaled to size 8.0pt on input line 359.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 6.2pt on input line 359.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 5.5pt on input line 359.
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--416
-$[]$ [][][][]$\T1/ntxtt/m/n/8 https : / / heasarc . gsfc . nasa . gov / cgi-[]b
-in / tess / webtess / wtv .
+Underfull \hbox (badness 7344) in paragraph at lines 359--359
+$[]$ [][]\T1/ntxtlf/m/n/8 as shown by the SPOC DV re-port ac-cessed at [][]$\T1
+/ntxtt/m/n/8 https :
  []
 
 
-LaTeX Warning: Reference `sec:maths' on page 4 undefined on input line 421.
-
-<Combined_Model_plots_2xGP_smooth.pdf, id=125, 1011.78pt x 722.7pt>
-File: Combined_Model_plots_2xGP_smooth.pdf Graphic file (type pdf)
-<use Combined_Model_plots_2xGP_smooth.pdf>
-Package pdftex.def Info: Combined_Model_plots_2xGP_smooth.pdf  used on input li
-ne 474.
-(pdftex.def)             Requested size: 597.50787pt x 426.79732pt.
-<MR_Diagram_sm.pdf, id=126, 578.16pt x 578.16pt>
-File: MR_Diagram_sm.pdf Graphic file (type pdf)
-<use MR_Diagram_sm.pdf>
-Package pdftex.def Info: MR_Diagram_sm.pdf  used on input line 492.
-(pdftex.def)             Requested size: 240.0pt x 239.99368pt.
-
-Package natbib Warning: Citation `akeson2013nasa' on page 4 undefined on input 
-line 493.
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\T1/ntxtt/m/n/8 / / mast\OML/ntxmi/m/it/8 :\T1/ntxtt/m/n/8 stsci\OML/ntxmi/m/it
+/8 :\T1/ntxtt/m/n/8 edu / api / v0\OML/ntxmi/m/it/8 :\T1/ntxtt/m/n/8 1 / Downlo
+ad / file/?uri \U/ntxmia/m/it/8 = \T1/ntxtt/m/n/8 mast : TESS /
+ []
 
 
-Package natbib Warning: Citation `akeson2013nasa' on page 4 undefined on input 
-line 493.
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\T1/ntxtt/m/n/8 product / tess2019085221934 -[] s0010 -[] s0010 -[] 00000000732
+28647 -[]
+ []
 
-No file mainpaper.bbl.
-[4pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) 
+<TPF_Gaia_TIC73228647_S10.pdf, id=158, 500.83109pt x 397.485pt>
+File: TPF_Gaia_TIC73228647_S10.pdf Graphic file (type pdf)
+<use TPF_Gaia_TIC73228647_S10.pdf>
+Package pdftex.def Info: TPF_Gaia_TIC73228647_S10.pdf  used on input line 367.
+(pdftex.def)             Requested size: 240.0pt x 198.50127pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 12.0pt on input line 400.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 400.
+[2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.557 \bsp
-          	% typesetting comment
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
- been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.557 \bsp
-          	% typesetting comment <./Sindex_RV_training.pdf>]
-
-Package natbib Warning: There were undefined citations.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 559.
-[5pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
-has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.559 \end{document}
-                    
-
- <./Combined_Model_plots_2xGP_smooth.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
+l.400 
+       <./TPF_Gaia_TIC73228647_S10.pdf>]
+<toi755_wasp.pdf, id=255, 426.59375pt x 426.59375pt>
+File: toi755_wasp.pdf Graphic file (type pdf)
+<use toi755_wasp.pdf>
+Package pdftex.def Info: toi755_wasp.pdf  used on input line 412.
+(pdftex.def)             Requested size: 240.0pt x 256.37321pt.
+<Imaging.pdf, id=257, 289.08pt x 469.755pt>
+File: Imaging.pdf Graphic file (type pdf)
+<use Imaging.pdf>
+Package pdftex.def Info: Imaging.pdf  used on input line 423.
+(pdftex.def)             Requested size: 240.0pt x 334.1467pt.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 9.0pt on input line 434.
+ [3pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.559 \end{document}
-                    
+l.438 \subsection
+                 {HARPS High Resolution Spectroscopy}pdfTeX warning (ext4): des
+tination with the same identifier (name{figure.3}) has been already used, dupli
+cate ignored
 
- <./MR_Diagram_sm.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 559.
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.438 \subsection
+                 {HARPS High Resolution Spectroscopy} <./toi755_wasp.pdf> <./Im
+aging.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+$[]$ [][][][]$\T1/ntxtt/m/n/8 https : / / dace\OML/ntxmi/m/it/8 :\T1/ntxtt/m/n/
+8 unige\OML/ntxmi/m/it/8 :\T1/ntxtt/m/n/8 ch / radialVelocities/?pattern \U/ntx
+mia/m/it/8 =
+ []
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 469.
+
+Overfull \hbox (17.38838pt too wide) in paragraph at lines 459--483
+ [][] 
+ []
+
+
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./toi_755_sed.pdf): PDF incl
+usion: found PDF version <1.6>, but at most version <1.5> allowed
+<toi_755_sed.pdf, id=377, 794.97pt x 614.295pt>
+File: toi_755_sed.pdf Graphic file (type pdf)
+<use toi_755_sed.pdf>
+Package pdftex.def Info: toi_755_sed.pdf  used on input line 511.
+(pdftex.def)             Requested size: 240.0pt x 177.68307pt.
+[4pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.518 
+      ]
+Underfull \hbox (badness 3417) in paragraph at lines 580--580
+[]\T1/ntxtlf/b/n/8 Table 2. []\T1/ntxtlf/m/n/8 Derived stel-lar abun-dances. $[
+]$Y/Mg age from [][]Del-gado
+ []
+
+
+Underfull \hbox (badness 2717) in paragraph at lines 580--580
+\T1/ntxtlf/m/n/8 Mena et al.[][] ([][]2019[][]). 3D for-mula from Ta-ble 10 (ag
+e & $\OML/ntxmi/m/it/8 a \LMS/ntxsy/m/n/8 Ï
+ []
+
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.599 
+       <./toi_755_sed.pdf, page is rotated 270 degrees>]
+<TOI755_decorrelation_periodograms.pdf, id=518, 325.215pt x 433.62pt>
+File: TOI755_decorrelation_periodograms.pdf Graphic file (type pdf)
+<use TOI755_decorrelation_periodograms.pdf>
+Package pdftex.def Info: TOI755_decorrelation_periodograms.pdf  used on input l
+ine 625.
+(pdftex.def)             Requested size: 240.0pt x 298.32085pt.
+<Combined_RV_plots_3_GPs_nontransiting_c.pdf, id=519, 614.295pt x 271.0125pt>
+File: Combined_RV_plots_3_GPs_nontransiting_c.pdf Graphic file (type pdf)
+<use Combined_RV_plots_3_GPs_nontransiting_c.pdf>
+Package pdftex.def Info: Combined_RV_plots_3_GPs_nontransiting_c.pdf  used on i
+nput line 642.
+(pdftex.def)             Requested size: 504.0pt x 243.35812pt.
+<Phase_folded_RV_plots_3_GPs_nontransiting_c.pdf, id=520, 307.1475pt x 397.485p
+t>
+File: Phase_folded_RV_plots_3_GPs_nontransiting_c.pdf Graphic file (type pdf)
+<use Phase_folded_RV_plots_3_GPs_nontransiting_c.pdf>
+Package pdftex.def Info: Phase_folded_RV_plots_3_GPs_nontransiting_c.pdf  used 
+on input line 651.
+(pdftex.def)             Requested size: 240.0pt x 304.98676pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.659 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.659 
+       <./TOI755_decorrelation_periodograms.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.672 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+7}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.672 
+       <./Combined_RV_plots_3_GPs_nontransiting_c.pdf> <./Phase_folded_RV_plots
+_3_GPs_nontransiting_c.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Phase_folded_RV_plots_3_GP
+s_nontransiting_c.pdf): PDF inclusion: multiple pdfs with page group included i
+n a single page
+>]
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 68
+3.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
+File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
+)
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 683.
+<Combined_phot_plot_3_GPs_nontransiting_c.pdf, id=637, 614.295pt x 216.81pt>
+File: Combined_phot_plot_3_GPs_nontransiting_c.pdf Graphic file (type pdf)
+<use Combined_phot_plot_3_GPs_nontransiting_c.pdf>
+Package pdftex.def Info: Combined_phot_plot_3_GPs_nontransiting_c.pdf  used on 
+input line 694.
+(pdftex.def)             Requested size: 504.0pt x 199.4807pt.
+
+Overfull \hbox (22.65588pt too wide) in paragraph at lines 703--726
+ [][] 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \kern 1.50032pt
+(hyperref)                removed on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \kern 1.50032pt
+(hyperref)                removed on input line 730.
+
+[8pdfTeX warning (ext4): destination with the same identifier (name{table.3}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.762 
+      ]
+<MR_755_Jon.pdf, id=690, 814.51488pt x 668.30176pt>
+File: MR_755_Jon.pdf Graphic file (type pdf)
+<use MR_755_Jon.pdf>
+Package pdftex.def Info: MR_755_Jon.pdf  used on input line 771.
+(pdftex.def)             Requested size: 240.0pt x 196.91277pt.
+ [9pdfTeX warning (ext4): destination with the same identifier (name{figure.8})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.795 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+9}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.795 
+       <./Combined_phot_plot_3_GPs_nontransiting_c.pdf> <./MR_755_Jon.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./MR_755_Jon.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+>]
+<Insolation_TOI755.pdf, id=809, 433.62pt x 289.08pt>
+File: Insolation_TOI755.pdf Graphic file (type pdf)
+<use Insolation_TOI755.pdf>
+Package pdftex.def Info: Insolation_TOI755.pdf  used on input line 818.
+(pdftex.def)             Requested size: 240.0pt x 169.56139pt.
+
+
+Package natbib Warning: Citation `2016ApJ...817...17G' on page 10 undefined on 
+input line 851.
+
+
+Package natbib Warning: Citation `2014PASP..126.1134B' on page 10 undefined on 
+input line 851.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--856
+$[]$ [][][][]$\T1/ntxtt/m/n/8 https : / / exoplanetarchive\OML/ntxmi/m/it/8 :\T
+1/ntxtt/m/n/8 ipac\OML/ntxmi/m/it/8 :\T1/ntxtt/m/n/8 caltech\OML/ntxmi/m/it/8 :
+\T1/ntxtt/m/n/8 edu / cgi -[] bin /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--856
+\T1/ntxtt/m/n/8 nstedAPI / nph -[] nstedAPI?table \U/ntxmia/m/it/8 = \T1/ntxtt/
+m/n/8 exoplanets&select \U/ntxmia/m/it/8 = \T1/ntxtt/m/n/8 *&format \U/ntxmia/m
+/it/8 =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 859--859
+$[]$ [][][][]$\T1/ntxtt/m/n/8 https : / / heasarc\OML/ntxmi/m/it/8 :\T1/ntxtt/m
+/n/8 gsfc\OML/ntxmi/m/it/8 :\T1/ntxtt/m/n/8 nasa\OML/ntxmi/m/it/8 :\T1/ntxtt/m/
+n/8 gov / cgi -[] bin / tess / webtess /
+ []
+
+[10pdfTeX warning (ext4): destination with the same identifier (name{table.4}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.922 \section
+              {Conclusion}pdfTeX warning (ext4): destination with the same iden
+tifier (name{figure.10}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.922 \section
+              {Conclusion} <./Insolation_TOI755.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 965--966
+
+ []
+
+(./mainpaper.bbl
+LaTeX Info: Redefining \VAN on input line 1.
+ [11]
+Underfull \hbox (badness 7256) in paragraph at lines 225--229
+[]\T1/ntxtlf/m/n/8 Foreman-Mackey D., Luger R., Czekala I., Agol E., Price-
+ []
+
+
+Underfull \hbox (badness 3128) in paragraph at lines 225--229
+\T1/ntxtlf/m/n/8 Whelan A., Bar-clay T., 2020, exoplanet-dev/exoplanet v0.3.2,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--229
+[][]\T1/ntxtlf/m/n/8 doi:10.5281/zenodo.1998447[][], [][]$\T1/ntxtt/m/n/8 https
+ : / / doi\OML/ntxmi/m/it/8 :\T1/ntxtt/m/n/8 org / 10\OML/ntxmi/m/it/8 :\T1/ntx
+tt/m/n/8 5281 /
+ []
+
+
+Package hyperref Warning: Suppressing empty link on input line 462.
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1008
+
+ []
+
+[12]
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1226.
+[13
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14pdfTeX warning (ext4): destination with the same identifier (name{table.A2.
+1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1226 \end{document}
+                     ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15pdfTeX warning (ext4): destination with the same identifier (name{table.A2.
+2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1226 \end{document}
+                     pdfTeX warning (ext4): destination with the same identifie
+r (name{table.A2.3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1226 \end{document}
+                     ]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1226.
  (./mainpaper.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 559.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 559.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1226.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1226.
+
 Package rerunfilecheck Info: File `mainpaper.out' has not changed.
-(rerunfilecheck)             Checksum: 62145213B493055FCEBDD89C8E3E6537;883.
+(rerunfilecheck)             Checksum: 12D0C5C42733FD89DB839A81A58B9BE7;1195.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 559.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1226.
  ) 
 Here is how much of TeX's memory you used:
- 10248 strings out of 480608
- 141250 string characters out of 5903630
- 410516 words of memory out of 5000000
- 25889 multiletter control sequences out of 15000+600000
- 625268 words of font info for 153 fonts, out of 8000000 for 9000
+ 10916 strings out of 480608
+ 155703 string characters out of 5903630
+ 467247 words of memory out of 5000000
+ 26391 multiletter control sequences out of 15000+600000
+ 635355 words of font info for 167 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,17n,40p,916b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,17n,40p,1359b,526s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/lo
-cal/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/te
-xlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}</usr/local/texlive
-/2020/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2020/
-texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2020/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fon
-ts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
-e1/public/txfonts/t1xtt.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pub
-lic/newtx/txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/new
-tx/txsys.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmb.
-pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on mainpaper.pdf (6 pages, 1742136 bytes).
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/loc
+al/texlive/2020/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texli
+ve/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/202
+0/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}</usr/local/texlive/2020/tex
+mf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2020/texmf-dis
+t/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2020/texmf-dist/fon
+ts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmss10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/te
+x-gyre/qhvr.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/tex-gyre
+/qtmr.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/t1xtt.
+pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></u
+sr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/local
+/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/
+2020/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2020/texm
+f-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on mainpaper.pdf (15 pages, 2413317 bytes).
 PDF statistics:
- 365 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1150 PDF objects out of 1200 (max. 8388607)
+ 937 compressed objects within 10 object streams
+ 173 named destinations out of 1000 (max. 500000)
+ 209 words of extra memory for PDF output out of 10000 (max. 10000000)
 

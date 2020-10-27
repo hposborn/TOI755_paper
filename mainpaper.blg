@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: mainpaper.aux
+The style file: mnras.bst
+Database file #1: example.bib
+Warning--I didn't find a database entry for "exoplanet"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty publisher in Kurucz-93
+You've used 106 entries,
+            2881 wiz_defined-function locations,
+            1457 strings with 43530 characters,
+and the built_in function-call counts, 48498 in all, are:
+= -- 3997
+> -- 3461
+< -- 170
++ -- 1567
+- -- 482
+* -- 5961
+:= -- 7486
+add.period$ -- 0
+call.type$ -- 106
+change.case$ -- 212
+chr.to.int$ -- 102
+cite$ -- 107
+duplicate$ -- 2461
+empty$ -- 2448
+format.name$ -- 810
+if$ -- 8423
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 104
+newline$ -- 331
+num.names$ -- 654
+pop$ -- 554
+preamble$ -- 1
+purify$ -- 424
+quote$ -- 0
+skip$ -- 1497
+stack$ -- 0
+substring$ -- 2772
+swap$ -- 1174
+text.length$ -- 433
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 951
+warning$ -- 1
+while$ -- 737
+width$ -- 0
+write$ -- 1067
+(There were 2 warnings)

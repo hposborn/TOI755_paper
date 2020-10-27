@@ -35,6 +35,7 @@
 % Don't change these lines unless you know what you are doing
 \usepackage[T1]{fontenc}
 
+\usepackage{threeparttable}
 % Allow "Thomas van Noord" and "Simon de Laguarde" and alike to be sorted by "N" and "L" etc. in the bibliography.
 % Write the name in the bibliography as "\VAN{Noord}{Van}{van} Noord, Thomas"
 \DeclareRobustCommand{\VAN}[3]{#2}
@@ -138,23 +139,24 @@
 \newcommand{\MASSK}{$8.502 \pm 0.024$ }
 
 % Host Properties
-\newcommand{\Tlogg}{ $ 4.46 \pm 0.02 $ }
+\newcommand{\Tlogg}{ $ 4.46 \pm 0.05 $ }
 \newcommand{\TFeH}{ $ 0.14 \pm 0.02 $ }
-\newcommand{\TTeff}{ $ 5734.1 \pm 16 $ }
+\newcommand{\TTeff}{ $ 5732 \pm 50 $ }
 %Torres stellar params:
-\newcommand{\Tmstartorres}{ $ 0.997 \pm 0.01 $ }
-\newcommand{\Trstartorres}{ $ 1.032^{+0.025}_{-0.025} $ }
+\newcommand{\Tmstartorres}{ $ 0.989 \pm 0.01 $ }
+\newcommand{\Trstartorres}{ $ 0.998 \pm 0.025 $ }
 %Isochrone stellar params:
-\newcommand{\Tteffiso}{ $ 5714.0 \pm 38.0 $ }
-\newcommand{\Tloggiso}{ $ 4.464 \pm 0.022 $ }
-\newcommand{\Tfehiso}{ $ 0.11^{+0.07}_{-0.87} $ }
-\newcommand{\Tradiso}{ $ 0.984^{+0.016}_{-0.014} $ }
-\newcommand{\Tmassiso}{ $ 1.035^{+0.017}_{-0.029} $ }
-\newcommand{\Trhoiso}{ $ 1.082^{+0.055}_{-0.075} $ }
-\newcommand{\Tlumiso}{ $ 0.931 \pm 0.027 $ }
-\newcommand{\Tageiso}{ $ 2.3^{+1.8}_{-1.2} $ }
-\newcommand{\Tavsiso}{ $ 0.13982 \pm 0.00054 $ }
-\newcommand{\Tdisiso}{ $ 107.2 \pm 1.2 $ }
+\newcommand{\Tteffiso}{ $ 5658.0^{+71.0}_{-85.0} $ }
+\newcommand{\Tloggiso}{ $ 4.436^{+0.038}_{-0.046} $ }
+\newcommand{\Tfehiso}{ $ 0.12^{+0.16}_{-0.81} $ }
+\newcommand{\Tradiso}{ $ 1.002 \pm 0.028 $ }
+\newcommand{\Tmassiso}{ $ 1.004^{+0.042}_{-0.047} $ }
+\newcommand{\Trhoiso}{ $ 0.99 \pm 0.12 $ }
+\newcommand{\Tlumiso}{ $ 0.93 \pm 0.027 $ }
+\newcommand{\Tageiso}{ $ 4.6^{+3.5}_{-2.9} $ }
+\newcommand{\Tavsiso}{ $ 0.1403 \pm 0.001 $ }
+\newcommand{\Tdisiso}{ $ 108.4^{+2.6}_{-2.0} $ }
+%Adopted parameters:
 \newcommand{\Tmstar}{ $ 0.997 \pm 0.06 $ }
 \newcommand{\Trstar}{ $ 0.968 \pm 0.018 $ }
 
@@ -210,7 +212,6 @@
 \newcommand{\Ttdurzero}{ $ 0.099^{+0.006}_{-0.007} $ }
 \newcommand{\Tmodelllk}{ $ -20217.5^{+4.4}_{-5.2} $ }
 
-
 %\newcommand{\TdelTshort}{\mbox{$390.0082$}}
 %\newcommand{\TdelT}{\mbox{$390.0082 \pm 0.0032$}}
 
@@ -239,7 +240,7 @@
 \newcommand{\TTstar}{TOI-755}
 \newcommand{\TTplanet}{TOI-755.01}
 \newcommand{\Tstar}{HD\,110113}
-\newcommand{\Tstarage}{4.0\,$\pm$\,0.2 Gyr}
+\newcommand{\Tstarage}{4.0\,$\pm$\,0.5 Gyr}
 \newcommand{\Tplanet}{HD\,110113\,b}
 \newcommand{\Tplanetc}{HD\,110113\,c}
 \newcommand{\TGAIAid}{6133384959942131968}
@@ -313,7 +314,7 @@ The authors' affiliations are shown in Appendix \ref{sec:affiliations}.}
 We report the discovery of \Tplanet{} (\TTplanet{}), a transiting mini-Neptune exoplanet on a 2.5-day orbit around the solar-analogue \Tstar{} (\teff{}= $5730$K).
 Using \tess{} photometry and \harps{} radial velocities gathered by the \textit{NCORES} program, we find \Tplanet{} has a radius of \Trpl{}\,\rearth{} and a mass of \TMpzero{}\,\mearth{}.
 The resulting density of \Trhopgcmthree{}\,\gcm{} is significantly lower than would be expected from a pure-rock world, therefore \Tplanet{} must be a mini-Neptune with significant volatile atmosphere.
-The high incident flux places it within the so-called evaporation valley, and we find it unusual that \Tplanet{} was able to hold onto a substantial (0.1-1\%) H-He atmosphere over its $\sim4$Gyr lifetime.
+The high incident flux places it within the so-called evaporation valley, however \Tplanet{} was able to hold onto a substantial (0.1-1\%) H-He atmosphere over its $\sim4$Gyr lifetime.
 Through a novel simultaneous GP fit to multiple activity indicators, we were also able to fit for the strong stellar rotation signal with period \Tperiod{}\,d from the RVs and confirm a non-transiting planet with a mass of \TMpone{}\,\mearth{} on a period of \TPone{}\,d.
 \end{abstract}
 
@@ -353,10 +354,10 @@ This identified a strong candidate with a period of 2.54d, a depth of only 400pp
 Automated and human vetting subsequently designated this candidate a planet candidate and it was assigned \tess{} Object of Interest (TOI) 755.01. 
 
 We inspected the \tess{} aperture using \texttt{tpfplotter} \citep[plotted in Figure \ref{fig:tpf};][]{2020A&A...635A.128A} to ensure no nearby contaminants could be causing the transit.
-We found five stars within the aperture, with the brightest with a $\Delta{\rm mag}$ of only 3.5.
+We found five stars within the aperture with contrast less than 8, with the brightest with a $\Delta{\rm mag}$ of only 3.5.
 However, to cause the observed 400ppm transit, this star would need to host eclipses of at least 1\%. 
-Furthermore, being more 1.2pix, and therefore almost one PSF FWHM, away from the target star, we would expect to see a significant centroid shift, which is not observed.
-The other stars present are also $\gt1$ pixel away, and are increasingly fainter ($\Delta{\rm mag}$ of 6.9-7.9), requiring eclipse depths of 25-75\%.
+Furthermore, being more 1.2pix, and therefore almost one PSF FWHM, away from the target star, we would expect to see a significant centroid shift, which is not observed \footnote{as shown by the SPOC DV report accessed at \url{https://mast.stsci.edu/api/v0.1/Download/file/?uri=mast:TESS/product/tess2019085221934-s0010-s0010-0000000073228647-00212_dvr.pdf}}.
+The other stars present are also $>1$ pixel away, and are increasingly fainter ($\Delta{\rm mag}$ of 6.9-7.9), requiring eclipse depths of 25-75\%.
 Causing the observed transit with such a blend scenario therefore becomes increasingly improbable given the flat-bottomed transit shape of TOI-755.01.
 We conclude that a blend scenario from a known contaminant is unlikely.
 
@@ -364,7 +365,7 @@ We conclude that a blend scenario from a known contaminant is unlikely.
     %[left,bottom,right,top]
     \centering
     \includegraphics[width=\columnwidth, trim={0 0.8cm 1.8cm 0.1cm}]{TPF_Gaia_TIC73228647_S10}
-    \caption{TESS photometric aperture plotted with \texttt{tpfplotter} \citep{2020A&A...635A.128A}. The default TESS aperture used by SAP is overplotted in red, and nearby stars down to $\Delta{\rm mag}=8$ from Gaia DR2 \citep{brown2018gaia} are plotted as red circles.}
+    \caption{TESS photometric aperture plotted with \texttt{tpfplotter} \citep{2020A&A...635A.128A}. The default TESS aperture used by SAP is overplotted in red, and nearby stars down to $\Delta{\rm mag}=8$ from Gaia DR2 \citep{brown2018gaia} are plotted as red circles. The target \Tstar{} is marked with a white cross.}
     \label{fig:tpf}
 \end{figure}
 
@@ -381,8 +382,7 @@ To account for possible contamination from the wings of neighboring star PSFs, w
 If fully blended in the SPOC aperture, a neighboring star that is fainter than the target star by 8.54 magnitudes in TESS-band could produce the SPOC-reported flux deficit at mid-transit (assuming a 100\% eclipse).
 To account for possible delta-magnitude differences between TESS-band and Pan-STARSS $z$-short band, we searched an extra 0.5 magnitudes fainter (down to \textit{TESS}-band magnitude 18.5). 
 
-The brightness and distance limits resulted in a search for NEBs in 90 Gaia DR2 stars. 
-This includes all stars marked by red squares in Figure \ref{fig:tpf}, as well as a further 67 stars too faint, or too far from th target, to be shown there.
+The brightness and distance limits resulted in a search for NEBs in 90 Gaia DR2 stars, which includes all stars marked in red in Figure \ref{fig:tpf} and a further 67 contaminants with $\Delta{\rm mag}>8$.
 We estimate the expected NEB depth in each neighboring star by taking into account both the difference in magnitude relative to TOI-755 and the distance to TOI-755 (to account for the estimated fraction of the star's flux that would be contaminating the TOI-755 SPOC aperture).
 If the RMS of the 10-minute binned light curve of a neighboring star is more than a factor of 3 smaller than the expected NEB depth, we consider an NEB to be tentatively ruled out in the star over the observing window.
 We then visually inspect each neighboring star's light curve to ensure no obvious eclipse-like signal.
@@ -391,15 +391,28 @@ By process of elimination, we conclude that the transit is indeed occurring in T
 
 \subsection{Ground-based Archival Photometry}
 Although detecting the transits of \Tplanet{} required precise space-based photometry, ground-based photometric surveys have observed \Tstar{} and can provide constraints on stellar variability, and therefore an independent measure of the stellar rotation period.
-Using WASP archival photometry... \textbf{TBD Coel Hellier}
-\begin{figure}
-    %[left,bottom,right,top]
-    \centering
-    \includegraphics[width=\columnwidth, trim={0 0.8cm 1.8cm 0.1cm}]{toi755_wasp}
-    \caption{Periodograms of archival WASP photometry showing potential rotation signatures with a period of $\sim 20$d.}
-    \label{fig:wasp}
-\end{figure}
 
+WASP-South was a wide-field array of 8 cameras forming the Southern station of the WASP transit-search survey \citep{2006PASP..118.1407P}. The field of \Tstar{} was observed over 150-night spans in each of 2007 and 2008, and then again over 2011 and 2012, acquiring a total of 30\,000 photometric data points. 
+WASP-South was then equipped with 200-mm, f/1.8 lenses, observing with a 400--700 nm passband, and with a photometric extraction aperture of 48 arcsecs. 
+There are other stars in the aperture around \Tstar{}, but the brightest is 3 magnitudes fainter with the others are more than 5 magnitudes fainter. 
+%(WASP-South also observed TOI-755 over 2013 \&\ 2014 when equipped with 85-mm lenses,  but these data have a wider extraction aperture containing many other stars, and are less useful here.) 
+We searched the data for rotational modulations using the methods from \citet{2011PASP..123..547M}.  
+
+The data from 2011 and 2012 show a modulation at a period of 21\,$\pm$\,2 d.
+This is significant at the 1\%\ false-alarm level in each year separately, with an amplitude of 2 mmag, and when the data from the two years is combined.
+The data from 2007 and 2008 combined show a significant modulation at twice this period of $\sim42$\,$\pm$\,4 d.
+There is also power near 21 d in the 2007/2008 periodogram, but it is not significant in its own right.
+
+On its own, the WASP data cannot interpret between these two possible periods, although it would seem more likely from this data alone that the rotational period of \Tstar{} is 42\,$\pm$\,4 days, with the $21$\,d period coming from the first harmonic.
+However, this would seem to go against the independent evidence from the raw \tess{} light curve, which has an ACF peak around $23$\,d, the spectroscopic indicator timeseries, which show a clear $\sim21$\,d periodicity across both observing seasons, and the measured \vsini{} which produces $P_{\rm max} = 28$\,d.
+%The likeliest interpretation is that , and that in some years we instead see the 21-d first harmonic. 
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth, trim={0 0.8cm 1.8cm 0.1cm}]{toi755_wasp}
+  \caption{Periodograms of the WASP-South data for TOI-755. The top panel shows data from 2007 \&\ 2008 combined, with a significant 42-d periodicity. The lower panels show data from 2011 \&\ 2012, separately and combined, which show more strongly a periodicity of 21-d. The dotted horizontal lines are the estimated 1\%-likelihood false-alarm levels.}
+\label{fig:wasp}
+\end{figure}
 
 \subsection{High-resolution imaging}
 High angular resolution imaging is needed to search for nearby sources that can contaminate the \tess{} photometry, resulting in an underestimated planetary radius, or that can be the source of astrophysical false positives such as background eclipsing binaries. 
@@ -427,7 +440,7 @@ Over the course of two observing seasons in 2018 and 2019, a total of 114 high-r
 These spectra were taken as part of the \textit{NCORES} program (PI:Armstrong, 1102.C-0249) designed to specifically study the internal structure of hot worlds.
 
 We used the high-accuracy mode of HARPS with a $1\arcsec$ science fibre on the star and a second on-sky fibre monitoring the background flux during exposure. %fed by a Fabry–P\'erot etalon for simultaneous wavelength calibration. 
-The nominal exposure time was 1800 seconds, with a few exceptions of slighter longer or shorter integration depending on observing conditions and schedule.
+The nominal exposure time was 1800 seconds, with a few exceptions of slightly longer or shorter integration depending on observing conditions and schedule.
 
 Spectra and RV information were extracted using the 
 offline HARPS data reduction pipeline hosted at Geneva Observatory. 
@@ -435,7 +448,7 @@ We use a flux template matching a G1 star to correct the continuum-slope in each
 The spectra were cross correlated with a binary G2 mask to derive the cross correlation function (CCF) \citep{1996A&AS..119..373B}, on which we fit a Gaussian function to obtain RVs, FWHM and contrast. 
 Additionally, we compute the bisector-span \citep{2001A&A...379..279Q} of the CCF and spectral indices tracing chromospheric activity \citep{2011A&A...534A..30G,2009A&A...495..959B}.
 
-We reach a typical SNR per pixel of 75 in individual spectra, corresponding to an RV error of 1.41\ms{}.
+We reach a typical SNR per pixel of 75 (order 60, 631nm) in individual spectra, corresponding to an RV error of 1.41\ms{}.
 The HARPS spectra and derived RVs were accessed and downloaded through the DACE portal hosted at the University of Geneva \citep{2015ASPC..495....7B} under the target name HD 110113\footnote{\url{https://dace.unige.ch/radialVelocities/?pattern=HD110113}}.
 
 \section{Analysis}\label{sect:analysis}
@@ -453,9 +466,10 @@ The HARPS spectra and derived RVs were accessed and downloaded through the DACE 
         TIC ID & 73228647$^{\tnote{b}}$ & R.A. [hms] & 12:40:08.78$^{\tnote{a}}$ \\
         HD & \Tstar & Dec. [$^{\circ}$] & $-44.3120777^{\tnote{a}}$\\
         HIP & HIP 61820 & Dec. [dms] & -44:18:43.48$^{\tnote{a}}$ \\
-        Gaia ID & {\scriptsize \TGAIAid}$^{\tnote{a}}$ & & \\
+        Gaia ID & {\scriptsize \TGAIAid}$^{\tnote{a}}$ & $\delta{\rm RA}$ [mas\,${\rm yr}^{-1}$] & $-3.72 \pm 0.1$ \\
+        Parallax [mas] & $9.38 \pm 0.036 $ & $\delta{\rm DEC}$ [mas\,${\rm yr}^{-1}$] & $-13.68 \pm 0.12 $ \\
         $d$ [pc] & $ 106.3\pm0.72^{\tnote{b}}$ & $R_s$ [\rsun{}] & \Trstar{}$^{\tnote{e}}$ \\
-        B & $10.71\pm0.032^{\tnote{c}}$ & $M_s$ [\msun{}] & \Tmassiso{}$^{\tnote{e}}$ \\
+        B & $10.71\pm0.032^{\tnote{c}}$ & $M_s$ [\msun{}] & \Tmstar{}$^{\tnote{e}}$ \\
         V & $10.063\pm0.027^{\tnote{c}}$ &  \logg{} & \Tlogg{}$^{\tnote{e}}$ \\
         Gaia $G$ & $9.91\pm0.0004 ^{\tnote{a}}$ & \teff{} [K] & \TTeff{}$^{\tnote{e}}$ \\
         TESS mag & $9.4628\pm0.006^{\tnote{b}}$ & \feh{} & \TFeH{}$^{\tnote{e}}$ \\
@@ -471,14 +485,13 @@ The HARPS spectra and derived RVs were accessed and downloaded through the DACE 
 \end{table}
 
 \subsubsection{Global Stellar Parameters}\label{sect:starpars}
-Stellar parameters \teff{}, \logg{} and \feh{} were derived using
-a recent version of the MOOG code \citep{1973ApJ...184..839S} and a set of plane-paralel
-ATLAS9 model atmospheres  \citep{Kurucz-93}. The analysis was done in LTE. 
-The methodology used is described in detail in \citet{2011A&A...533A.141S} and \citet{2013A&A...556A.150S}. The full spectroscopic analysis is 
-based on the Equivalent Widths (EWs) of 233 Fe \rom{1} and 34 Fe \rom{2} weak lines
-by imposing ionization and excitation equilibrium. The line-list used
-was taken from \citet{2008A&A...487..373S}.
-c
+Stellar parameters \teff{}, \logg{} and \feh{} were derived using a recent version of the MOOG code \citep{1973ApJ...184..839S} and a set of plane-parallel ATLAS9 model atmospheres  \citep{Kurucz-93}. The analysis was done in LTE. 
+The methodology used is described in detail in \citet{2011A&A...533A.141S} and \citet{2013A&A...556A.150S}. 
+The full spectroscopic analysis is based on the Equivalent Widths (EWs) of 233 Fe \rom{1} and 34 Fe \rom{2} weak lines by imposing ionization and excitation equilibrium. 
+The line-list used was taken from \citet{2008A&A...487..373S}.
+We obtained resulting parameters of \teff{}=$6732\pm16$K, \logg{}$=4.46\pm0.05$ and \feh{}$=0.14\pm0.02$.
+To account for potential systematic uncertainties, we increased the error bars to $50$K and 0.05dex for\teff{} and \logg{} respectively.
+
 To constrain the physical stellar parameters of \Tstar{} given the observed information, we applied three techniques.
 
 The first technique was to use the main-sequence calibrations of \citet{2010A&ARv..18...67T} which derive $R_s$ and $M_s$ using polynomial functions of \teff{}, \logg{} and \feh{}, which are built using the observed properties of calibration stars. 
@@ -507,18 +520,17 @@ Taken together, all the stellar parameters as derived above are roughly self-con
 As the SED radius measurement is least affected by sample size or systematic uncertainty, we assume this as a final radius.
 Similarly, the Mass obtained from the \logg{} and the SED-derived \rstar{} ($0.99 \pm 0.08 M_\odot$) is nearly identical to that from the MR relationship (\Tmstartorres{}\,\msun{}), suggesting they converge on the same value.
 We therefore use the mass as defined from the offset-corrected \citet{2010A&ARv..18...67T} calibrations, with the uncertainty inflated to reflect the typical systematic error ($0.06M_{\odot}$).
-We also inflated the uncertainty on \teff{}, which is likley underestimated, from 
+
+To compute the \vsini{} from the FWHM, we used the relations of \citet{dos2016solar} who studied the \harps{} spectra of a large number of solar twins.
+We used this to first estimate the $v_{\rm macro}$ from the \teff{} and \logg{} derived in section \ref{sect:starpars} ($3.64\pm0.1$\,\kms{}), and then combined this with the measured FWHM to estimate a \vsini{} of $1.74\pm0.15$\,\kms{}.
+Using the calculated $R_s$, this corresponds to a maximum rotation period ($P_{\rm max}$) of $28\pm3$\,d, assuming an aligned system.
 
 \subsubsection{Chemical abundances} \label{sec:parameters}
 In an independent analysis, stellar atmospheric parameters (\teff{}, \logg{}, microturbulence and \feh{}) and respective error bars were derived using the methodology described in \citet{Sousa-14, Santos-13}. In brief, we make use of the equivalent widths (EW) of 224 FeI and 35 FeII lines, as measured in the combined HARPS spectrum of TOI-755 using the ARES v2 code\footnote{The last version of ARES code (ARES v2) can be downloaded at http://www.astro.up.pt/$\sim$sousasag/ares} \citep{Sousa-15}, and we assume ionization and excitation equilibrium. The process makes use of a grid of Kurucz model atmospheres \citep{Kurucz-93} and the radiative transfer code MOOG \citep{Sneden-73}.
 
 Stellar abundances of the elements were also derived using the same tools and models as for stellar parameter determination as well as using the classical curve-of-growth analysis method assuming local thermodynamic equilibrium. Although the EWs of the spectral lines were automatically measured with ARES, for the elements with only two to three lines available we performed careful visual inspection of the EWs measurements. For the derivation of chemical abundances of refractory elements we closely followed the methods described in \citep[e.g.][]{Adibekyan-12, Adibekyan-15, Delgado-14, Delgado-17}. Abundances of the volatile elements, O and C, were derived following the method of \cite{Delgado-10, 2015A&A...576A..89B}. Since the two spectral lines of oxygen are usually weak and the 6300.3\,\AA{} line is blended with Ni and CN lines, the EWs of these lines were manually measured with the task \texttt{splot} in IRAF. Lithium and sulfur abundances were derived by performing spectral synthesis with MOOG following the works by \citet{Delgado-14} and \citet{Costa_Silva2020} respectively. All the [X/H] ratios are obtained by doing a differential analysis with respect to a high S/N solar (Vesta) spectrum from HARPS. The stellar parameters and abundances of the elements are presented in Table \ref{tab:abunds}. 
 
-We find that the [X/Fe] ratios of most elements are close to solar as expected for a star with this metallicity whereas [O/Fe] and [C/Fe] are slightly subsolar, since these ratios tend to slightly decrease above solar metallicity \cite[e.g.][]{Bertrandelis-15,Franchini2020}. Moreover, we used the chemical abundances of some elements to derive ages through the so-called chemical clocks (i.e. certain chemical abundance ratios which have a strong correlation with age). We applied the 3D formulas described in \citet{Delgado-19}, which also consider the variation in age produced by the effective temperature and iron abundance. The chemical clocks [Y/Mg], [Y/Zn], [Y/Ti], [Y/Si], and [Y/Al] were used from which we obtain a weighted average age of \Tstarage{}.
-
-To compute the \vsini{} from the FWHM, we used the relations of \citet{dos2016solar} who studied the \harps{} spectra of a large number of solar twins.
-We used this to first estimate the $v_{\rm macro}$ from the \teff{} and \logg{} derived in section \ref{sect:starpars} ($3.64\pm0.1$\,\kms{}), and then combined this with the measured FWHM to estimate a \vsini{} of $1.74\pm0.15$\,\kms{}.
-Using the calculated $R_s$, this corresponds to a maximum rotation period ($P_{\rm max}$) of $28\pm3$\,d, assuming an aligned system.
+We find that the [X/Fe] ratios of most elements are close to solar as expected for a star with this metallicity whereas [O/Fe] and [C/Fe] are slightly subsolar, since these ratios tend to slightly decrease above solar metallicity \cite[e.g.][]{Bertrandelis-15,Franchini2020}. Moreover, we used the chemical abundances of some elements to derive ages through the so-called chemical clocks (i.e. certain chemical abundance ratios which have a strong correlation with age). We applied the 3D formulas described in \citet{Delgado-19}, which also consider the variation in age produced by the effective temperature and iron abundance. The chemical clocks [Y/Mg], [Y/Zn], [Y/Ti], [Y/Si], and [Y/Al] were used from which we used the [Y/Al] age, \Tstarage{}Gyr, which is consistent with all others and has the smallest uncertainties
 
 \begin{table}
     \centering
@@ -585,7 +597,7 @@ Instead we turned to a Gaussian process (GP) to model the impact of rotation on 
 GPs have frequently been used in the analysis of radial velocities affected by activity \citep[e.g.][]{2014MNRAS.443.2517H,2019A&A...627A..43D}.
 One GP kernel well-suited to stellar rotation is to use a a mix of simple harmonic osscilator (SHO) terms corresponding to $P_{\rm rot}$ and $P_{\rm rot}/2$, which we built using \texttt{exoplanet} and \texttt{celerite}\footnote{We used the \texttt{exoplanet.gp.terms.RotationTerm} implementation} \citep{exoplanet:foremanmackey17}.
 
-In order to limit the impact of the GP on the planetary RV signal, we fitted activity time series and RV timeseries simultaneously with the same GP kernel, as these should follow the same underlying variations with the exception of planetary reflex motion.
+In order to limit the impact of the GP on the planetary RV signal, we fitted activity indicators and RV time series simultaneously with the same GP kernel, as these should follow the same underlying variations with the exception of planetary reflex motion.
 A similar approach was previously used by \citet{grunblatt2015determining} to model stellar variability in the Kepler-78b system.
 By explicitly linking the variation found across activity indicators and RVs, this method has the same effect as "training" a GP on an activity indicator \citep[e.g.][]{2019A&A...627A..43D}.
 However, it avoids having to run multiple models consecutively and transfer the output PDF of a training sample into a second model - a process which loses information intrinsic to the likely non-gaussian distributions of the GP hyper-parameters as well as information about the correlations between parameters.
@@ -628,7 +640,7 @@ Single parameter mean values were included to model the offset of S-index and FW
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
 	\includegraphics[width=\textwidth, trim={0.85cm 0.8 1.9cm 0.4cm}]{Combined_RV_plots_3_GPs_nontransiting_c.pdf}
-    \caption{S-index, FWHM and RV timeseries, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries (purple points), plus the modelled planets and background trend. At the very bottom the full model residuals are shown, with an RMS of only 1.31\,\ms{} - extremely close to the median HARPS measurement uncertainty (1.36\,\ms{}).}
+    \caption{S-index, FWHM and RV timeseries of HD110113 for two seasons of HARPS monitoring, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries (purple points), plus the modelled planets and background trend. At the very bottom the full model residuals are shown, with an RMS of only 1.31\,\ms{} - extremely close to the median HARPS measurement uncertainty (1.36\,\ms{}).}
     \label{fig:RVs}
 \end{figure*}
 
@@ -665,11 +677,12 @@ We modelled full Keplerian orbits for the two planets, with eccentricity priors 
 
 Monte Carlo sampling, while able to explore the parameter space around a best-fit solution, does not deal well with exploring unconstrained parameters with multiple local minima. 
 Therefore, in order to allow our model to explore a single solution, we included normal priors on period and $t_0$ using the values and uncertainties from the TOI catalogue in the case of the $2.54$d planet, and from the RV periodogram in the case of the $6.7$d planet.
+In all cases, we artificially inflated these uncertainties to make sure the parameters were not over-constrained by their parameters, which is confirmed by noting the that posterior distributions are, in all cases, narrower than the priors.
 %To ensure the models did 
 
-The combined model, built using the \textsf{exoplanet} \citep{exoplanet} package, was sampled using the No-U Turn Sampler (NUTS) in the Hamiltonian Monte Carlo \texttt{PyMC} back-end \citep{exoplanet:pymc3} using 5 independent chains and 500 steps burn-in for each.
+The combined model, built using the \textsf{exoplanet} \citep{exoplanet:exoplanet} package, was sampled using the No-U Turn Sampler (NUTS) in the Hamiltonian Monte Carlo \texttt{PyMC} back-end \citep{exoplanet:pymc3} using 5 independent chains and 500 steps burn-in for each.
 This produced 10000 independent samples.
-Model priors are displayed in table \ref{tab:derived_pars}.
+Model priors and posteriors are displayed in table \ref{tab:derived_pars}.
 
 The results from the combined model are shown in tables \ref{tab:derived_pars} and \ref{tab:planetparlong}, with the \harps{} RV timeseries and best-fit models shown in figure \ref{fig:RVs}, phase-folded RVs and model shown in figure \ref{fig:phase_fold_rvs}, and \tess{} photometry and best-fit light curves shown in figure \ref{fig:photometry}.
 
@@ -690,7 +703,7 @@ The results from the combined model are shown in tables \ref{tab:derived_pars} a
 \begin{tabular}{lcc}
 \hline
 \hline
-Parameter & b & c\\
+Parameter & \Tplanet{} & \Tplanetc{}\\
 \hline
 \hline
 Epoch, $t_0$ [BJD-2457000] &  $ 1570.1006 \pm 0.0044 $  &  $ 1798.18 \pm 0.18 $  \\
@@ -719,7 +732,7 @@ The periodogram of the activity-corrected radial velocity timeseries showed a cl
 Using the epoch and period defined from a fit to this decorrelated RV timeseries, we searched the \tess{} lightcurve to see whether a transiting planet on this period may have been missed.
 
 However, a search using the \texttt{transit least squares} algorithm \citep{hippke2019optimized} on the model-subtracted lightcurve found no signal around 6.7\,d, and a visual inspection of the lightcurve around the likely epochs of transit reveals no candidate dips associated with an outer candidate.
-Indeed, when running a combined model of two transiting planets, with constraints on orbits from the RVs, the posteriors for the radius of the outer planet were $0.05^{+0.59}_{−0.04}$\,\rearth{} which, given the \TMpone{}\,\mearth{} mass of \Tplanetc{}, would be physically impossible even with an iron-core.
+Indeed, when running a combined model of two transiting planets, with constraints on orbits from the RVs, the posteriors for the radius of the outer planet were $0.05^{+0.59}_{-0.04}$\,\rearth{} which, given the \TMpone{}\,\mearth{} mass of \Tplanetc{}, would be physically impossible even with an iron-core.
 Therefore, we come to the conclusion that \Tplanetc{} is non-transiting.
 
 In order to assess whether the RV signal alone warrants calling \Tplanetc{} a confirmed planet or merely a candidate, we ran two combined models with identical priors, and with one model including a non-transiting planet around $6.7$d.
@@ -740,7 +753,7 @@ Using the derived impact parameter of planet b and the semi-major axis of c, the
 It is also worth noting that planets b \& c have an orbital period ratio near 8/3, although harmonics beyond $2:1$ are highly unlikely to create measurable TTVs \citep{deck2015measurement}.
 
 \subsection{A solar twin?}
-It is remarkable to note just how sun-like \Tstar{} is, with a radius, \teff{} and \logg{} all within errors of solar values, with the exception of its slightly higher metallicity ($0.14\pm0.02$), and correspondingly lower C \& O \citep[e.g.][]{Franchini2020,2015A&A...576A..89B}.
+It is remarkable to note just how sun-like \Tstar{} is, with a radius, \teff{} and \logg{} all within errors of solar values, with the exception of its slightly higher metallicity (\feh{}$ = 0.14\pm0.02$), and correspondingly lower C \& O (see Table \ref{tab:abunds}) \citep[e.g.][]{Franchini2020,2015A&A...576A..89B}
 This higher metallicity may explain why \Tstar{} was able to form close-in super-Earths which do not exist in our solar system \citep{mulders2016super,bitsch2020influence}.
 
 \Tstar{} is also nearly the same age as the Sun, as can be seen in both the Yttrium ages (Table \ref{tab:abunds}), and from the rotation rate $\sim$22\,d from archival photometry, the spectroscopy timeseries, \& <30\,d from \vsini{}).
@@ -778,7 +791,7 @@ Stars with super-solar metallicities are also less likely to host water-rich pla
 
 Figure \ref{fig:MR_Diagram} shows the mass radius relation (M-R relation) for Earth-like and pure water compositions (where the pure water line corresponds to a surface pressure of 1 bar, and without a water-vapor atmosphere).
 Also shown are exoplanets with accurate mass and radius determinations from \citet{otegi2020revisited}.
-The position of \Tplanet{} makes it one of the lowest-density worlds found with $M_p<5$\,\mearth{}, and among a small class of low-density low-mass planets which includes \pi{} Men c \citep{huang2018tess} and GJ 9827 b \citep{niraula2017three}.
+The position of \Tplanet{} makes it one of the lowest-density worlds found with $M_p<5$\,\mearth{}, and among a small class of low-density low-mass planets which includes $\pi{}$ Men c \citep{huang2018tess} and GJ 9827 b \citep{niraula2017three}.
 
 \begin{table}
 \caption{Inferred interior structure properties of TOI-755b.}
@@ -792,7 +805,7 @@ Constituent & With H-He [\%] & With H$_{2}$O [\%] & 4-layer [\%] \\
 $M_{\rm core}/M_{\rm total}$ & $47 ^{+26} _{-24} $ & $8 ^{+7} _{-6}$ & $25 ^{+28} _{-18}$\\
 $M_{\rm mantle}/M_{\rm total}$ & $ 53 ^{+23} _{-24} $ & $17 ^{+11} _{-9}$ & $36 ^{+31} _{-19}$\\
 $M_{\rm water}/M_{\rm total}$ & --- & $73 ^{+10} _{-13}$ & $38 ^{+31} _{-24}$\\
-$M_{\rm H-He}/M_{\rm total}$ & $1 ^{+0.3} _{-0.5}$ & --- & $0.102  ^{+0.04} _{-0.03}\\
+$M_{\rm H-He}/M_{\rm total}$ & $1 ^{+0.3} _{-0.5}$ & --- & $0.102  ^{+0.04} _{-0.03}$\\
 \hline
 \hline
 \end{tabular}
@@ -819,7 +832,7 @@ Therefore, while it is currently highly irradiated, \Tplanetc{} is unlikely to c
 
 However, the integrated sum of mass-loss since the planet's formation is substantial, as young stars are typically far more active and far more X-ray luminous.
 We calculate that, assuming the current mass \& radius, as much as 10\% of the planet's mass may have been lost through evaporation.
-The models of \citet{zeng2019growth} suggest that a 1000\,K planet with $\gt5$\% hydrogren and a $5.25M_\oplus$ core would have been $\gt8.5$\,\rearth{} in radius, suggesting that \Tplanet{} potentially started as an extremely low-density Jupiter-radius world which was quickly stripped.
+The models of \citet{zeng2019growth} suggest that a 1000\,K planet with $>5$\% hydrogren and a $5.25M_\oplus$ core would have been $>8.5$\,\rearth{} in radius, suggesting that \Tplanet{} potentially started as an extremely low-density Jupiter-radius world which was quickly stripped.
 However, how such a low-mass world came to possess such a large gaseous atmosphere opens more questions.
 
 In any case, it is almost certain that \Tplanet{} started with a thicker atmosphere of H-He, which, due to both evaporative and core-powered mass-loss, it lost much of over time.
@@ -833,9 +846,9 @@ The models of \citet[][Figure 5.]{rogers2020unveiling} suggest such a scenario i
 
 2) \Tplanet{} did lose almost all of its H-He to evaporation and core-powered mass-loss.
 The current density is therefore explained by the planet having a large water content (e.g. an icy core), with potential out-gassing of a secondary atmosphere contributing to the extended radius.
-Indeed, our composition calculations include water in only solid \& liquid states, therefore a thick steam \citep[or supercritical][]{mousis2020irradiated} atmosphere, could reduce the density without requiring $\gt50\%$ H$_{2}$O.
+Indeed, our composition calculations include water in only solid \& liquid states, therefore a thick steam \citep[or supercritical][]{mousis2020irradiated} atmosphere, could reduce the density without requiring $>50\%$ H$_{2}$O.
 
-These predictions are testable with future transmission spectroscopy observations, e.g. with \textit{JWST}.
+These predictions are testable with future transmission spectroscopy observations, e.g. with \textit{JWST} \citep{2016ApJ...817...17G,2014PASP..126.1134B}.
 
 \subsection{Re-observation}\label{sect:future}
 The low-density nature of this hot mini-Neptune, combined with its bright host star, may enable transmission spectroscopy.
@@ -843,7 +856,7 @@ To test this, we computed the emission and transmission spectroscopy metrics fro
 We find that, amongst small planets with $R_p<4R_\oplus$ \citep{akeson2013nasa}\footnote{\url{https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=*&format=csv}, accessed 2020-Oct-18}, \Tplanet{} ranks in the top 3\% most amenable for emission and the top 5\% for transmission spectrocopy with JWST.
 Such observations would be able to test the hypotheses noted above, and search for a primary atmosphere dominated by H-He, or a secondary atmosphere dominated by water vapour \citep{2020arXiv201011867B}.
 
-\Tplanet{} will be also re-observed by \tess{} during Sector 37\footnote{\url{https://heasarc.gsfc.nasa.gov/cgi-bin/tess/webtess/wtv.py?Entry=73228647}}, and could also be observed by ESA's \textit{Cheops} telescope \citep{benz2020cheops}, both of which would improve the current radius error below the currently measured value of 7\%, thereby improving our knowledge of the internal structure of \Tplanet{}.
+\Tplanet{} will be also re-observed by \tess{} during Sector 37\footnote{\url{https://heasarc.gsfc.nasa.gov/cgi-bin/tess/webtess/wtv.py?Entry=73228647}}, and could also be observed by ESA's \textit{CHEOPS} telescope \citep{benz2020cheops}, both of which would improve the current radius error below the currently measured value of 7\%, thereby improving our knowledge of the internal structure of \Tplanet{}.
 
 %
 %\begin{table*}[t]
@@ -907,7 +920,7 @@ Such observations would be able to test the hypotheses noted above, and search f
 % \end{figure*}
 
 \section{Conclusion}
-We have presented the detection and confirmation of \Tplanet{}, which was initially spotted as \TTplanet{} in \tess{} with an SNR of only $7.6\simga$ and transit depth of 430\,ppm.
+We have presented the detection and confirmation of \Tplanet{}, which was initially spotted as \TTplanet{} in \tess{} with an SNR of only $7.6\sigma$ and transit depth of 430\,ppm.
 This marks one of the lowest-SNR single signals yet to be confirmed from \tess{}, and is testament to the unique ability of \tess{} to find planet candidates around bright stars which can be redetected and characterised through independent RV campaigns.
 
 High-resolution imaging and ground-based photometry rules out the presence of nearby companions and potential nearby eclipsing binaries, thereby limiting the number of false-positives and giving us confidence to follow such a low-SNR signal.
@@ -923,7 +936,7 @@ We were able to confirm it as a planet through Bayesian model comparison which s
 
 The estimated density of \Tplanet{} is \Trhopgcmthree{}\,\gcm{} - far lower than would be expected from a rocky core.
 By modelling four potential constituents - an iron core, silicate mantle, water ocean and H-He atmosphere, we were able to rule out a gasless composition for \Tplanet{}, suggesting that it has between 0.07 and 1.5\% H-He by mass.
-This is surprising given \Tplanet{}'s position in the "radius gap" between gassy mini-Neptunes and rocky super-Earths, and we suggest two possibilities for this unexpectedly low density - either \Tplanet{} has a water-rich core and secondary atmosphere, or it began with a thick H-He envelope and managed to retain a small fraction of it despite significant evaporation and/or heating.
+This is surprising given \Tplanet{}'s position in the "radius gap" between gaseous mini-Neptunes and rocky super-Earths, and we suggest two possibilities for this unexpectedly low density - either \Tplanet{} has a water-rich core and secondary atmosphere, or it began with a thick H-He envelope and managed to retain a small fraction of it despite significant evaporation and/or heating.
 Follow-up spectroscopy observations with the next generation of telescopes may reveal the answer, as well as far more about this interesting system.
 
 % \begin{figure}
@@ -951,9 +964,9 @@ Based on observations collected at the European Organisation for Astronomical Re
 
 We thank the Swiss National Science Foundation (SNSF) and the Geneva University for their continuous support to our planet search programs. This work has been in particular carried out in the frame of the National Centre for Competence in Research {\it PlanetS} supported by the Swiss National Science Foundation (SNSF).\\ % PlanetS
 
-This publication makes use of The Data & Analysis Center for Exoplanets (DACE), which is a facility based at the University of Geneva (CH) dedicated to extrasolar planets data visualisation, exchange and analysis. DACE is a platform of the Swiss National Centre of Competence in Research (NCCR) PlanetS, federating the Swiss expertise in Exoplanet research. The DACE platform is available at https://dace.unige.ch.
+This publication makes use of The Data \& Analysis Center for Exoplanets (DACE), which is a facility based at the University of Geneva (CH) dedicated to extrasolar planets data visualisation, exchange and analysis. DACE is a platform of the Swiss National Centre of Competence in Research (NCCR) PlanetS, federating the Swiss expertise in Exoplanet research. The DACE platform is available at https://dace.unige.ch.
 
-This research made use of \textsf{exoplanet} \citep{exoplanet} and its
+This research made use of \textsf{exoplanet} \citep{exoplanet:exoplanet} and its
 dependencies \citep{exoplanet:agol19, exoplanet:astropy13, exoplanet:astropy18,
 exoplanet:exoplanet, exoplanet:foremanmackey17, exoplanet:foremanmackey18,
 exoplanet:luger18, exoplanet:pymc3, exoplanet:theano}.
@@ -1056,7 +1069,7 @@ RV trend - gradient [\ms{}$d^{-1}$] &  $\mathcal{N}(0.0,1.0)$  &   $ -0.14 \pm 0
   \end{minipage}%
 }\\
 \end{tabular}
-\tablefoot{
+%\tablefoot{}
 \end{center}
 \label{AllPriors}
 \end{table*}%
