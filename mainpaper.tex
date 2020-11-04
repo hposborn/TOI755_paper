@@ -35,6 +35,7 @@
 % Don't change these lines unless you know what you are doing
 \usepackage[T1]{fontenc}
 
+
 \usepackage{threeparttable}
 % Allow "Thomas van Noord" and "Simon de Laguarde" and alike to be sorted by "N" and "L" etc. in the bibliography.
 % Write the name in the bibliography as "\VAN{Noord}{Van}{van} Noord, Thomas"
@@ -49,6 +50,27 @@
 % Only include extra packages if you really need them. Common packages are:
 \usepackage{graphicx}	% Including figure files
 \usepackage{amsmath}	% Advanced maths commands
+\usepackage{scalerel}
+\usepackage{tikz}
+\usetikzlibrary{svg.path}
+
+\definecolor{orcidlogocol}{HTML}{A6CE39}
+\tikzset{
+  orcidlogo/.pic={
+    \fill[orcidlogocol] svg{M256,128c0,70.7-57.3,128-128,128C57.3,256,0,198.7,0,128C0,57.3,57.3,0,128,0C198.7,0,256,57.3,256,128z};
+    \fill[white] svg{M86.3,186.2H70.9V79.1h15.4v48.4V186.2z}
+                 svg{M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z M124.3,172.4h24.5c34.9,0,42.9-26.5,42.9-39.7c0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z}
+                 svg{M88.7,56.8c0,5.5-4.5,10.1-10.1,10.1c-5.6,0-10.1-4.6-10.1-10.1c0-5.6,4.5-10.1,10.1-10.1C84.2,46.7,88.7,51.3,88.7,56.8z};
+  }
+}
+
+\newcommand\orcidicon[1]{\href{https://orcid.org/#1}{\mbox{\scalerel*{
+\begin{tikzpicture}[xscale=0.1,yscale=-0.1,transform shape]
+\pic{orcidlogo};
+\end{tikzpicture}
+}{|}}}}
+
+\usepackage{hyperref} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -59,6 +81,7 @@
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother
+
 \newcommand{\gcm}{g\,cm$^{-3}$}	% g per cm-cubed
 \newcommand\todo[1]{\textcolor{red}{\textbf{#1}}}
 \newcommand{\kepler}{{\it Kepler}}
@@ -161,72 +184,83 @@
 \newcommand{\Trstar}{ $ 0.968 \pm 0.018 $ }
 
 \newcommand{\Ttzerozero}{ $ 1570.101^{+0.004}_{-0.005} $ }
-\newcommand{\Ttzeroone}{ $ 1798.18 \pm 0.19 $ }
-\newcommand{\TKzero}{ $ 2.14 \pm 0.29 $ }
-\newcommand{\TlogKzero}{ $ 0.76 \pm 0.13 $ }
-\newcommand{\TKone}{ $ 3.58 \pm 0.39 $ }
-\newcommand{\TlogKone}{ $ 1.27 \pm 0.11 $ }
-\newcommand{\Trverrcontr}{ $ 0.41^{+0.72}_{-0.4} $ }
-\newcommand{\Trvlogerrcontr}{ $ -0.9^{+1.0}_{-3.9} $ }
-\newcommand{\Tserrcontr}{ $ 2.2e-06^{+1.8e-06}_{-1.4e-06} $ }
-\newcommand{\Tslogerrcontrs}{ $ -13.0 \pm 0.8 $ }
-\newcommand{\Tfwhmerrcontr}{ $ 0.8 \pm 1.0 $ }
-\newcommand{\Tfwhmlogerrcontr}{ $ -0.2 \pm 1.2 $ }
-\newcommand{\Tphoterrcontr}{ $ 0.0004^{+0.0014}_{-0.0004} $ }
-\newcommand{\Tphotlogerrcontr}{ $ -7.7^{+1.5}_{-2.1} $ }
+\newcommand{\Ttzeroone}{ $ 1798.17 \pm 0.19 $ }
+\newcommand{\TKzero}{ $ 2.15 \pm 0.28 $ }
+\newcommand{\TlogKzero}{ $ 0.77 \pm 0.13 $ }
+\newcommand{\TKone}{ $ 3.58 \pm 0.37 $ }
+\newcommand{\TlogKone}{ $ 1.27 \pm 0.1 $ }
+\newcommand{\Trverrcontrzero}{ $ 0.6^{+0.67}_{-0.5} $ }
+\newcommand{\Trvlogerrcontrzero}{ $ -0.5^{+0.7}_{-1.7} $ }
+\newcommand{\Trverrcontrone}{ $ 2.7e-06^{+1.8e-06}_{-1.4e-06} $ }
+\newcommand{\Trvlogerrcontrone}{ $ -12.84^{+0.53}_{-0.74} $ }
+\newcommand{\Trverrcontrtwo}{ $ 1.1^{+1.8}_{-0.8} $ }
+\newcommand{\Trvlogerrcontrtwo}{ $ 0.1 \pm 1.1 $ }
+\newcommand{\Tphoterrcontr}{ $ 0.0004^{+0.0016}_{-0.0003} $ }
+\newcommand{\Tphotlogerrcontr}{ $ -8.0^{+1.7}_{-2.6} $ }
 \newcommand{\Tmeans}{ $ -0.0^{+0.001}_{-0.002} $ }
-\newcommand{\Tmeanfwhm}{ $ 7287.0 \pm 1.2 $ }
-\newcommand{\Tamprv}{ $ 40.0^{+17.0}_{-11.0} $ }
-\newcommand{\Tlogamprv}{ $ 3.69 \pm 0.34 $ }
-\newcommand{\Tamps}{ $ 6.6e-05^{+2.7e-05}_{-1.8e-05} $ }
-\newcommand{\Tlogamps}{ $ -9.63 \pm 0.34 $ }
-\newcommand{\Tampfwhm}{ $ 43.0^{+19.0}_{-13.0} $ }
-\newcommand{\Tlogampfwhm}{ $ 3.76^{+0.37}_{-0.35} $ }
-\newcommand{\TQzero}{ $ 0.0^{+1.2}_{-0.0} $ }
-\newcommand{\TlogQzero}{ $ -3.2^{+3.4}_{-4.0} $ }
-\newcommand{\TdeltaQ}{ $ 1.8 \pm 1.4 $ }
-\newcommand{\TlogdeltaQ}{ $ 0.6 \pm 0.9 $ }
-\newcommand{\TPzero}{ $ 2.541^{+0.001}_{-0.001} $ }
+\newcommand{\Tmeanfwhm}{ $ 7286.9 \pm 1.1 $ }
+\newcommand{\Tamprv}{ $ 39.0^{+16.0}_{-11.0} $ }
+\newcommand{\Tlogamprv}{ $ 3.66^{+0.35}_{-0.34} $ }
+\newcommand{\Tamps}{ $ 6.5e-05^{+3e-05}_{-1.9e-05} $ }
+\newcommand{\Tlogamps}{ $ -9.64^{+0.37}_{-0.33} $ }
+\newcommand{\Tampfwhm}{ $ 43.0^{+20.0}_{-13.0} $ }
+\newcommand{\Tlogampfwhm}{ $ 3.77 \pm 0.37 $ }
+\newcommand{\TQzero}{ $ 0.3^{+1.4}_{-0.3} $ }
+\newcommand{\TlogQzero}{ $ -1.1^{+1.6}_{-3.6} $ }
+\newcommand{\TdeltaQ}{ $ 1.7^{+1.8}_{-1.4} $ }
+\newcommand{\TlogdeltaQ}{ $ 0.5^{+0.7}_{-1.6} $ }
+\newcommand{\TPzero}{ $ 2.541^{+0.0005}_{-0.001} $ }
 \newcommand{\TPone}{ $ 6.744^{+0.008}_{-0.009} $ }
-\newcommand{\Tecczero}{ $ 0.102^{+0.089}_{-0.068} $ }
-\newcommand{\Teccone}{ $ 0.05^{+0.076}_{-0.038} $ }
-\newcommand{\Tomegazero}{ $ -0.34^{+0.99}_{-0.8} $ }
-\newcommand{\Tomegaone}{ $ 0.8 \pm 1.2 $ }
-\newcommand{\TMpzero}{ $ 4.51 \pm 0.6 $ }
-\newcommand{\TMpone}{ $ 10.5 \pm 1.1 $ }
-\newcommand{\Tlogror}{ $ -3.932 \pm 0.067 $ }
-\newcommand{\Tror}{ $ 0.02^{+0.001}_{-0.002} $ }
-\newcommand{\Trpl}{ $ 2.08 \pm 0.13 $ }
-\newcommand{\Tb}{ $ 0.46^{+0.18}_{-0.25} $ }
-\newcommand{\Trhopgcmthree}{ $ 2.77^{+0.69}_{-0.57} $ }
-\newcommand{\Tperiod}{ $ 20.7 \pm 1.3 $ }
-\newcommand{\Tlogperiod}{ $ 3.028 \pm 0.061 $ }
-\newcommand{\Tmix}{ $ 0.033^{+0.054}_{-0.022} $ }
+\newcommand{\Tecczero}{ $ 0.093^{+0.079}_{-0.064} $ }
+\newcommand{\Teccone}{ $ 0.045^{+0.079}_{-0.038} $ }
+\newcommand{\Tomegazero}{ $ -0.47 \pm 0.68 $ }
+\newcommand{\Tomegaone}{ $ -0.1 \pm 1.2 $ }
+\newcommand{\TMpzero}{ $ 4.55 \pm 0.62 $ }
+\newcommand{\TMpone}{ $ 10.5 \pm 1.2 $ }
+\newcommand{\Tlogror}{ $ -4.009 \pm 0.063 $ }
+\newcommand{\Tror}{ $ 0.018 \pm 0.001 $ }
+\newcommand{\Trpl}{ $ 2.05 \pm 0.12 $ }
+\newcommand{\Tb}{ $ 0.31 \pm 0.22 $ }
+\newcommand{\Trhopgcmthree}{ $ 2.9^{+0.75}_{-0.59} $ }
+\newcommand{\Tperiod}{ $ 20.8 \pm 1.2 $ }
+\newcommand{\Tlogperiod}{ $ 3.035 \pm 0.06 $ }
+\newcommand{\Tmix}{ $ 0.044^{+0.067}_{-0.032} $ }
 \newcommand{\TphotSzero}{ $ 0.012 \pm 0.003 $ }
-\newcommand{\Tphotwzero}{ $ 3.79^{+0.46}_{-0.43} $ }
-\newcommand{\Tphotmean}{ $ 0.012 \pm 0.036 $ }
-\newcommand{\TaRs}{ $ 7.828^{+0.025}_{-0.025} $ }
-\newcommand{\Tsma}{ $ 0.038^{+0.0}_{-0.001} $ }
-\newcommand{\TSin}{ $ 1001000^{+7900}_{-7300} $ }
-\newcommand{\TTsurfp}{ $ 1370.8 \pm 2.6 $ }
-\newcommand{\Ttdurzero}{ $ 0.099^{+0.006}_{-0.007} $ }
-\newcommand{\Tmodelllk}{ $ -20217.5^{+4.4}_{-5.2} $ }
+\newcommand{\Tphotwzero}{ $ 3.73^{+0.48}_{-0.44} $ }
+\newcommand{\Tphotmean}{ $ 0.011^{+0.031}_{-0.035} $ }
+\newcommand{\TaRszero}{ $ 7.84 \pm 0.16 $ }
+\newcommand{\TaRsone}{ $ 15.03 \pm 0.3 $ }
+\newcommand{\Tsmazero}{ $ 0.035 \pm 0.001 $ }
+\newcommand{\Tsmaone}{ $ 0.068^{+0.001}_{-0.002} $ }
+\newcommand{\TSinzero}{ $ 1001.0 \pm 40.0 $ }
+\newcommand{\TSinone}{ $ 272.0 \pm 11.0 $ }
+\newcommand{\TTsurfpzero}{ $ 1371.0 \pm 14.0 $ }
+\newcommand{\TTsurfpone}{ $ 990.0 \pm 10.0 $ }
+\newcommand{\Ttdurzero}{ $ 0.099^{+0.005}_{-0.007} $ }
+\newcommand{\Tmodelllk}{ $ -20219.6^{+4.6}_{-5.9} $ }
+\newcommand{\Trvtrendzero}{ $ 0.027 \pm 0.01 $ }
+\newcommand{\Trvtrendone}{ $ -0.24 \pm 0.7 $ }
+\newcommand{\Tustartesszero}{ $ 0.37 \pm 0.1 $ }
+\newcommand{\Tustartessone}{ $ 0.221^{+0.093}_{-0.096} $ }
+
+\newcommand{\Tdepth}{410\,ppm}
+
 
 %\newcommand{\TdelTshort}{\mbox{$390.0082$}}
 %\newcommand{\TdelT}{\mbox{$390.0082 \pm 0.0032$}}
 
-\newcommand{\TSindexlogerrcontr}{ $ -5.12 \pm 0.16 $ }
-\newcommand{\TSindexerrcontr}{ $ 0.006 \pm 0.001 $ }
-\newcommand{\TSindexmean}{ $ 0.1 \pm 9.9 $ }
-\newcommand{\TSindexlogamp}{ $ -9.72^{+0.5}_{-0.42} $ }
-\newcommand{\TSindexamp}{ $ 6e-05^{+3.9e-05}_{-2.1e-05} $ }
-\newcommand{\TSindexlogQzero}{ $ 0.2 \pm 1.1 $ }
-\newcommand{\TSindexQzero}{ $ 1.2^{+2.0}_{-0.9} $ }
-\newcommand{\TSindexlogdeltaQ}{ $ -4.9^{+5.2}_{-7.5} $ }
-\newcommand{\TSindexdeltaQ}{ $ 0.0^{+1.3}_{-0.0} $ }
-\newcommand{\TSindexlogperiod}{ $ 3.67^{+0.15}_{-0.48} $ }
-\newcommand{\TSindexperiod}{ $ 39.0 \pm 11.0 $ }
-\newcommand{\TSindexmix}{ $ 0.49 \pm 0.4 $ }
+% \newcommand{\TSindexlogerrcontr}{ $ -5.12 \pm 0.16 $ }
+% \newcommand{\TSindexerrcontr}{ $ 0.006 \pm 0.001 $ }
+% \newcommand{\TSindexmean}{ $ 0.1 \pm 9.9 $ }
+% \newcommand{\TSindexlogamp}{ $ -9.72^{+0.5}_{-0.42} $ }
+% \newcommand{\TSindexamp}{ $ 6e-05^{+3.9e-05}_{-2.1e-05} $ }
+% \newcommand{\TSindexlogQzero}{ $ 0.2 \pm 1.1 $ }
+% \newcommand{\TSindexQzero}{ $ 1.2^{+2.0}_{-0.9} $ }
+% \newcommand{\TSindexlogdeltaQ}{ $ -4.9^{+5.2}_{-7.5} $ }
+% \newcommand{\TSindexdeltaQ}{ $ 0.0^{+1.3}_{-0.0} $ }
+% \newcommand{\TSindexlogperiod}{ $ 3.67^{+0.15}_{-0.48} $ }
+% \newcommand{\TSindexperiod}{ $ 39.0 \pm 11.0 $ }
+% \newcommand{\TSindexmix}{ $ 0.49 \pm 0.4 $ }
 
 % \newcommand{\Tplanetmass}{\mbox{$0.344 \pm _{0.073}^{0.092}$}}
 % \newcommand{\Tplanetradius}{\mbox{$0.817 \pm _{0.032}^{0.028}$}} 
@@ -248,54 +282,77 @@
 \newcommand{\Tperiodshort}{2.5}
 \newcommand{\TdeltaBIC}{$16.32$}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[\Tplanet{}]{A hot mini-Neptune in the radius gap orbiting solar analogue \Tstar{}}
+\title[\Tplanet{}]{A hot mini-Neptune in the radius valley orbiting solar analogue \Tstar{}}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
-\author[H.P. Osborn et al.]{\parbox{\textwidth}{H.P. Osborn$^{1,2}$\thanks{E-mail: hugh.osborn@space.unibe.ch}, 
-D.J. Armstrong$^{3,4}$, % d.j.armstrong@warwick.ac.uk HARPS NCORES PI
-K.A. Collins$^{5}$, % karen.collins@cfa.harvard.edu SG1 coordination and data analysis
-V. Adibekyan$^{6}$, % Vardan.Adibekyan@astro.up.pt Stellar abundances and ages
-E. Delgado-Mena$^{6}$, % elisa.delgado@astro.up.pt Stellar abundances and ages
-S. Howell$^{7}$, % steve.b.howell@nasa.gov Speckle observing, data reduction, analysis
-G. King$^{3,4}$, % G.King.7@warwick.ac.uk Evaporation calculations
-J. Lillo-Box$^{8}$, % jlillo@cab.inta-csic.es NCORES contributor, TPF plot
-L.D. Nielsen$^{9}$, % louise.nielsen@unige.ch HARPS observations + data reduction, RV consulation
-J.F. Otegi$^{9}$, % jon.otegi@unige.ch Internal structure models
-N.C. Santos$^{6,10}$, % nuno.santos@astro.up.pt HARPS stellar analysis
-C. Ziegler$^{11}$, % carl.ziegler@dunlap.utoronto.ca SOAR speckle imaging PI
-C. Brice\~{n}o$^{12}$, % SOAR speckle imaging
-D. Barrado$^{8}$, % barrado@cab.inta-csic.es NCORES observer
-C. Burke$^{13}$, % cjburke@mit.edu POC contributor
-T. Daylan$^{14}$, % tdaylan@mit.edu POC contributor
-D. Dragomir$^{15}$, % TSO contributor
-C. Hellier$^{15}$, % WASP archival photometry
-E.L.N. Jensen$^{16}$, % ejensen1@swarthmore.edu SG1 coordination and observations
-N. Law$^{17}$, % SOAR speckle imaging
-D.M. Conti$^{18}$, % dennis@astrodennis.com SG1 data analysis
-A. Mann$^{17}$, % SOAR speckle imaging
-J.M. Jenkins$^{7}$, % TESS architect
-A. Osborn$^{4,3}$, % e.osborn@warwick.ac.uk NCORES observer
-G. Ricker$^{2}$, % TESS architect
-D.R. Louie$^{19}$, % danalouie@astro.umd.edu TSO contributor
-S. Seager$^{20}$, % TESS architect
-N. Scott$^{7}$, % nic.scott.9@gmail.com Speckle observing, data reduction, analysis
-B.V. Rackham$^{20,21}$, % brackham@mit.edu TSO contributor
-J. Villaseñor$^{13}$, % jsvilla@space.mit.edu POC contributor
-R. Vanderspek$^{2}$, % TESS architect
-D.W. Latham$^{5}$, % TESS architect
-J. Winn$^{15}$, % TESS architect
+\author[H.P. Osborn et al.]{\parbox{\textwidth}{H.P. Osborn$^{1,2,\orcidicon{0000-0002-4047-4724}}$\thanks{E-mail: hugh.osborn@space.unibe.ch}, 
+D.J.~Armstrong$^{3,4,\orcidicon{0000-0002-5080-4117}}$, % d.j.armstrong@warwick.ac.uk HARPS NCORES PI
+V.~Adibekyan$^{5,\orcidicon{0000-0002-0601-6199}}$, % Vardan.Adibekyan@astro.up.pt Stellar abundances and ages
+K.A.~Collins$^{6,\orcidicon{0000-0001-6588-9574}}$, % karen.collins@cfa.harvard.edu SG1 coordination and data analysis
+E.~Delgado-Mena$^{5,\orcidicon{0000-0003-4434-2195}}$, % elisa.delgado@astro.up.pt Stellar abundances and ages
+S.B.~Howell$^{7,\orcidicon{0000-0002-2532-2853}}$, % steve.b.howell@nasa.gov Speckle observing, data reduction, analysis
+C.~Hellier$^{8,\orcidicon{0000-0002-3439-1439}}$, % c.hellier@keele.ac.uk WASP archival photometry
+G.W.~King$^{3,4,\orcidicon{0000-0002-3641-6636}}$, % G.King.7@warwick.ac.uk Evaporation calculations
+J.~Lillo-Box$^{9,\orcidicon{0000-0003-3742-1987}}$, % jlillo@cab.inta-csic.es NCORES contributor, TPF plot
+L.D.~Nielsen$^{10,\orcidicon{0000-0002-5254-2499}}$, % louise.nielsen@unige.ch HARPS observations + data reduction, RV consulation
+J.F.~Otegi$^{10}$, % jonfr17@gmail.com Internal structure models
+N.C.~Santos$^{5,11,\orcidicon{0000-0003-4422-2919}}$, % nuno.santos@astro.up.pt HARPS stellar analysis
+C.~Ziegler$^{12}$, % carl.ziegler@dunlap.utoronto.ca SOAR speckle imaging PI
+D.R.~Anderson$^{3,4,\orcidicon{0000-0002-0328-1640}}$, % David.R.Anderson@warwick.ac.uk WASP archival photometry
+C.~Brice\~{n}o$^{13,\orcidicon{0000-0001-7124-4094}}$, % cbriceno@ctio.noao.edu SOAR speckle imaging
+C.~Burke$^{2,\orcidicon{0000-0002-7754-9486}}$, % cjburke@mit.edu POC contributor
+D.~Barrado$^{9,\orcidicon{0000-0002-5971-9242}}$, % barrado@cab.inta-csic.es NCORES observer
+S.C.C.~Barros$^{5,11,\orcidicon{0000-0003-2434-3625}}$, % susana.barros@astro.up.pt NCORES contributor
+E.M.~Bryant$^{4,3,\orcidicon{0000-0001-7904-4441}}$, % edward.bryant@warwick.ac.uk NCORES contributor
+D.~Bayliss$^{4,3,\orcidicon{0000-0001-6023-1335}}$, % d.bayliss@warwick.ac.uk NCORES contributor
+F.~Bouchy$^{10,\orcidicon{0000-0002-7613-393X}}$, % françois.bouchy@unige.ch HARPS coordination
+D.J.A.~Brown$^{3,4,\orcidicon{0000-0003-1098-2442}}$, % d.j.a.brown@warwick.ac.uk NCORES contributor
+D.A.~Caldwell$^{14,\orcidicon{0000-0003-1963-9616}}$, % douglas.a.caldwell@nasa.gov SPOC contributor
+D.M.~Conti$^{15,\orcidicon{0000-0003-2239-0567}}$, % dennis@astrodennis.com SG1 data analysis
+R.F.~Díaz$^{16,\orcidicon{0000-0001-9289-5160}}$, % rdiaz@unsam.edu.ar NCORES contributor
+D.~Dragomir$^{17,\orcidicon{0000-0003-2313-467X}}$, % dragomir@unm.edu TSO contributor
+O.D.S.~Demangeon$^{5,11,\orcidicon{0000-0001-7918-0355}}$, % olivier.demangeon@astro.up.pt NCORES contributor
+M.~Deleuil$^{18,\orcidicon{0000-0001-6036-0225}}$, % magali.deleuil@lam.fr NCORES contributor
+T.~Daylan$^{2,19,\orcidicon{0000-0002-6939-9211}}$, % tdaylan@mit.edu POC contributor
+C.~Dorn$^{20,\orcidicon{0000-0001-6110-4610}}$, % cdorn@physik.uzh.ch Internal structure models
+P.~Figueira$^{21,5,\orcidicon{0000-0001-8504-283X}}$, % pedro.figueira@eso.org NCORES contributor
+S.~Hoyer$^{18,\orcidicon{0000-0003-3477-2466}}$, % sergio.hoyer@lam.fr NCORES contributor
+R.~Helled$^{20,\orcidicon{0000-0001-5555-2652}}$, % r.helled@gmail.com Internal structure models
+E.L.N.~Jensen$^{22,\orcidicon{0000-0002-4625-7333}}$, % ejensen1@swarthmore.edu SG1 coordination and observations
+J.M.~Jenkins$^{7,\orcidicon{0000-0002-4715-9460}}$, % jon.jenkins@nasa.gov TESS architect
+D.W.~Latham$^{6,\orcidicon{0000-0001-9911-7388}}$, % dlatham@cfa.harvard.edu TESS architect
+N.~Law$^{23}$, % nmlaw@physics.unc.edu SOAR speckle imaging
+D.R.~Louie$^{24,\orcidicon{0000-0002-2457-272X}}$, % danalouie@astro.umd.edu TSO contributor
+A.W.~Mann$^{23,\orcidicon{0000-0003-3654-1602}}$, % awmann@unc.edu SOAR speckle imaging
+A.~Osborn$^{4,3,\orcidicon{0000-0002-5899-7750}}$, % e.osborn@warwick.ac.uk NCORES observer
+D.L.~Pollacco$^{4,\orcidicon{0000-0001-9850-9697}}$, % don.pollacco@warwick.ac.uk NCORES contributor
+G.~Ricker$^{2,\orcidicon{0000-0003-2058-6662}}$, % grr@space.mit.edu TESS architect
+B.V.~Rackham$^{2,25,\orcidicon{0000-0002-3627-1676}}$, % brackham@mit.edu TSO contributor
+D.R.~Rodriguez$^{26,\orcidicon{0000-0003-1286-5231}}$, % drodriguez@stsci.edu MAST contributor
+K.G.~Stassun$^{27,\orcidicon{0000-0002-3481-9052}}$, % keivan.stassun@vanderbilt.edu SED analysis
+S.~Seager$^{2,25,\orcidicon{0000-0002-6892-6948}}$, % seager@mit.edu TESS architect
+J.C.~Smith$^{14,\orcidicon{0000-0002-6148-7903}}$, % jsmith@seti.org SPOC contributor
+N.~Scott$^{7}$, % nic.scott.9@gmail.com Speckle observing, data reduction, analysis
+S.G.~Sousa$^{5,\orcidicon{0000-0001-9047-2965}}$, % sergio.sousa@astro.up.pt NCORES contributor
+S.~Udry$^{10,\orcidicon{0000-0001-7576-6236}}$, % stephane.udry@unige.ch  NCORES contributor
+R.~Vanderspek$^{2,\orcidicon{0000-0001-6763-6562}}$, % roland@space.mit.edu TESS architect
+J.~Villaseñor$^{2,\orcidicon{0000-0002-4625-8264}}$, % jsvilla@space.mit.edu POC contributor
+J.~Winn$^{28,\orcidicon{0000-0002-4265-047X}}$, % jnwinn@princeton.edu TESS architect
+R.~West$^{3,4}$, % Richard.West@warwick.ac.uk WASP archival photometry
+P.J.~Wheatley$^{3,4,\orcidicon{0000-0003-1452-2240}}$ % P.J.Wheatley@warwick.ac.uk NCORES contributor
 }\\
+\vspace{0.001cm}\\
 \parbox{\textwidth}{
 The authors' affiliations are shown in Appendix \ref{sec:affiliations}.}
 }
-
 
 % These dates will be filled out by the publisher
 \date{Accepted XXX. Received YYY; in original form ZZZ}
@@ -313,9 +370,9 @@ The authors' affiliations are shown in Appendix \ref{sec:affiliations}.}
 \begin{abstract}
 We report the discovery of \Tplanet{} (\TTplanet{}), a transiting mini-Neptune exoplanet on a 2.5-day orbit around the solar-analogue \Tstar{} (\teff{}= $5730$K).
 Using \tess{} photometry and \harps{} radial velocities gathered by the \textit{NCORES} program, we find \Tplanet{} has a radius of \Trpl{}\,\rearth{} and a mass of \TMpzero{}\,\mearth{}.
-The resulting density of \Trhopgcmthree{}\,\gcm{} is significantly lower than would be expected from a pure-rock world, therefore \Tplanet{} must be a mini-Neptune with significant volatile atmosphere.
-The high incident flux places it within the so-called evaporation valley, however \Tplanet{} was able to hold onto a substantial (0.1-1\%) H-He atmosphere over its $\sim4$Gyr lifetime.
-Through a novel simultaneous GP fit to multiple activity indicators, we were also able to fit for the strong stellar rotation signal with period \Tperiod{}\,d from the RVs and confirm a non-transiting planet with a mass of \TMpone{}\,\mearth{} on a period of \TPone{}\,d.
+The resulting density of \Trhopgcmthree{}\,\gcm{} is significantly lower than would be expected from a pure-rock world; therefore, \Tplanet{} must be a mini-Neptune with a significant volatile atmosphere.
+The high incident flux places it within the so-called radius valley; however, \Tplanet{} was able to hold onto a substantial (0.1-1\%) H-He atmosphere over its $\sim4$Gyr lifetime.
+Through a novel simultaneous gaussian process fit to multiple activity indicators, we were also able to fit for the strong stellar rotation signal with period \Tperiod{}\,d from the RVs and confirm an additional non-transiting planet with a mass of \TMpone{}\,\mearth{} on a period of \TPone{}\,d.
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -330,35 +387,37 @@ planets and satellites: detection -- stars: individual: HD110113
 
 \section{Introduction}
 Since its launch in 2018, NASA's \tess{} mission has attempted to detect small transiting planets around bright, nearby stars amenable to confirmation with radial velocity observations \citep{ricker2010transiting}.
-Beginning with its first detection, the hot super-Earth Pi Mensae c \citep{huang2018tess}, and continuing with the first multi-planet system \citep[TOI-125][]{quinn2019near,nielsen2020mass}, the \harps{} spectrograph on the 3.6m telescope at La Silla, Chile \citep{2003Msngr.114...20M} has been deeply involved in this follow-up effort.
+The \harps{} spectrograph on the 3.6m telescope at La Silla, Chile \citep{2003Msngr.114...20M} has been deeply involved in this follow-up effort, beginning with its first detection, the hot super-Earth Pi Mensae c \citep{huang2018tess}, and continuing with the first multi-planet system \citep[TOI-125][]{quinn2019near,nielsen2020mass},
 
-This unique combination of space-based photometry (which provides planetary radius) and precise radial velocities (which provide planetary mass) also allows for the determination of exoplanet densities, and therefore an insight into the internal structure of worlds outside our solar system.
-These analyses have revealed a diversity of planet structures in the regime between Earth and Neptune, from high-density evaporated giant planet cores like TOI-849b \citep[5.2\,\gcm{}][]{armstrong2020remnant}, to low-density mini-Neptunes such as TOI-421\,c \citep{carleo2020multi}, as well as planets which follow a more linear track from rocky super-earths to Neptunes dominated by gaseous envelopes such as the two inner planets orbiting $\nu^2$ Lupi \citep{kane2020transits} and TOI-735 \citet{cloutier2020pair,nowak2020carmenes}.
+This unique combination of space-based photometry (which provides planetary radius) and precise radial velocities (which provide planetary mass) also allows for the determination of exoplanet densities, and, therefore, an insight into the internal structure of worlds outside our solar system.
+These analyses have revealed a diversity of planet structures in the regime between Earth and Neptune, from high-density evaporated giant planet cores like TOI-849b \citep[5.2\,\gcm{}][]{armstrong2020remnant}, to low-density mini-Neptunes such as TOI-421\,c \citep{carleo2020multi}, as well as planets which follow a more linear track from rocky super-earths to Neptunes dominated by gaseous envelopes, such as the two inner planets orbiting $\nu^2$ Lupi \citep{kane2020transits} and TOI-735 \citep{cloutier2020pair,nowak2020carmenes}.
 
-The detection of exoplanets with well-constrained physical parameters can also lead to the discovery of statistical trends within the planet population which encode within them information on planetary formation and evolution.
+The detection of exoplanets with well-constrained physical parameters can also lead to the discovery of statistical trends within the planet population which encode information on planetary formation and evolution.
 The "valley" seen around $1.8$\,\rearth{} in Kepler data \citep{fulton2017california, van2018asteroseismic} is one such feature.
-Planets that first formed as gassy planets within this valley have, due to heating from either their stars \citep[e.g. evaporation][]{owen2017evaporation} or from internal sources \citep[e.g. core-powered mass loss][]{ginzburg2018core}, lost those initial gaseous envelopes, thereby evolving to significantly smaller radii, to become "evaporated cores".
+Planets that first formed with gaseous envelopes within this valley have, due to heating from either their stars \citep[e.g. evaporation,][]{owen2017evaporation} or from internal sources \citep[e.g. core-powered mass loss,][]{ginzburg2018core}, lost those initial gaseous envelopes, thereby evolving to significantly smaller radii to become "evaporated cores".
 By observing the physical parameters of small, hot exoplanets, the exact mechanisms of this process can be revealed.
 
-In this paper, we present the detection, confirmation and RV characterisation of the hot mini-Neptune \Tplanet{} and the non-transiting \Tplanetc{}. 
+In this paper, we present the detection, confirmation and RV characterisation of two exoplanets orbiting the star HD 110113 --- the hot mini-Neptune \Tplanet{} and the non-transiting \Tplanetc{}. 
 The observations from which these planets were detected are described in section \ref{sect:observations}, while the analysis of that data is described in section \ref{sect:analysis}.
 In section \ref{sect:discus} we discuss the validity of the outer planet RV signal (\ref{sect:planetc}), the internal structure and evaporation of planet b (\ref{sect:internal} \& \ref{sect:evap}), and potential future observations of the system (\ref{sect:future}).
+We summarize our conclusions in section~\ref{sec:conclusion}.
 
 \section{Observations}
 \label{sect:observations}
 \subsection{TESS photometry}
 \Tstar{} was observed during \tess{} sector 10 with 2-minute cadence for 22.5 days, excluding a 2.5 day gap between \tess{} orbits to downlink data.
-The lightcurve was extracted using the SPOC \citep[Science Processing Operations Centre][]{jenkins2016tess} SAP (simple aperture photometry) pipeline.
-It was then processed using the Pre-Search Data Conditioning \citep[PDC,][]{stumpe2012kepler} pipeline, producing precise detrended photometry with typical precision of 150ppm/hr for this star, and then searched for exoplanetary candidates with the Transiting Planet Search.
-This identified a strong candidate with a period of 2.54d, a depth of only 400ppm and a Signal to Noise Ratio (SNR) of 7.6.
+The lightcurve was extracted using the SPOC \citep[Science Processing Operations Centre;][]{jenkins2016tess} SAP (simple aperture photometry) pipeline.
+It was then processed using the Pre-Search Data Conditioning \citep[PDC,][]{stumpe2012kepler,2012PASP..124.1000S,stumpe2014multiscale} pipeline, producing precise detrended photometry with typical precision of 150\,ppm/hr for this star, and then searched for exoplanetary candidates with the Transiting Planet Search \citep[TPS;][]{2010SPIE.7740E..0DJ}.
+This identified a strong candidate with a period of 2.54\,d, a depth of only \Tdepth{} and a Signal to Noise Ratio (SNR) of 7.6.
 Automated and human vetting subsequently designated this candidate a planet candidate and it was assigned \tess{} Object of Interest (TOI) 755.01. 
 
 We inspected the \tess{} aperture using \texttt{tpfplotter} \citep[plotted in Figure \ref{fig:tpf};][]{2020A&A...635A.128A} to ensure no nearby contaminants could be causing the transit.
-We found five stars within the aperture with contrast less than 8, with the brightest with a $\Delta{\rm mag}$ of only 3.5.
-However, to cause the observed 400ppm transit, this star would need to host eclipses of at least 1\%. 
-Furthermore, being more 1.2pix, and therefore almost one PSF FWHM, away from the target star, we would expect to see a significant centroid shift, which is not observed \footnote{as shown by the SPOC DV report accessed at \url{https://mast.stsci.edu/api/v0.1/Download/file/?uri=mast:TESS/product/tess2019085221934-s0010-s0010-0000000073228647-00212_dvr.pdf}}.
-The other stars present are also $>1$ pixel away, and are increasingly fainter ($\Delta{\rm mag}$ of 6.9-7.9), requiring eclipse depths of 25-75\%.
-Causing the observed transit with such a blend scenario therefore becomes increasingly improbable given the flat-bottomed transit shape of TOI-755.01.
+We found five stars within the aperture with contrast less than 8\,mag, with the brightest with a $\Delta{\rm mag}$ of only 3.5.
+However, to cause the observed \Tdepth{} transit, this star would need to host eclipses of at least 1\%. 
+Furthermore, being more than 1.2\,pix, and therefore almost one full-width-half-maximum (FWHM) of the point-spread function (PSF), away from the target star, we would expect to see a significant centroid shift. 
+However, the SPOC data validation modelling \citep{Twicken:DVdiagnostics2018,Li:DVmodelFit2019} shows so such shift and suggests the transit occurs within 5\arcsec{} from the target position\footnote{As shown by the SPOC DV report accessed at \url{https://mast.stsci.edu/api/v0.1/Download/file/?uri=mast:TESS/product/tess2019085221934-s0010-s0010-0000000073228647-00212_dvr.pdf}.}.
+The other stars present are also $>1$ pixel away, and are increasingly fainter ($\Delta{\rm mag}$ of 6.9--7.9), requiring eclipse depths of 25--75\%.
+Causing the observed transit with such a blend scenario therefore becomes increasingly unlikely given the flat-bottomed transit shape of TOI-755.01.
 We conclude that a blend scenario from a known contaminant is unlikely.
 
 \begin{figure}
@@ -369,12 +428,12 @@ We conclude that a blend scenario from a known contaminant is unlikely.
     \label{fig:tpf}
 \end{figure}
 
-\subsection{Ground-based Photometric Follow-up}
+\subsection{Ground-based Photometric Follow-up}\label{sect:groundfu}
 We observed a full transit of TOI-755.01 continuously for 443 minutes in Pan-STARSS $z$-short band on UTC 2020 March 13 from the LCOGT \citep{Brown:2013} 1-m network node at Cerro Tololo Inter-American Observatory.
 The $4096\times4096$ LCOGT SINISTRO cameras have an image scale of $0\farcs389$ per pixel, resulting in a $26\arcmin\times26\arcmin$ field of view.
 The images were calibrated by the standard LCOGT {\tt BANZAI} pipeline \citep{McCully:2018}.
 Photometric data were extracted using {\tt AstroImageJ} \citep{Collins:2017}.
-The mean stellar point-spread-function (PSF) in the image sequence had a full-width-half-maximum (FWHM) of $2\farcs8$.
+The mean stellar PSF in the image sequence had a FWHM of $2\farcs8$.
 Circular apertures with radius $3\farcs1$ were used to extract the differential photometry.
 
 The TOI-755 SPOC pipeline transit depth of 397\,ppm is generally too shallow to reliably detect with ground-based observations, so we instead checked for possible nearby eclipsing binaries (NEBs) that could be contaminating the irregularly shaped SPOC aperture that generally extends $\sim1\arcmin$ from the target star.
@@ -383,7 +442,7 @@ If fully blended in the SPOC aperture, a neighboring star that is fainter than t
 To account for possible delta-magnitude differences between TESS-band and Pan-STARSS $z$-short band, we searched an extra 0.5 magnitudes fainter (down to \textit{TESS}-band magnitude 18.5). 
 
 The brightness and distance limits resulted in a search for NEBs in 90 Gaia DR2 stars, which includes all stars marked in red in Figure \ref{fig:tpf} and a further 67 contaminants with $\Delta{\rm mag}>8$.
-We estimate the expected NEB depth in each neighboring star by taking into account both the difference in magnitude relative to TOI-755 and the distance to TOI-755 (to account for the estimated fraction of the star's flux that would be contaminating the TOI-755 SPOC aperture).
+We estimated the expected NEB depth in each neighboring star by taking into account both the difference in magnitude relative to TOI-755 and the distance to TOI-755 (to account for the estimated fraction of the star's flux that would be contaminating the TOI-755 SPOC aperture).
 If the RMS of the 10-minute binned light curve of a neighboring star is more than a factor of 3 smaller than the expected NEB depth, we consider an NEB to be tentatively ruled out in the star over the observing window.
 We then visually inspect each neighboring star's light curve to ensure no obvious eclipse-like signal.
 The LCOGT data rule out possible contaminating NEBs at the SPOC pipeline nominal ephemeris and over a -$1.7\sigma$ to +$2.3\sigma$ ephemeris uncertainty window.
@@ -393,30 +452,31 @@ By process of elimination, we conclude that the transit is indeed occurring in T
 Although detecting the transits of \Tplanet{} required precise space-based photometry, ground-based photometric surveys have observed \Tstar{} and can provide constraints on stellar variability, and therefore an independent measure of the stellar rotation period.
 
 WASP-South was a wide-field array of 8 cameras forming the Southern station of the WASP transit-search survey \citep{2006PASP..118.1407P}. The field of \Tstar{} was observed over 150-night spans in each of 2007 and 2008, and then again over 2011 and 2012, acquiring a total of 30\,000 photometric data points. 
-WASP-South was then equipped with 200-mm, f/1.8 lenses, observing with a 400--700 nm passband, and with a photometric extraction aperture of 48 arcsecs. 
-There are other stars in the aperture around \Tstar{}, but the brightest is 3 magnitudes fainter with the others are more than 5 magnitudes fainter. 
-%(WASP-South also observed TOI-755 over 2013 \&\ 2014 when equipped with 85-mm lenses,  but these data have a wider extraction aperture containing many other stars, and are less useful here.) 
-We searched the data for rotational modulations using the methods from \citet{2011PASP..123..547M}.  
+WASP-South was at that time equipped with 200-mm, f/1.8 lenses, observing with a 400--700 nm passband, and with a photometric extraction aperture of 48 arcsecs. 
+There are other stars in the aperture around \Tstar{}, but the brightest has  $\Delta{\rm mag}=3$ while the others have $\Delta{\rm mag}>5$. 
+%(WASP-South also observed TOI-755 over 2013 \&\ 2014 when equipped with 85-mm lenses,  but these data have a wider extraction aperture containing many other stars, and are less useful here.)
+Therefore any rotation signal is likely from \Tstar{}.
+We searched the data for rotational modulations using the methods from \citet{2011PASP..123..547M}.
 
 The data from 2011 and 2012 show a modulation at a period of 21\,$\pm$\,2 d.
-This is significant at the 1\%\ false-alarm level in each year separately, with an amplitude of 2 mmag, and when the data from the two years is combined.
+This is significant at the 1\%\ false-alarm level with an amplitude of 2 mmag, both in each year separately, and when the data from the two years are combined.
 The data from 2007 and 2008 combined show a significant modulation at twice this period of $\sim42$\,$\pm$\,4 d.
 There is also power near 21 d in the 2007/2008 periodogram, but it is not significant in its own right.
-
-On its own, the WASP data cannot interpret between these two possible periods, although it would seem more likely from this data alone that the rotational period of \Tstar{} is 42\,$\pm$\,4 days, with the $21$\,d period coming from the first harmonic.
-However, this would seem to go against the independent evidence from the raw \tess{} light curve, which has an ACF peak around $23$\,d, the spectroscopic indicator timeseries, which show a clear $\sim21$\,d periodicity across both observing seasons, and the measured \vsini{} which produces $P_{\rm max} = 28$\,d.
+Although it would seem more likely from these data alone that the rotational period of \Tstar{} is 42\,$\pm$\,4 days, with the $21$\,d period coming from the first harmonic, the WASP data cannot on its own distinguish between these two possible periods.
+%However, this would seem to go against independent evidence such as the spectroscopic indicator timeseries, which show a clear $\sim21$\,d periodicity across both observing seasons, and the measured \vsini{} which produces $P_{\rm max} = 28$\,d.
+%We can conclude from archival WASP photometry this the rotation period of the star is either $21\pm2$\,d or $42\pm4$ harmonic of that value.
 %The likeliest interpretation is that , and that in some years we instead see the 21-d first harmonic. 
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth, trim={0 0.8cm 1.8cm 0.1cm}]{toi755_wasp}
+\includegraphics[width=\columnwidth]{toi755_wasp.eps}
   \caption{Periodograms of the WASP-South data for TOI-755. The top panel shows data from 2007 \&\ 2008 combined, with a significant 42-d periodicity. The lower panels show data from 2011 \&\ 2012, separately and combined, which show more strongly a periodicity of 21-d. The dotted horizontal lines are the estimated 1\%-likelihood false-alarm levels.}
 \label{fig:wasp}
 \end{figure}
 
 \subsection{High-resolution imaging}
-High angular resolution imaging is needed to search for nearby sources that can contaminate the \tess{} photometry, resulting in an underestimated planetary radius, or that can be the source of astrophysical false positives such as background eclipsing binaries. 
-Through TFOP, follow-up, three such images were obtained across two telescopes, with the results shown in Figure \ref{fig:imaging}.
+High-angular-resolution imaging is needed to search for nearby sources that can contaminate the \tess{} photometry, resulting in an underestimated planetary radius, or that can be the source of astrophysical false positives, such as background eclipsing binaries. 
+Through the TESS Follow-Up Program (TFOP), three such images were obtained across two telescopes, with the results shown in Figure \ref{fig:imaging}.
 \begin{figure}
     %[left,bottom,right,top]
     \centering
@@ -426,12 +486,12 @@ Through TFOP, follow-up, three such images were obtained across two telescopes, 
 \end{figure}
 
 \subsubsection{SOAR}
-We searched for stellar companions to TOI-755 with speckle imaging on the 4.1-m Southern Astrophysical Research (SOAR) telescope (Tokovinin 2018) on 14 July 2019 UT, observing in Cousins I-band, a similar visible bandpass as \tess{}. More details of the observation are available in \citet{ziegler2020vizier}. The $5\sigma$ detection sensitivity and speckle auto-correlation functions from the observations are shown in Figure \ref{fig:imaging}. No nearby stars were detected within 3\arcsec{} of \Tstar{} in the SOAR observations.
+We searched for stellar companions to TOI-755 with speckle imaging on the 4.1-m Southern Astrophysical Research (SOAR) telescope \citep{tokovinin2018ten} on 14 July 2019 UT, observing in Cousins I-band, a similar visible bandpass as \tess{}. More details of the observation are available in \citet{ziegler2020vizier}. The $5\sigma$ detection sensitivity and speckle auto-correlation functions from the observations are shown in Figure \ref{fig:imaging}. No nearby stars with magnitudes brighter than $I=16$ were detected within 3\arcsec{} of \Tstar{} in the SOAR observations.
 
 \subsubsection{Gemini/Zorro}
 High-resolution speckle interferometric images of \Tstar{} were obtained on 14 January 2020 UT using the Zorro instrument mounted on the 8-meter Gemini South telescope located on the summit of Cerro Pachon in Chile. 
-Zorro simultaneously observes in two bands, (832/40 nm and 562/54 nm), obtaining diffraction limited images with inner working angles 0.017 and 0.028 arcsec, respectively.
-The observation consisted of 3 minutes sets of 1000×0.06 second images. All the images were combined and subjected to Fourier analysis leading to the production of final data products including speckle reconstructed imagery \citep[see][]{2011AJ....142...19H}.
+Zorro simultaneously observes in two bands, (832\,nm \& 562\,nm with widths of 40 \& 54\,nm respectively), obtaining diffraction-limited images with inner working angles 0.017 and 0.028 arcsec, respectively.
+The observation consisted of 3-minute sets of 1000$\times$0.06-second images. All the images were combined and subjected to Fourier analysis, leading to the production of final data products, including speckle reconstructed imagery \citep[see][]{2011AJ....142...19H}.
 Figure \ref{fig:imaging} shows the $5\sigma$ contrast curves in both filters for the Zorro observation and includes an inset showing the 832 nm reconstructed image.
 The resulting contrast limits reveal that \Tstar{} is a single star to contrast limits of 5 to 8 magnitudes, ruling out most main sequence companions to the star within the spatial limits of $\sim$11 to 320\,au (for $d=106.3$pc).
 
@@ -440,7 +500,7 @@ Over the course of two observing seasons in 2018 and 2019, a total of 114 high-r
 These spectra were taken as part of the \textit{NCORES} program (PI:Armstrong, 1102.C-0249) designed to specifically study the internal structure of hot worlds.
 
 We used the high-accuracy mode of HARPS with a $1\arcsec$ science fibre on the star and a second on-sky fibre monitoring the background flux during exposure. %fed by a Fabry–P\'erot etalon for simultaneous wavelength calibration. 
-The nominal exposure time was 1800 seconds, with a few exceptions of slightly longer or shorter integration depending on observing conditions and schedule.
+The nominal exposure time was 1800 seconds, with a few exceptions of slightly longer or shorter integration, depending on observing conditions and schedule.
 
 Spectra and RV information were extracted using the 
 offline HARPS data reduction pipeline hosted at Geneva Observatory. 
@@ -462,35 +522,35 @@ The HARPS spectra and derived RVs were accessed and downloaded through the DACE 
         Parameter & Value & Parameter & Value \\
         \hline
         \hline
-        TOI ID & \TTstar & R.A. [$^{\circ}$] & $190.0365636^{\tnote{a}}$ \\
-        TIC ID & 73228647$^{\tnote{b}}$ & R.A. [hms] & 12:40:08.78$^{\tnote{a}}$ \\
-        HD & \Tstar & Dec. [$^{\circ}$] & $-44.3120777^{\tnote{a}}$\\
-        HIP & HIP 61820 & Dec. [dms] & -44:18:43.48$^{\tnote{a}}$ \\
-        Gaia ID & {\scriptsize \TGAIAid}$^{\tnote{a}}$ & $\delta{\rm RA}$ [mas\,${\rm yr}^{-1}$] & $-3.72 \pm 0.1$ \\
-        Parallax [mas] & $9.38 \pm 0.036 $ & $\delta{\rm DEC}$ [mas\,${\rm yr}^{-1}$] & $-13.68 \pm 0.12 $ \\
-        $d$ [pc] & $ 106.3\pm0.72^{\tnote{b}}$ & $R_s$ [\rsun{}] & \Trstar{}$^{\tnote{e}}$ \\
-        B & $10.71\pm0.032^{\tnote{c}}$ & $M_s$ [\msun{}] & \Tmstar{}$^{\tnote{e}}$ \\
-        V & $10.063\pm0.027^{\tnote{c}}$ &  \logg{} & \Tlogg{}$^{\tnote{e}}$ \\
-        Gaia $G$ & $9.91\pm0.0004 ^{\tnote{a}}$ & \teff{} [K] & \TTeff{}$^{\tnote{e}}$ \\
-        TESS mag & $9.4628\pm0.006^{\tnote{b}}$ & \feh{} & \TFeH{}$^{\tnote{e}}$ \\
-        J & $8.903 \pm 0.037^{\tnote{c}}$ & \vsini{} [\kms{}]& $1.74\pm0.15^{\tnote{e}}$\\
-        H & $8.594 \pm 0.063^{\tnote{c}}$ & $P_{\rm rot}$ [d] & \Tperiod{}$^{\tnote{e}}$\\
-        K & $8.502 \pm0.024^{\tnote{c}}$ & Age $[{\rm Gyr}]$ & \Tstarage{}$^{\tnote{e}}$ \\
+        TOI ID & \TTstar & R.A. [$^{\circ}$] & $190.0365636$\,$^{a}$ \\
+        TIC ID & 73228647 $^{b}$ & R.A. [hms] & 12:40:08.78 $^{a}$ \\
+        HD & \Tstar & Dec. [$^{\circ}$] & $-44.3120777$\,$^{a}$\\
+        HIP & HIP 61820 & Dec. [dms] & -44:18:43.48 $^{a}$ \\
+        Gaia ID & {\scriptsize \TGAIAid $^{a}$} & $\delta{\rm RA}$ [mas\,${\rm yr}^{-1}$] & $-3.72 \pm 0.1$\,$^{a}$ \\
+        $\pi{} [{\rm mas}]$ & $9.38 \pm 0.036$\,$^{a}$ & $\delta{\rm DEC}$ [mas\,${\rm yr}^{-1}$] & $-13.68 \pm 0.12$\,$^{a}$ \\
+        $d$ [pc] & $ 106.3\pm0.72$\,$^{e}$ & $R_s$ [\rsun{}] & \Trstar{}$^{e}$ \\
+        B & $10.71\pm0.032$\,$^{c}$ & $M_s$ [\msun{}] & \Tmstar{}$^{e}$ \\
+        V & $10.063\pm0.027$\,$^{c}$ &  \logg{} & \Tlogg{}$^{e}$ \\
+        Gaia $G$ & $9.91\pm0.0004$\,$^{a}$ & \teff{} [K] & \TTeff{}$^{e}$ \\
+        TESS mag & $9.4628\pm0.006$\,$^{b}$ & \feh{} & \TFeH{}$^{e}$ \\
+        J & $8.903 \pm 0.037$\,$^{c}$ & \vsini{} [\kms{}]& $1.74\pm0.15$\,$^{e}$\\
+        H & $8.594 \pm 0.063$\,$^{c}$ & $P_{\rm rot}$ [d] & \Tperiod{}$^{f}$\\
+        K & $8.502 \pm0.024$\,$^{c}$ & Age $[{\rm Gyr}]$ & \Tstarage{} $^{g}$ \\
         \hline
         \hline
     \end{tabular}
     \caption{Stellar parameters.
-    $^{\tnote{a}}$\,From Gaia DR2\citep{brown2018gaia}. $^{\tnote{b}}$\,From the \tess{} Input Catalogue v8 \citep{stassun2019revised}. $^{\tnote{c}}$\,Johnson magnitudes from APASS\citep{apass}. $^{\tnote{d}}$\,From 2MASS\citep{skrutskie2006two}. $^{\tnote{e}}$\,Derived from \harps{} spectra.}
+    $^{a}$\,From Gaia DR2\citep{brown2018gaia}. $^{b}$\,From the \tess{} Input Catalogue v8 \citep{stassun2019revised}. $^{c}$\,Johnson magnitudes from APASS \citep{apass}. $^{d}$\,From 2MASS \citep{skrutskie2006two}. $^{e}$\,Derived from \harps{} spectra and archival data - see sect \ref{sect:starpars}. $^{f}$\,Determined using the GP fit to activity indicators and RVs as described in \ref{sect:rvs}. $^{g}$\,Derived from $[\rm{Y}/\rm{Al}]$ abundance-age relation as described in sect \ref{sect:abunds}.}
     \label{tab:starpars}
 \end{table}
 
 \subsubsection{Global Stellar Parameters}\label{sect:starpars}
-Stellar parameters \teff{}, \logg{} and \feh{} were derived using a recent version of the MOOG code \citep{1973ApJ...184..839S} and a set of plane-parallel ATLAS9 model atmospheres  \citep{Kurucz-93}. The analysis was done in LTE. 
+The star's effective temperature (\teff{}), surface gravity (\logg{}), and metallicity (\feh{}) were derived using a recent version of the MOOG code \citep{1973ApJ...184..839S} and a set of plane-parallel ATLAS9 model atmospheres  \citep{Kurucz-93}. The analysis was done in LTE. 
 The methodology used is described in detail in \citet{2011A&A...533A.141S} and \citet{2013A&A...556A.150S}. 
 The full spectroscopic analysis is based on the Equivalent Widths (EWs) of 233 Fe \rom{1} and 34 Fe \rom{2} weak lines by imposing ionization and excitation equilibrium. 
 The line-list used was taken from \citet{2008A&A...487..373S}.
-We obtained resulting parameters of \teff{}=$6732\pm16$K, \logg{}$=4.46\pm0.05$ and \feh{}$=0.14\pm0.02$.
-To account for potential systematic uncertainties, we increased the error bars to $50$K and 0.05dex for\teff{} and \logg{} respectively.
+We obtained resulting parameters of \teff{}=$5732\pm16$K, \logg{}$=4.46\pm0.05$ and \feh{}$=0.14\pm0.02$.
+To account for potential systematic uncertainties, we increased the error bars to $50$K and 0.05 dex for \teff{} and \logg{} respectively.
 
 To constrain the physical stellar parameters of \Tstar{} given the observed information, we applied three techniques.
 
@@ -513,24 +573,25 @@ As a final independent determination of the basic stellar parameters for \Tstar,
     \label{fig:sed}
 \end{figure}
 
-We performed a fit using Kurucz stellar atmosphere models, with the effective temperature ($T_{\rm eff}$), metallicity ([Fe/H]), and surface gravity ($\log g$) adopted from the spectroscopic analysis. The only additional free parameter is the extinction ($A_V$), which we restricted to the maximum line-of-sight value from the dust maps of \citet{Schlegel:1998}. The resulting fit is very good (Figure~\ref{fig:sed}) with a reduced $\chi^2$ of 1.4 and best-fit $A_V = 0.03 \pm 0.03$. Integrating the (unreddened) model SED gives the bolometric flux at Earth, $F_{\rm bol} = 2.597 \pm 0.091 \times 10^{-9}$ erg~s$^{-1}$~cm$^{-2}$. Taking the $F_{\rm bol}$ and $T_{\rm eff}$ together with the {\it Gaia\/} DR2 parallax, gives the stellar radius, $R_\star = 0.968 \pm 0.018 R_\odot$. In addition, we can use the $R_\star$ together with the spectroscopic $\log g$ to obtain an empirical mass estimate of $M_\star = 0.99 \pm 0.08 M_\odot$.
+We performed a fit using Kurucz stellar atmosphere models, with the $T_{\rm eff}$, [Fe/H] and $\log g$ adopted from the spectroscopic analysis. The only additional free parameter is the extinction ($A_V$), which we restricted to the maximum line-of-sight value from the dust maps of \citet{Schlegel:1998}. The resulting fit is very good (Figure~\ref{fig:sed}) with a reduced $\chi^2$ of 1.4 and best-fit $A_V = 0.03 \pm 0.03$. Integrating the (unreddened) model SED gives the bolometric flux at Earth, $F_{\rm bol} = 2.597 \pm 0.091 \times 10^{-9}$ erg~s$^{-1}$~cm$^{-2}$. Taking the $F_{\rm bol}$ and $T_{\rm eff}$ together with the {\it Gaia\/} DR2 parallax, gives the stellar radius, $R_\star = 0.968 \pm 0.018 R_\odot$. In addition, we can use the $R_\star$ together with the spectroscopic $\log g$ to obtain an empirical mass estimate of $M_\star = 0.99 \pm 0.08 M_\odot$.
 %which is consistent with that obtained via empirical relations of \citet{Torres:2010}, $M_\star = 1.06 \pm 0.06 M_\odot$.
 
-Taken together, all the stellar parameters as derived above are roughly self-consistent, and all suggest that \Tstar{} is a solar analogue with mass and radius very close to the Sun.
+Taken together, all the stellar parameters as derived above are consistent, and all suggest that \Tstar{} is a solar analogue with mass and radius very close to the Sun.
 As the SED radius measurement is least affected by sample size or systematic uncertainty, we assume this as a final radius.
-Similarly, the Mass obtained from the \logg{} and the SED-derived \rstar{} ($0.99 \pm 0.08 M_\odot$) is nearly identical to that from the MR relationship (\Tmstartorres{}\,\msun{}), suggesting they converge on the same value.
+Similarly, the mass obtained from the \logg{} and the SED-derived \rstar{} ($0.99 \pm 0.08 M_\odot$) is nearly identical to that from the MR relationship (\Tmstartorres{}\,\msun{}), suggesting they converge on the same value.
 We therefore use the mass as defined from the offset-corrected \citet{2010A&ARv..18...67T} calibrations, with the uncertainty inflated to reflect the typical systematic error ($0.06M_{\odot}$).
 
-To compute the \vsini{} from the FWHM, we used the relations of \citet{dos2016solar} who studied the \harps{} spectra of a large number of solar twins.
+To compute the \vsini{} from the FWHM, we used the relations of \citet{dos2016solar}, who studied the \harps{} spectra of a large number of solar twins.
 We used this to first estimate the $v_{\rm macro}$ from the \teff{} and \logg{} derived in section \ref{sect:starpars} ($3.64\pm0.1$\,\kms{}), and then combined this with the measured FWHM to estimate a \vsini{} of $1.74\pm0.15$\,\kms{}.
 Using the calculated $R_s$, this corresponds to a maximum rotation period ($P_{\rm max}$) of $28\pm3$\,d, assuming an aligned system.
 
-\subsubsection{Chemical abundances} \label{sec:parameters}
-In an independent analysis, stellar atmospheric parameters (\teff{}, \logg{}, microturbulence and \feh{}) and respective error bars were derived using the methodology described in \citet{Sousa-14, Santos-13}. In brief, we make use of the equivalent widths (EW) of 224 FeI and 35 FeII lines, as measured in the combined HARPS spectrum of TOI-755 using the ARES v2 code\footnote{The last version of ARES code (ARES v2) can be downloaded at http://www.astro.up.pt/$\sim$sousasag/ares} \citep{Sousa-15}, and we assume ionization and excitation equilibrium. The process makes use of a grid of Kurucz model atmospheres \citep{Kurucz-93} and the radiative transfer code MOOG \citep{Sneden-73}.
+\subsubsection{Chemical abundances} \label{sect:abunds}
+%In an independent analysis, stellar atmospheric parameters (\teff{}, \logg{}, microturbulence and \feh{}) and respective error bars were derived using the methodology described in \citet{Sousa-14, Santos-13}. In brief, we make use of the equivalent widths (EW) of 224 FeI and 35 FeII lines, as measured in the combined HARPS spectrum of TOI-755 using the ARES v2 code\footnote{The last version of ARES code (ARES v2) can be downloaded at http://www.astro.up.pt/$\sim$sousasag/ares} \citep{Sousa-15}, and we assume ionization and excitation equilibrium. The process makes use of a grid of Kurucz model atmospheres \citep{Kurucz-93} and the radiative transfer code MOOG \citep{Sneden-73}.
 
-Stellar abundances of the elements were also derived using the same tools and models as for stellar parameter determination as well as using the classical curve-of-growth analysis method assuming local thermodynamic equilibrium. Although the EWs of the spectral lines were automatically measured with ARES, for the elements with only two to three lines available we performed careful visual inspection of the EWs measurements. For the derivation of chemical abundances of refractory elements we closely followed the methods described in \citep[e.g.][]{Adibekyan-12, Adibekyan-15, Delgado-14, Delgado-17}. Abundances of the volatile elements, O and C, were derived following the method of \cite{Delgado-10, 2015A&A...576A..89B}. Since the two spectral lines of oxygen are usually weak and the 6300.3\,\AA{} line is blended with Ni and CN lines, the EWs of these lines were manually measured with the task \texttt{splot} in IRAF. Lithium and sulfur abundances were derived by performing spectral synthesis with MOOG following the works by \citet{Delgado-14} and \citet{Costa_Silva2020} respectively. All the [X/H] ratios are obtained by doing a differential analysis with respect to a high S/N solar (Vesta) spectrum from HARPS. The stellar parameters and abundances of the elements are presented in Table \ref{tab:abunds}. 
+Stellar abundances of the elements were also derived using the same tools and models as for stellar parameter determination as well as using the classical curve-of-growth analysis method assuming local thermodynamic equilibrium. Although the EWs of the spectral lines were automatically measured with ARES, for the elements with only two to three lines available we performed careful visual inspection of the EWs measurements. For the derivation of chemical abundances of refractory elements, we closely followed the methods described in the literature \citep[e.g.][]{Adibekyan-12, Adibekyan-15, Delgado-14, Delgado-17}. Abundances of the volatile elements, O and C, were derived following the method of \cite{Delgado-10, 2015A&A...576A..89B}. Since the two spectral lines of oxygen are usually weak and the 6300.3\,\AA{} line is blended with Ni and CN lines, the EWs of these lines were manually measured with the task \texttt{splot} in IRAF. Lithium and sulfur abundances were derived by performing spectral synthesis with MOOG, following the works by \citet{Delgado-14} and \citet{Costa_Silva2020} respectively. Both abundance indicators are very similar to the solar values.
+All the [X/H] ratios are obtained by doing a differential analysis with respect to a high S/N solar (Vesta) spectrum from HARPS. The stellar parameters and abundances of the elements are presented in Table \ref{tab:abunds}. 
 
-We find that the [X/Fe] ratios of most elements are close to solar as expected for a star with this metallicity whereas [O/Fe] and [C/Fe] are slightly subsolar, since these ratios tend to slightly decrease above solar metallicity \cite[e.g.][]{Bertrandelis-15,Franchini2020}. Moreover, we used the chemical abundances of some elements to derive ages through the so-called chemical clocks (i.e. certain chemical abundance ratios which have a strong correlation with age). We applied the 3D formulas described in \citet{Delgado-19}, which also consider the variation in age produced by the effective temperature and iron abundance. The chemical clocks [Y/Mg], [Y/Zn], [Y/Ti], [Y/Si], and [Y/Al] were used from which we used the [Y/Al] age, \Tstarage{}Gyr, which is consistent with all others and has the smallest uncertainties
+We find that the [X/Fe] ratios of most elements are close to solar as expected for a star with this metallicity whereas [O/Fe] and [C/Fe] are slightly subsolar, since these ratios tend to slightly decrease above solar metallicity \cite[e.g.][]{Bertrandelis-15,Franchini2020}. Moreover, we used the chemical abundances of some elements to derive ages through the so-called chemical clocks (i.e. certain chemical abundance ratios which have a strong correlation with age). We applied the 3D formulas described in \citet{Delgado-19}, which also consider the variation in age produced by the effective temperature and iron abundance. The chemical clocks [Y/Mg], [Y/Zn], [Y/Ti], [Y/Si], and [Y/Al] were derived. We selected the [Y/Al] age, \Tstarage{}, as the representative age, as iT is consistent with all others and has the smallest uncertainty.
 
 \begin{table}
     \centering
@@ -569,53 +630,54 @@ We find that the [X/Fe] ratios of most elements are close to solar as expected f
         Mg/Fe & $   1.23 $ & $ 0.08 $ \\
         \hline
         \multicolumn{3}{c}{\it Ages}\\
-        Y/Mg Age [Gyr]  & $ 4.09 $ & $ 0.75 $ \\
-        Y/Ti Age [Gyr]  & $ 4.09 $ & $ 0.95 $ \\
-        Y/Zn Age [Gyr]  & $ 3.29 $ & $ 0.77 $ \\
-        Y/Si Age [Gyr]  & $ 3.95 $ & $ 0.86 $ \\
-        Y/Al Age [Gyr]  & $ 4.00 $ & $ 0.54 $ \\
+        $[\rm{Y}/\rm{Mg}]$ Age [Gyr]  & $ 4.09 $ & $ 0.75 $ \\
+        $[\rm{Y}/\rm{Ti}]$ Age [Gyr]  & $ 4.09 $ & $ 0.95 $ \\
+        $[\rm{Y}/\rm{Zn}]$ Age [Gyr]  & $ 3.29 $ & $ 0.77 $ \\
+        $[\rm{Y}/\rm{Si}]$ Age [Gyr]  & $ 3.95 $ & $ 0.86 $ \\
+        $[\rm{Y}/\rm{Al}]$ Age [Gyr]  & $ 4.00 $ & $ 0.54 $ \\
         \hline
         \hline
     \end{tabular}
-    \caption{Derived stellar abundances. $^{\tnote{a}}$Y/Mg age from \citet{Delgado-19}. 3D formula from Table 10 (age \&  $a + b \times$\teff{}$+ c \times$\feh{}$ + d \times$\ymg{}).}
+    \caption{Derived stellar abundances. [Y/X] based ages using the 3D formula of \citet{Delgado-19} (Table 10: age \&  $a + b \times$\teff{}$+ c \times$\feh{}$ + d \times$\ymg{}).}
     \label{tab:abunds}
 \end{table}
 
 
 \subsection{Combined modelling of RV \& Photometry}
 
-\subsubsection{Treatment of Radial Velocities}
-All RV indicator statistics showed clear signs of stellar variability, likely due to the presence of starspots.
-To remove this stellar activity we first turned to linear decorrelation of the RV signal using RV indicators.
-The FWHM and S-index showed the clearest rotational signals, so we selected these and used the decorrelation technique provided with the DACE spectroscopy python package \citep{2015ASPC..495....7B}\footnote{\url{https://dace.unige.ch/tutorials/?tutorialId=34}}.
-Despite the activity indicators removing much of the stellar variability signal, the peak at $\sim22$d remained strong in the radial velocity time series (see Figure \ref{fig:rv_decorr}).
-After removing the rotation signal with the highest peak at $23.68\pm0.08$\,d by fitting a Keplerian, the next strongest signals were at $6.73\pm0.03$\,d and $2.541\pm0.0008$\,d with amplitudes of $3.88\pm0.31$\,\ms{} and $2.55\pm0.31$\,\ms{} respectively. This was followed by signals on longer periods which are most likely spurious due to rotational and observational aliases.
+\subsubsection{Treatment of Radial Velocities}\label{sect:rvs}
+All activity indicators showed clear signs of stellar variability, likely due to the presence of starspots.
+To remove this stellar activity, we first turned to linear decorrelation of the RV signal using activity indicators.
+The FWHM and S-index showed the clearest rotational signals, so we selected these and used the decorrelation technique provided with the DACE spectroscopy Python package \citep{2015ASPC..495....7B}\footnote{\url{https://dace.unige.ch/tutorials/?tutorialId=34}}.
+Despite this decorrelation removing much of the stellar variability signal, the peak at $\sim22$d remained the single strongest signal in the radial velocity time series (see Figure \ref{fig:rv_decorr}).
+To remove the rotation signal at $23.68\pm0.08$\,d, we fitted a 5-parameter Keplerian model (with eccentricity $e$, argument of periasteron $\Omega$, \& semi-amplitude $K$ as free parameters, with period $P$ and time of transit $t_0$ constrained from the periodogram).
+The next strongest signals were at $6.73\pm0.03$\,d and $2.541\pm0.0008$\,d with amplitudes of $3.88\pm0.31$\,\ms{} and $2.55\pm0.31$\,\ms{} respectively. This was followed by signals on longer periods, which are most likely spurious due to rotational and observational aliases.
 
 % (see Figure \ref{fig:LS}), therefore we chose this as the indicator with which to train a GP.
 Although this linear decorrelation and Keplerian-fitted rotation period was able to reveal the planetary RV signals, stellar variability cannot in general be modelled as a Keplerian.
 Instead we turned to a Gaussian process (GP) to model the impact of rotation on the RVs.
 GPs have frequently been used in the analysis of radial velocities affected by activity \citep[e.g.][]{2014MNRAS.443.2517H,2019A&A...627A..43D}.
-One GP kernel well-suited to stellar rotation is to use a a mix of simple harmonic osscilator (SHO) terms corresponding to $P_{\rm rot}$ and $P_{\rm rot}/2$, which we built using \texttt{exoplanet} and \texttt{celerite}\footnote{We used the \texttt{exoplanet.gp.terms.RotationTerm} implementation} \citep{exoplanet:foremanmackey17}.
+One GP kernel well-suited to stellar rotation is a mix of simple harmonic oscillator (SHO) terms corresponding to $P_{\rm rot}$ and $P_{\rm rot}/2$, which we built using \texttt{exoplanet} and \texttt{celerite} packages\footnote{We used the \texttt{exoplanet.gp.terms.RotationTerm} implementation}.
 
-In order to limit the impact of the GP on the planetary RV signal, we fitted activity indicators and RV time series simultaneously with the same GP kernel, as these should follow the same underlying variations with the exception of planetary reflex motion.
-A similar approach was previously used by \citet{grunblatt2015determining} to model stellar variability in the Kepler-78b system.
+In order to limit the impact of the GP on the planetary RV signal, we fitted activity indicators and RV time-series simultaneously with the same GP kernel, as these should follow the same underlying variations with the exception of planetary reflex motion.
+A similar approach was previously used by \citet{grunblatt2015determining} to model stellar variability in the Kepler-78b system, and by \citet{2020A&A...639A..77S} to find an outer candidate orbiting Proxima Centauri.
 By explicitly linking the variation found across activity indicators and RVs, this method has the same effect as "training" a GP on an activity indicator \citep[e.g.][]{2019A&A...627A..43D}.
-However, it avoids having to run multiple models consecutively and transfer the output PDF of a training sample into a second model - a process which loses information intrinsic to the likely non-gaussian distributions of the GP hyper-parameters as well as information about the correlations between parameters.
+However, it avoids having to run multiple models consecutively and transfer the output PDF of a training sample into a second model---a process which loses information intrinsic to the likely non-Gaussian distributions of the GP hyper-parameters as well as information about the correlations between parameters.
 This technique also enables the use of multiple time-series.
 In this case, we chose S-index and FWHM to co-fit with RV, as these showed the clearest rotation signal.
 
-To achieve this, the hyper-parameters for rotation period, mix factor, signal quality ($Q$), and the difference in signal quality between modes ($\delta Q$) were kept constant between S-index, FWHM \& RV time-series, while the signal amplitude \& mean, which are not shared across parameters, were set as separate parameters.
+To achieve this, the hyper-parameters for rotation period, mix factor between $P_{\rm rot}$ and $P_{\rm rot}/2$ terms, signal quality ($Q$), and the difference in signal quality between modes ($\Delta Q$) were kept constant between S-index, FWHM and RV time-series, while the signal amplitude and mean, which are not shared across parameters, were set as separate parameters.
 For each time-series we also used a jitter term to model noise not included by measurement errors and to prevent GP over-fitting.
 %To train the GP we used a Rotational kernel , with a fifth parameter to include excess jitter in the measurements. 
-All hyper-parameters were given broad priors, although the rotation period was constrained to the value obtained from a Lomb-Scargle periodogram with a standard deviation of 20\%.
-All priors to parameters are listed in Table \ref{tab:planetparlong}.
+All hyper-parameters were given broad priors, although the rotation period was constrained to the value obtained from a Lomb-Scargle periodogram \citep{Lomb1976, Scargle1982} with a standard deviation of 20\%.
+All parameter priors are listed in Table \ref{tab:planetparlong}.
 %We optimised this model and then ran a Hamiltonian Monte Carlo to produce 1200 samples from which to use as priors in our RV GP model. The resulting GP model fit is shown in figure \ref{SindexFig}.
 
-We also noted that the FWHM errors produced by the \harps{} pipeline appeared over-estimated - more than twice the estimated error derived from the median absolute difference between measurements.
-Therefore the FWHM errors were re-normalised such that the median error matched the median absolute difference.
+We also noted that the FWHM errors produced by the \harps{} pipeline appeared over-estimated---more than twice the estimated error derived from the median absolute difference between measurements.
+Therefore the FWHM errors were multiplied by a factor of 0.4386 such that the median error matched the point-to-point RMS as calculated from the median absolute difference.
 
 A 2-parameter (i.e. linear) trend term was included to model potential long-term drift in the RVs, although the resulting gradient was not significant ($-0.14\pm0.73$\,\ms{}d$^{-1}$).
-Single parameter mean values were included to model the offset of S-index and FWHM from zero.
+Single-parameter mean values were included to model the offset of S-index and FWHM from zero.
 
 
 \begin{figure}
@@ -639,8 +701,8 @@ Single parameter mean values were included to model the offset of S-index and FW
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\textwidth, trim={0.85cm 0.8 1.9cm 0.4cm}]{Combined_RV_plots_3_GPs_nontransiting_c.pdf}
-    \caption{S-index, FWHM and RV timeseries of HD110113 for two seasons of HARPS monitoring, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed timeseries (purple points), plus the modelled planets and background trend. At the very bottom the full model residuals are shown, with an RMS of only 1.31\,\ms{} - extremely close to the median HARPS measurement uncertainty (1.36\,\ms{}).}
+	\includegraphics[width=\textwidth, trim={0.85cm 0.8 1.9cm 0.4cm}]{Combined_RV_plots_3_GPs_final.pdf}
+    \caption{S-index, FWHM and RV timeseries of HD110113 for two seasons of HARPS monitoring, with GP models and 2-sigma uncertainty regions overplotted in green. Below the raw RV timeseries is the GP-removed RV timeseries, with the modelled planetary reflex motion and background trend (turquoise). At the very bottom the full model residuals are shown, with an RMS of only 1.31\,\ms{}---extremely close to the median HARPS measurement uncertainty (1.36\,\ms{}).}
     \label{fig:RVs}
 \end{figure*}
 
@@ -648,41 +710,44 @@ Single parameter mean values were included to model the offset of S-index and FW
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\columnwidth, trim={0.1cm 0.8cm 1.0cm 0.85cm}]{Phase_folded_RV_plots_3_GPs_nontransiting_c.pdf}
-    \caption{Phase-folded RVs (with both the best-fit GP model and linear trend removed) for \Tplanet{} (top) and \Tplanetc{} (bottom), with model-subtracted residuals. }
+	\includegraphics[width=\columnwidth, trim={0.1cm 0.8cm 1.0cm 0.85cm}]{Phase_folded_RV_plots_3_GPs_final.pdf}
+    \caption{Phase-folded RVs (with the best-fit GP model, linear trend, and the other planetary signal removed) for \Tplanet{} (top) and \Tplanetc{} (bottom), with model-subtracted residuals. }
     \label{fig:phase_fold_rvs}
 \end{figure}
 
 \subsubsection{Treatment of Photometry}
-We downloaded the \texttt{PDC\_SAP} lightcurve from MAST.
+We downloaded the \texttt{PDC\_SAP} lightcurve from the Mikulski Archive for Space Telescopes (MAST).
 As high-resolution imaging revealed no close stellar neighbours missed by e.g. the \tess{} input catalogue \citep{stassun2019revised}, we made the assumption that the PDC-extracted and dilution-corrected lightcurve for this target was accurate.
 
 We then normalised the \texttt{PDC\_SAP} timeseries by its median and masked anomalous flux points from the timeseries by cutting data more than $4.2\sigma$ different from both preceding and succeeding neighbours.
 
-We initially tried to use the same \texttt{celerite} GP kernel to predict both RV and photometric time series deviations.
+We initially tried to use the same \texttt{celerite} GP kernel to predict both RV and photometric time-series deviations.
 This proved to not be possible, likely because the effect of stellar variability on photometry is not necessarily at the same timescale as for RVs \citep{10.1111/j.1365-2966.2011.19960.x}.
-Similarly, although a Lomb-Scargle periodogram of the raw \tess{} lightcurve does show a peak with a period around 25d, the processed \texttt{PDC\_SAP} lightcurve is flat, likely as variability on the order of a \tess{} orbit ($\sim 14$\,d) are removed during processing.
-Instead we used a separate, single-SHO \texttt{celerite} kernel with quality $Q=1/\sqrt{2}$ to model the photometric stellar variability.
-To produce the initial hyperparameters and priors for the combined analysis and reduce the possibility of the GPs attempting to model out the transits themselves, we first fitted this GP to the photometry with planetary transits cut. The interpolated posterior distributions from this analysis then provided the priors for the combined analysis.
+Similarly, although a Lomb-Scargle periodogram of the raw \tess{} lightcurve does show a peak with a period around 25d, the processed \texttt{PDC\_SAP} lightcurve is flat, likely as variability on the order of a \tess{} orbit ($\sim 14$\,d) is removed during processing.
+
+The remaining variability is therefore likely to be the result of stellar granulation, which is well-suited to be modelled with a single GP SHO kernel with quality $Q=1/\sqrt{2}$ \citep{2020A&A...634A..75B, exoplanet:foremanmackey17}.
+To produce the initial hyperparameters ($\omega_0$ \& $S_0$) and priors for the combined analysis and reduce the possibility of the GPs attempting to model the transits themselves, we first fitted this GP to the photometry with planetary transits cut. 
+The interpolated posterior distributions from this analysis then provided the priors for the combined analysis.
 A jitter term was also included to model the effect of high-frequency noise not fully encapsulated by the photon noise (e.g. stellar \& spacecraft jitter).
 
-We modelled the limb darkening using two approaches - one where limb darkening is a free parameter reparameterised using the approach of \citet{kipping2013efficient} and fitted to the transit without priors, and another where the expected theoretical limb darkening parameters for the star as generated by \citet{claret2017limb} are used as priors for the analysis.
-We found the resulting distributions to be consistent, and chose to use the constrained approach in the final modelling.
+We modelled the limb darkening using two approaches: one where limb darkening is a free parameter, reparameterised using the approach of \citet{kipping2013efficient} and fitted to the transit with uninformative priors that cover the physical parameter space; and another where the expected theoretical limb darkening parameters for the star as generated by \citet{claret2017limb} are used as priors for the analysis.
+We found the resulting distributions to be consistent, and chose to use the second, constrained approach in the final modelling. 
+This used a normal prior with the mean, $\mu$, set from the theoretical parameter and $\sigma$ set as 0.1 which we chose instead of the uncertainty found when propagating the stellar parameters through the \citet{claret2017limb} relation, which was likely too contsraining and did not account for systematic uncertainties.
 The radius ratio $R_p/R_s$ was treated using the log amplitude to avoid negative values, and b was reparameterised with $R_p/R_s$ following the \texttt{exoplanet} implementation of \citet{espinoza2018efficient}.
 
-As ground-based photometry was not precise enough to observe a transit, we restrict this analysis to only the \tess{} photometry and \harps{} spectroscopy.
+As ground-based photometry was not precise enough to observe a transit (see Sect. \ref{sect:groundfu}), we restrict this analysis to only the \tess{} photometry and \harps{} spectroscopy.
 
 \subsubsection{Combined Model}
 We modelled full Keplerian orbits for the two planets, with eccentricity priors according to the \citet{kipping2013parametrizing} beta distribution.
 
 Monte Carlo sampling, while able to explore the parameter space around a best-fit solution, does not deal well with exploring unconstrained parameters with multiple local minima. 
 Therefore, in order to allow our model to explore a single solution, we included normal priors on period and $t_0$ using the values and uncertainties from the TOI catalogue in the case of the $2.54$d planet, and from the RV periodogram in the case of the $6.7$d planet.
-In all cases, we artificially inflated these uncertainties to make sure the parameters were not over-constrained by their parameters, which is confirmed by noting the that posterior distributions are, in all cases, narrower than the priors.
+In all cases, we artificially inflated these uncertainties to make sure the parameters were not over-constrained by their priors, which is confirmed by noting that the posterior distributions are, in all cases, narrower than the priors.
 %To ensure the models did 
 
-The combined model, built using the \textsf{exoplanet} \citep{exoplanet:exoplanet} package, was sampled using the No-U Turn Sampler (NUTS) in the Hamiltonian Monte Carlo \texttt{PyMC} back-end \citep{exoplanet:pymc3} using 5 independent chains and 500 steps burn-in for each.
+The combined model, built using the \textsf{exoplanet} \citep{exoplanet:exoplanet} package, was sampled using the No-U Turn Sampler (NUTS) in the Hamiltonian Monte Carlo \texttt{PyMC} back-end \citep{exoplanet:pymc3} using 5 independent chains with 2000 steps and an additional 500 steps burn-in.
 This produced 10000 independent samples.
-Model priors and posteriors are displayed in table \ref{tab:derived_pars}.
+Model priors and posteriors are displayed in table \ref{tab:planetparlong}.
 
 The results from the combined model are shown in tables \ref{tab:derived_pars} and \ref{tab:planetparlong}, with the \harps{} RV timeseries and best-fit models shown in figure \ref{fig:RVs}, phase-folded RVs and model shown in figure \ref{fig:phase_fold_rvs}, and \tess{} photometry and best-fit light curves shown in figure \ref{fig:photometry}.
 
@@ -691,74 +756,77 @@ The results from the combined model are shown in tables \ref{tab:derived_pars} a
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
 	%[left,bottom,right,top]
-	\includegraphics[width=\textwidth, trim={1.45cm 0.2 0.95cm 0.5}]{Combined_phot_plot_3_GPs_nontransiting_c.pdf}
+	\includegraphics[width=\textwidth, trim={1.45cm 0.2 0.95cm 0.5}]{Combined_phot_plot_3_GPs_final.pdf}
     \caption{\tess{} photometry, where black dots represent individual 2-minute cadence data and dark circles (with errorbars) represent 30-minute bins. Upper left: \tess{} \texttt{PDC\_SAP} time series with best-fit GP model (both offset by 3.5ppt), and GP-subtracted lightcurve with the best-fit transit model over-plotted (no offset). Lower left: residuals, with both GP model and transit models subtracted from the lightcurve. Upper right: phase-folded lightcurve of \Tplanet{} zoomed to the transit. Lower right: phase-folded residuals. }
     \label{fig:photometry}
 \end{figure*}
 
 \begin{table}
 	\centering
-	\caption{Derived planet properties.}
 	\label{tab:derived_pars}
-\begin{tabular}{lcc}
-\hline
-\hline
-Parameter & \Tplanet{} & \Tplanetc{}\\
-\hline
-\hline
-Epoch, $t_0$ [BJD-2457000] &  $ 1570.1006 \pm 0.0044 $  &  $ 1798.18 \pm 0.18 $  \\
-Orbital Period, $P$ [d] &  $ 2.5408 \pm 0.00049 $  &  $ 6.744^{+0.0084}_{-0.0085} $  \\
-Semi-major Axis, $a$ [AU] &  $ 0.03755 \pm 0.00093 $  &  $ 0.06979 \pm 0.00023 $  \\
-Orbital Eccentricity, $e$ &  $ 0.102^{+0.088}_{-0.068} $  &  $ 0.05^{+0.076}_{-0.037} $  \\
-Argument of periasteron, $\Omega$ &  $ -0.35^{+0.99}_{-0.8} $  &  $ 0.8 \pm 1.1 $  \\
-Radius ratio [$R_p/R_s$] &  $ 0.0196 \pm 0.0013 $  & --- \\
-Radius, $R_p$ [$R_\oplus$] &  $ 2.08 \pm 0.13 $  & --- \\
-Impact Parameter, b &  $ 0.46^{+0.17}_{-0.25} $  & --- \\
-Transit duration, $t_D$ [d] &  $ 0.0992^{+0.0055}_{-0.0067} $  & --- \\
-RV semi-amplitude, $K$ [\ms{}] &  $ 2.14 \pm 0.28 $  &  $ 3.57 \pm 0.39 $  \\
-Planet Mass, $M_p$ [$M_\oplus$] &  $ 4.51 \pm 0.6 $  &  $ 10.5 \pm 1.1 $  \\
-Planet Density, $\rho_p$ [${\rm gcm}^{-3}$] &  $ 2.77^{+0.69}_{-0.57} $  & --- \\
-Insolation, $S$ [${\rm Wm}^{-2}$] &  $ 1001000^{+7900}_{-7300} $  &  $ 290000 \pm 15000 $  \\
-Surface Temperature, $T_p$ [K] &  $ 1370.8^{+2.7}_{-2.5} $  &  $ 1006.0 \pm 13.0 $  \\
-\hline
-\hline
-\end{tabular}
+        \begin{tabular}{lcc}
+        \hline
+        \hline
+        Parameter & \Tplanet{} & \Tplanetc{}\\
+        \hline
+        \hline
+        Epoch, $t_0$ [BJD-2457000] &  \Ttzerozero{}  &  \Ttzeroone  \\
+        Orbital Period, $P$ [d] &  \TPzero{}  &  \TPone{} \\
+        Semi-major Axis, $a$ [AU] &  \Tsmazero{}  &  \Tsmaone{}  \\
+        Orbital Eccentricity, $e$ &  \Tecczero{}  & \Teccone{}  \\
+        Argument of periasteron, $\Omega$ &  \Tomegazero{} &  \Tomegaone{}  \\
+        Radius ratio [$R_p/R_s$] &  \Tror{}  & --- \\
+        Radius, $R_p$ [$R_\oplus$] &  \Trpl{}  & --- \\
+        Impact Parameter, b &  \Tb{}  & --- \\
+        Transit duration, $t_D$ [d] &  \Ttdurzero{}  & --- \\
+        RV semi-amplitude, $K$ [\ms{}] &  \TKzero{}  &  \TKone{}  \\
+        Planet Mass, $M_p$ [$M_\oplus$] &  \TMpzero{}  &  \TMpone{}$^{\star}$  \\
+        Planet Density, $\rho_p$ [${\rm gcm}^{-3}$] &  \Trhopgcmthree{}  & --- \\
+        Insolation, $S$ [${\rm kW m}^{-2}$] &  \TSinzero{} &  \TSinone{} \\
+        Surface Temperature, $T_p$ [K] & \TTsurfpzero{}  &  \TTsurfpone{} \\
+        \hline
+        \hline
+        \end{tabular}
+	\caption{Derived planet properties. $^{\star}$ The mass of planet c refers to the $M_p\sin{i}$}
 \end{table}
 
 \section{Discussion}\label{sect:discus}
 
 \subsection{Evidence for \Tplanetc{}}\label{sect:planetc}
 The periodogram of the activity-corrected radial velocity timeseries showed a clear signal at $6.75$\,d, even stronger than that of the planet at $2.54$\,d (Figure \ref{fig:rv_decorr}).
-Using the epoch and period defined from a fit to this decorrelated RV timeseries, we searched the \tess{} lightcurve to see whether a transiting planet on this period may have been missed.
+No such signal was found by TESS' automatic TPS; however, there is a chance such a signal may have been missed.
+A search using the \texttt{transit least squares} algorithm \citep{hippke2019optimized} on the \Tplanet{}-subtracted lightcurve found no signal around 6.7\,d, and a visual inspection of the lightcurve around the likely epochs of transits (given the limits from the RV detection) reveals no candidate dips associated with an outer candidate.
+Indeed, when running a combined model of two transiting planets, with constraints on orbits from the RVs, the posteriors for the radius of the outer planet were $0.05^{+0.59}_{-0.04}$\,\rearth{} which, given the \TMpone{}\,\mearth{} mass of \Tplanetc{}, would be physically impossible, even with an iron-core.
+Therefore, we come to the conclusion that \Tplanetc{} is likely non-transiting.
 
-However, a search using the \texttt{transit least squares} algorithm \citep{hippke2019optimized} on the model-subtracted lightcurve found no signal around 6.7\,d, and a visual inspection of the lightcurve around the likely epochs of transit reveals no candidate dips associated with an outer candidate.
-Indeed, when running a combined model of two transiting planets, with constraints on orbits from the RVs, the posteriors for the radius of the outer planet were $0.05^{+0.59}_{-0.04}$\,\rearth{} which, given the \TMpone{}\,\mearth{} mass of \Tplanetc{}, would be physically impossible even with an iron-core.
-Therefore, we come to the conclusion that \Tplanetc{} is non-transiting.
-
-In order to assess whether the RV signal alone warrants calling \Tplanetc{} a confirmed planet or merely a candidate, we ran two combined models with identical priors, and with one model including a non-transiting planet around $6.7$d.
-We then burned in each model for 500 samples and ran the \texttt{find\_MAP} function in \texttt{PyMC3} to find the maximum likelihood for each model, allowing us to compare the difference in Bayesian Information Criterium ($\Delta{\rm BIC}$) between the models.
+In order to assess whether the RV signal alone warrants calling \Tplanetc{} a confirmed planet or merely a candidate, we ran two combined models with identical priors and with one model including a non-transiting planet around $6.7$d.
+We then burned-in each model for 500 samples and ran the \texttt{find\_MAP} function in \texttt{PyMC3} to find the maximum likelihood for each model, allowing us to compare the difference in Bayesian Information Criterion ($\Delta{\rm BIC}$) between the models.
 The resulting value of $\Delta{\rm BIC}= $\,\TdeltaBIC{} clearly favours a two-planet model over a single planet model, with $\Delta{\rm BIC}>10$ suggesting "Very Strong" evidence over the null hypothesis. 
 
 It should be noted that the period of \Tplanetc{}, at \TPone{}\,d, is close to the $P_{\rm rot}/3$ harmonic.
 However, there appears little evidence of a signal in the RV periodogram at $P_{\rm rot}/2$, so a large coherent signal at $P_{\rm rot}/3$ would be unexpected.
 However, it is possible that with certain inclinations and spot locations such harmonics may be boosted \citep{vanderburg2016radial,boisse2011disentangling}.
-Interestingly the periodogram of the S-index data does show a strong peak at $P_{\rm rot}/2$ and a weaker peak at $P_{\rm rot}/3$, but this occurs at $7.25$\,d - significantly separated from the RV peak at \TPone{}.
-Even if a real candidate, as our $\Delta{\rm BIC}>10$ suggests, the amplitude of the signal may be impacted by the presence of a signal at $P_{\rm rot}/3$, therefore the mass of \Tplanetc{} should be treated as uncertain. 
+Interestingly the periodogram of the S-index data does show a strong peak at $P_{\rm rot}/2$ and a weaker peak at $P_{\rm rot}/3$, but this occurs at $7.25$\,d---significantly separated from the RV peak at \TPone{}.
+While we confirm the presence of this second planet, as given $\Delta{\rm BIC}>10$, the amplitude of the signal may be affected by the presence of a signal at $P_{\rm rot}/3$, therefore the mass of \Tplanetc{} should be treated as uncertain. 
 
-However, multiple lines of evidence point to the candidate signal of \Tplanetc{} being planetary in origin.
+Multiple lines of evidence point to the signal of \Tplanetc{} being planetary in origin.
 Future RV measurements should help further disentangle stellar rotation and the signal amplitude, and may even reveal new candidates in this system.
 
-The majority of short-period multi-planet systems have low mutual inclinations \citep{lissauer2011architecture}, and in such a case the non-transiting nature of \Tplanetc{} is not unexpected.
-Using the derived impact parameter of planet b and the semi-major axis of c, the expected impact parameter of planet c is $0.8\pm0.4$, producing a non-transiting planet in $32\%$ of scenarios.
+The majority of short-period multi-planet systems have low mutual inclinations \citep{lissauer2011architecture, 2012A&A...541A.139F}.
+To investigate whether this could also be true for \Tstar{}, we used the derived impact parameter of planet b and the semi-major axis of c to calculate the expected impact parameter of planet c in a perfectly co-planar scenario of $0.60\pm0.42$. 
+However, given a non-transiting planet was possible in $17\%$ of scenarios, and that even co-planar systems can have 1--4$^{\circ}$ mutual inclinations (an increase in impact factor of 0.25--1.0 at \Tplanetc{}'s orbital distance), we do not yet have enough information to call the \Tstar{} planetary system misaligned.
+
+Throughout this work we quote $M_p\sin{i}$ for \Tplanetc{}. However, a clear non-detection of transits can constrain a planet's inclination, and therefore also reduce the lower limit on a planet's mass.
+However, in this case, the reduction in minimum mass caused by assuming $b>1.0$ is smaller than 0.25\%. Therefore, including this factor would not significantly change the mass estimate from $M_p\sin{i}$.
 It is also worth noting that planets b \& c have an orbital period ratio near 8/3, although harmonics beyond $2:1$ are highly unlikely to create measurable TTVs \citep{deck2015measurement}.
 
-\subsection{A solar twin?}
-It is remarkable to note just how sun-like \Tstar{} is, with a radius, \teff{} and \logg{} all within errors of solar values, with the exception of its slightly higher metallicity (\feh{}$ = 0.14\pm0.02$), and correspondingly lower C \& O (see Table \ref{tab:abunds}) \citep[e.g.][]{Franchini2020,2015A&A...576A..89B}
-This higher metallicity may explain why \Tstar{} was able to form close-in super-Earths which do not exist in our solar system \citep{mulders2016super,bitsch2020influence}.
+\subsection{A solar analogue?}
+It is remarkable to note just how sun-like \Tstar{} is, with a radius, \teff{} and \logg{} all within 1-sigma uncertainties of solar values, with the exception of its slightly higher metallicity (\feh{}$ = 0.14\pm0.02$), and correspondingly lower C \& O (see Table \ref{tab:abunds}) \citep[e.g.][]{Franchini2020,2015A&A...576A..89B}.
+This higher metallicity may explain why \Tstar{} was able to form close-in super-Earths \citep{mulders2016super,bitsch2020influence}, which do not exist in our solar system.
 
-\Tstar{} is also nearly the same age as the Sun, as can be seen in both the Yttrium ages (Table \ref{tab:abunds}), and from the rotation rate $\sim$22\,d from archival photometry, the spectroscopy timeseries, \& <30\,d from \vsini{}).
-Indeed, this rotation rate is marginally faster than the Sun \citep[25-26.5d when measured with HARPS-N and converted to sidereal period,][]{milbourne2019harps}.
-This could be explained by the fact that \Tstar{} is slightly younger, or alternatively by the fact that the Sun rotates slower than average \citep{2008ApJ...684..691R}, or the presence of short-period planets has tidally inhibited the slow-down of the star, although the effect for such small planets is likely to be small \citep{bolmont2012effect}.
+\Tstar{} is also nearly the same age as the Sun, as can be seen in both the Yttrium-based ages (Table \ref{tab:abunds}), and from the rotation rate ($\sim$22\,d from archival photometry, spectroscopy timeseries, \& \vsini{}).
+Indeed, this rotation rate is marginally faster than the Sun \citep[25--26.5\,d when measured with HARPS-N and converted to sidereal period,][]{milbourne2019harps}.
+This could be explained by the fact that \Tstar{} is slightly younger, the Sun rotates slower than average \citep{2008ApJ...684..691R}, or the presence of short-period planets has tidally inhibited the slow-down of \Tstar{}, although the effect for such small planets is likely to be small \citep{bolmont2012effect}.
 
 Thanks to their similarities, \Tstar{} and its planets could prove a useful comparison to the Sun and the solar system in the future.
 
@@ -768,26 +836,26 @@ Thanks to their similarities, \Tstar{} and its planets could prove a useful comp
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\columnwidth]{MR_755_Jon}
-    \caption{Mass-radius diagram of exoplanets with accurate mass and radius determination (Otegi et al. 2019). Also shown are the composition lines of iron, Earth-like planet, rocky and pure water.}
-    \label{fig:MR_Diagram}
+	\includegraphics[width=\columnwidth]{MR-755}
+    \caption{Mass-radius diagram of exoplanets with accurate mass and radius determination (Otegi et al. 2019). Also shown are the mass-radius relations for Earth-like and pure water compositions.\label{fig:MR_Diagram}
+    }
 \end{figure}
 
-To explore the interior structure of \Tplanet{} we performed modelling using as inputs the mass and radius determined by our joint modelling of \tess{} photometry and \harps{} RVs.
-This was performed following the method of \citet{otegi2020revisited} which assumes a pure iron core, a silicate mantle, a non-gaseous water layer, and a H-He atmosphere.
+To explore the composition of \Tplanet{}, we performed 4-layer interior structure modelling, using as inputs the mass and radius determined by our joint modelling of \tess{} photometry and \harps{} RVs.
+We followed the method of \citet{otegi2020revisited}, which assumes a pure iron core, a silicate mantle, a non-gaseous water layer, and a H-He atmosphere.
 In order to quantify the degeneracy between the different interior parameters and produce posterior probability distributions, we use a generalized Bayesian inference analysis with a Nested Sampling scheme \citep[e.g.][]{2014A&A...564A.125B}.
 The interior parameters that are inferred include the masses of the pure-iron core, silicate mantle, water layer and H-He atmosphere.
 The ratios of Fe/Si and Mg/Si found in stars is expected to be mirrored in the protoplanetary material, and therefore in the internal structures of exoplanets \citep{thiabaud2015elemental}.
-Hence, we use the values found by our stellar abundance analysis as a proxy for the core to mantle ratio.
+Hence, we use the values found by our stellar abundance analysis as a proxy for the core-to-mantle ratio.
 Given the observed molar ratio of Fe/Si ($1.08\pm0.07$, Table \ref{tab:abunds}) is higher than that of the Sun  \citep[0.86,][]{thiabaud2015elemental}, we would expect planetary material around \Tstar{} to be more iron-rich than Earth.
 
 Table \ref{tab:interior} lists the inferred mass fractions of the core, mantle, water-layer and H-He atmosphere from the interior models.
 Due to the nature of the measurements, interior models cannot distinguish between water and H-He as the source of low-density material. 
-Therefore, we ran both a 4-layer model and two 3-layer models which leave out the H$_{2}$O and H-He envelopes respectively.
+Therefore, we ran both a 4-layer model and two 3-layer models, which leave out the H$_{2}$O and H-He envelopes respectively.
 In the case of a H-He envelope, we find that the planet is only $\sim1$\% H-He by mass, with an iron-rich rocky interior making up 99\% of the planet.
 Any water present would likely decrease the core, mantle \& gaseous envelope fractions.
-However, a gas-free model would require $73 ^{+10} _{-13}$\% water - a fraction that is likely impossible to form - therefore \Tplanet{} almost certainly has a significant gaseous envelope.
-Stars with super-solar metallicities are also less likely to host water-rich planets due to a lower C/O ratio \citep{bitsch2020influence}, making a water-rich composition even less likely.
+However, a gas-free model would require $73 ^{+10} _{-13}$\% water---a fraction that is likely impossible to form. Therefore \Tplanet{} almost certainly has a significant gaseous envelope.
+Stars with super-solar metallicities are also less likely to host water-rich planets due to a higher C/O ratio \citep{bitsch2020influence}, making a water-rich composition even less likely.
 
 Figure \ref{fig:MR_Diagram} shows the mass radius relation (M-R relation) for Earth-like and pure water compositions (where the pure water line corresponds to a surface pressure of 1 bar, and without a water-vapor atmosphere).
 Also shown are exoplanets with accurate mass and radius determinations from \citet{otegi2020revisited}.
@@ -816,47 +884,49 @@ $M_{\rm H-He}/M_{\rm total}$ & $1 ^{+0.3} _{-0.5}$ & --- & $0.102  ^{+0.04} _{-0
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
 	\includegraphics[width=\columnwidth, trim={0.8cm 0.5cm 1.05cm 0.2cm}]{Insolation_TOI755}
-    \caption{The distribution of Kepler planets by both insolation \& planetary radius plot, with underlying occurrence distributions adapted from \citep{martinez2019spectroscopic}. \Tplanet{} is included as a purple star. The best-fit positions of radius valleys from both \citet{martinez2019spectroscopic} (dashed) and \citet{van2018asteroseismic} (dotted) are plotted in blue, with conversion from period to insolation performed using the average stellar parameters in the Kepler samples.\label{fig:MR_Diagram}
+    \caption{The distribution of Kepler planets by both insolation \& planetary radius plot, with underlying occurrence distributions adapted from \citep{martinez2019spectroscopic}. \Tplanet{} is included as a purple star. The best-fit positions of radius valleys from both \citet{martinez2019spectroscopic} (dashed) and \citet{van2018asteroseismic} (dotted) are plotted in blue, with conversion from period to insolation performed using the average stellar parameters in the Kepler samples. Typical uncertainties for both \Tplanetc{} and for the Kepler sample are shown in the top left.\label{fig:insolation}
     }
 \end{figure}
 
 \subsection{Evaporation}\label{sect:evap}
-With an insolation of \TSin{}\,$Wm^{-2}$ ($\sim736\,S_\oplus$), it is extremely likely that \Tplanet{} has been moulded by strong stellar radiation in some way.
-This is further suggested by placing \Tplanet{} on the insolation-radius plots of \citet{fulton2017california} and \citet{martinez2019spectroscopic}, which clearly show the "evaporation valley".
-As this valley is chiefly influenced by insolation, it is negatively sloped with insolation, and \Tplanet{} is positioned exactly within it.
+With an insolation of \TSinzero{}\,kW\,m$^{-2}$ ($\sim736\,S_\oplus$), it is extremely likely that \Tplanet{} has been moulded by strong stellar radiation in some way.
+This is further suggested by placing \Tplanet{} on the insolation-radius plots of \citet{fulton2017california} and \citet{martinez2019spectroscopic}, which clearly show the "radius valley" (see Fig. \ref{fig:insolation}.
+The negative slope of the valley with insolation means that, even with a radius of \Trpl{}\,\rearth{}, \Tplanet{} is positioned exactly within it.
 
 Using both rotation and age, we predict a current X-ray luminosity ($L_x/L_{\rm bol}$) of between $8.5\times10^{-7}$ \citep[with Prot;][]{wright2018stellar} and $2.74\times10^{-6}$ \citep[with age;][]{jackson2012coronal}.
-This implies total x-ray luminosities on the order of $3.3\times10^{27}$ to $2.7\times10^{28}$ erg and mass-loss rates (assuming an energy-limited regime) of between $5\times10^{9}$ and $9\times10^{9}$\,gs$^{-1}$ (0.026 - 0.05\,$M_\oplus {\rm Gyr}^{-1}$).
+This implies total X-ray luminosities on the order of $3.3\times10^{27}$ to $2.7\times10^{28}$ erg and mass-loss rates (assuming an energy-limited regime) of between $5\times10^{9}$ and $9\times10^{9}$\,gs$^{-1}$ (0.026-- 0.05\,$M_\oplus {\rm Gyr}^{-1}$).
 This is comparable to both GJ 436 b and Pi Men c under similar assumptions \citep{king2019xuv}.
-Therefore, while it is currently highly irradiated, \Tplanetc{} is unlikely to currently be losing large quantities of its H-He atmosphere to space.
+Therefore, while it is currently highly irradiated, \Tplanet{} is unlikely to currently be losing large quantities of its H-He atmosphere to space.
 
 However, the integrated sum of mass-loss since the planet's formation is substantial, as young stars are typically far more active and far more X-ray luminous.
-We calculate that, assuming the current mass \& radius, as much as 10\% of the planet's mass may have been lost through evaporation.
+We calculate that, assuming the current mass and radius, as much as 10\% of the planet's mass may have been lost through evaporation.
 The models of \citet{zeng2019growth} suggest that a 1000\,K planet with $>5$\% hydrogren and a $5.25M_\oplus$ core would have been $>8.5$\,\rearth{} in radius, suggesting that \Tplanet{} potentially started as an extremely low-density Jupiter-radius world which was quickly stripped.
-However, how such a low-mass world came to possess such a large gaseous atmosphere opens more questions.
+How such a low-mass world came to possess such a large gaseous atmosphere raises more questions.
 
 In any case, it is almost certain that \Tplanet{} started with a thicker atmosphere of H-He, which, due to both evaporative and core-powered mass-loss, it lost much of over time.
-However, this is typically a runaway process - planets which lose the majority of their gas (i.e. those in the radius gap) typically lose it all \citep{owen2017evaporation}.
+However, this is typically a runaway process: planets which lose the majority of their gas (i.e. those in the radius valley) typically lose it all \citep{owen2017evaporation}.
 Therefore the main unanswered question is: how did \Tplanet{} escape becoming a naked core devoid of volatile envelope?
 Here we propose two solutions to this:
 
 1) \Tplanet{} started with a large envelope of H-He, perhaps as much as 10\%, which was gradually lost to evaporation and core-powered heating over time. 
 But it had just enough gas to walk the tight-rope between keeping hold of a thick atmosphere and being completely stripped such that, at the point that evaporative forcing stopped, \Tplanet{} still had $\sim1\%$ of H-He by mass.
-The models of \citet[][Figure 5.]{rogers2020unveiling} suggest such a scenario is possible and may occur for planets that start gas-rich with around 4\% H-He.
+The models of \citet[][Figure 4]{rogers2020unveiling} suggest such a scenario is possible and may occur for planets that start gas-rich with around 4\% H-He.
 
 2) \Tplanet{} did lose almost all of its H-He to evaporation and core-powered mass-loss.
 The current density is therefore explained by the planet having a large water content (e.g. an icy core), with potential out-gassing of a secondary atmosphere contributing to the extended radius.
-Indeed, our composition calculations include water in only solid \& liquid states, therefore a thick steam \citep[or supercritical][]{mousis2020irradiated} atmosphere, could reduce the density without requiring $>50\%$ H$_{2}$O.
+Indeed, our composition calculations include water in only solid \& liquid states; therefore a thick steam \citep[or supercritical;][]{mousis2020irradiated} H$_{2}$O atmosphere could reduce the density without requiring $>50\%$ H$_{2}$O.
 
 These predictions are testable with future transmission spectroscopy observations, e.g. with \textit{JWST} \citep{2016ApJ...817...17G,2014PASP..126.1134B}.
 
-\subsection{Re-observation}\label{sect:future}
+\subsection{Potential for future observations}\label{sect:future}
 The low-density nature of this hot mini-Neptune, combined with its bright host star, may enable transmission spectroscopy.
-To test this, we computed the emission and transmission spectroscopy metrics from \citet{kempton2018framework}. 
-We find that, amongst small planets with $R_p<4R_\oplus$ \citep{akeson2013nasa}\footnote{\url{https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=*&format=csv}, accessed 2020-Oct-18}, \Tplanet{} ranks in the top 3\% most amenable for emission and the top 5\% for transmission spectrocopy with JWST.
 Such observations would be able to test the hypotheses noted above, and search for a primary atmosphere dominated by H-He, or a secondary atmosphere dominated by water vapour \citep{2020arXiv201011867B}.
+To test this, we computed the emission and transmission spectroscopy metrics from \citet{kempton2018framework}.
 
-\Tplanet{} will be also re-observed by \tess{} during Sector 37\footnote{\url{https://heasarc.gsfc.nasa.gov/cgi-bin/tess/webtess/wtv.py?Entry=73228647}}, and could also be observed by ESA's \textit{CHEOPS} telescope \citep{benz2020cheops}, both of which would improve the current radius error below the currently measured value of 7\%, thereby improving our knowledge of the internal structure of \Tplanet{}.
+We find that, amongst small planets with $R_p<4R_\oplus$ \citep{akeson2013nasa}\footnote{\url{https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=*&format=csv}, accessed 2020-Oct-18}, \Tplanet{} ranks in the top 3\% most amenable for emission and the top 5\% for transmission spectroscopy with \textit{JWST}.
+Although, when compared to one of the most favourable \textit{JWST} targets: the low-density mini-Neptune GJ\,1214\,b, \Tplanet{} provides only around 10\% the SNR in both transmission \& emission --- as is expected when comparing with a planet whose transits are 36 times deeper.
+
+\Tplanet{} will be also re-observed by \tess{} during Sector 37\footnote{\url{https://heasarc.gsfc.nasa.gov/cgi-bin/tess/webtess/wtv.py?Entry=73228647}}, and could also be observed by ESA's \textit{CHEOPS} telescope \citep{benz2020cheops}, both of which would improve the radius precision below the currently measured value of 7\%, thereby improving our knowledge of the internal structure of \Tplanet{}.
 
 %
 %\begin{table*}[t]
@@ -920,23 +990,24 @@ Such observations would be able to test the hypotheses noted above, and search f
 % \end{figure*}
 
 \section{Conclusion}
-We have presented the detection and confirmation of \Tplanet{}, which was initially spotted as \TTplanet{} in \tess{} with an SNR of only $7.6\sigma$ and transit depth of 430\,ppm.
-This marks one of the lowest-SNR single signals yet to be confirmed from \tess{}, and is testament to the unique ability of \tess{} to find planet candidates around bright stars which can be redetected and characterised through independent RV campaigns.
+\label{sec:conclusion}
+We have presented the detection and confirmation of \Tplanet{}, which was initially spotted as \TTplanet{} in \tess{} with an SNR of only $7.6\sigma$ and transit depth of \Tdepth{}.
+This marks one of the lowest-SNR signals yet to be confirmed from \tess{}, and is testament to the unique ability of \tess{} to find planet candidates around bright stars which can be redetected and characterised through independent RV campaigns.
 
 High-resolution imaging and ground-based photometry rules out the presence of nearby companions and potential nearby eclipsing binaries, thereby limiting the number of false-positives and giving us confidence to follow such a low-SNR signal.
 Our subsequent HARPS campaign obtained more than 100 \harps{} spectra in order to characterise both \Tplanet{} and its bright ($G=9.9$\,mag) star.
 
-Analysis of these spectra revealed \Tstar{} to be a sun-like G-type star with slightly super-solar metallicity, but solar \teff{}, \logg{} and [Y/Mg] age.
-The RV timeseries also revealed strong activity on \Tstar{} with a rotation period of \Tperiod{} - a timescale corroborated by archival WASP photometry.
+Analysis of these spectra revealed \Tstar{} to be a Sun-like G-type star with slightly super-solar metallicity, but solar \teff{}, \logg{} and age.
+The RV timeseries also revealed strong activity on \Tstar{} with a rotation period of \Tperiod{}\,d---a timescale corroborated by archival WASP photometry.
 
-Removing this rotation period using both linear decorrelation and a co-fitted GP using S-index and FWHM activity indicators revealed the presence of two Keplerian signals - at \TPzero{}\,d and \TPone{}\,d.
+Removing this rotation period using both linear decorrelation and a co-fitted GP using S-index and FWHM activity indicators revealed the presence of two Keplerian signals, at \TPzero{}\,d and \TPone{}\,d.
 The inner signal, from a planet with mass \TMpzero{}\,\mearth{}, corresponded to the detected \tess{} candidate with a radius, as modelled from the \tess{} photometry, of \Trpl{}\,\rearth{}.
 The outer signal, from a planet with $M_p\sin{i}$ of \TMpone{}\,\mearth{} did not correspond to any transit events in the \tess{} lightcurve, and therefore is likely non-transiting.
 We were able to confirm it as a planet through Bayesian model comparison which showed $\Delta{\rm BIC}= $\TdeltaBIC{} in favour of a 2-planet model.
 
-The estimated density of \Tplanet{} is \Trhopgcmthree{}\,\gcm{} - far lower than would be expected from a rocky core.
-By modelling four potential constituents - an iron core, silicate mantle, water ocean and H-He atmosphere, we were able to rule out a gasless composition for \Tplanet{}, suggesting that it has between 0.07 and 1.5\% H-He by mass.
-This is surprising given \Tplanet{}'s position in the "radius gap" between gaseous mini-Neptunes and rocky super-Earths, and we suggest two possibilities for this unexpectedly low density - either \Tplanet{} has a water-rich core and secondary atmosphere, or it began with a thick H-He envelope and managed to retain a small fraction of it despite significant evaporation and/or heating.
+The estimated density of \Tplanet{} is \Trhopgcmthree{}\,\gcm{}---far lower than would be expected from a rocky core.
+By modelling four potential constituents---an iron core, silicate mantle, water ocean and H-He atmosphere---we were able to rule out a gasless composition for \Tplanet{}, suggesting that it has between 0.07 and 1.5\% H-He by mass.
+This is surprising given \Tplanet{}'s position in the "radius valley" between gaseous mini-Neptunes and rocky super-Earths, and we suggest two possibilities for this unexpectedly low density: either \Tplanet{} has a water-rich core and secondary atmosphere, or it began with a thick H-He envelope and managed to retain a small fraction of it despite significant evaporation and/or heating.
 Follow-up spectroscopy observations with the next generation of telescopes may reveal the answer, as well as far more about this interesting system.
 
 % \begin{figure}
@@ -951,21 +1022,27 @@ Follow-up spectroscopy observations with the next generation of telescopes may r
 %\software{AstroImageJ \citep{Collins:2017}, TAPIR \citep{Jensen:2013}}
 
 \section*{Acknowledgements}
-We thank Raphaelle Haywood, Maximillian G{\"u}nther and Francois Bouchy for discussion on disentangling RV activity from signals.
-
-This paper includes data collected by the \tess{} mission.
-Funding for the \tess{} mission is provided by the NASA Explorer Program and NASA's Science Mission directorate. 
-We acknowledge the use of public \tess{} Alert data from pipelines at the \tess{} Science Office and at the \tess{} Science Processing Operations Center. 
-This research has made use of the Exoplanet Follow-up Observation Program website, which is operated by the California Institute of Technology, under contract with the National Aeronautics and Space Administration under the Exoplanet Exploration Program. 
-Resources supporting this work were provided by the NASA High-End Computing (HEC) Program through the NASA Advanced Supercomputing (NAS) Division at Ames Research Center for the production of the SPOC data products. 
-This paper includes data collected by the \tess{} mission, which are publicly available from the Mikulski Archive for Space Telescopes (MAST).
-
-Based on observations collected at the European Organisation for Astronomical Research in the Southern Hemisphere under ESO programme(s) 1102.C-0249.
-
-We thank the Swiss National Science Foundation (SNSF) and the Geneva University for their continuous support to our planet search programs. This work has been in particular carried out in the frame of the National Centre for Competence in Research {\it PlanetS} supported by the Swiss National Science Foundation (SNSF).\\ % PlanetS
-
-This publication makes use of The Data \& Analysis Center for Exoplanets (DACE), which is a facility based at the University of Geneva (CH) dedicated to extrasolar planets data visualisation, exchange and analysis. DACE is a platform of the Swiss National Centre of Competence in Research (NCCR) PlanetS, federating the Swiss expertise in Exoplanet research. The DACE platform is available at https://dace.unige.ch.
-
+We thank Rapha{\"e}lle Haywood, Maximillian G{\"u}nther and Francois Bouchy for discussion on disentangling RV activity from signals.\\
+This paper includes data collected by the \tess{} mission.\\
+Funding for the \tess{} mission is provided by the NASA Explorer Program and NASA's Science Mission directorate. \\
+We acknowledge the use of public \tess{} Alert data from pipelines at the \tess{} Science Office and at the \tess{} Science Processing Operations Center. \\
+This research has made use of the Exoplanet Follow-up Observation Program website, which is operated by the California Institute of Technology, under contract with the National Aeronautics and Space Administration under the Exoplanet Exploration Program. \\
+Resources supporting this work were provided by the NASA High-End Computing (HEC) Program through the NASA Advanced Supercomputing (NAS) Division at Ames Research Center for the production of the SPOC data products. \\
+This paper includes data collected by the \tess{} mission, which are publicly available from the Mikulski Archive for Space Telescopes (MAST).\\
+DJA acknowledges support from the STFC via an Ernest Rutherford Fellowship (ST/R00384X/1).\\ %D.J. Armstrong
+This study is based on observations collected at the European Southern Observatory under ESO programme 1102.C-0249.\\ %L.D. Nielsen
+This work makes use of observations from the LCOGT network.\\ %Karen A. Collins
+V.A., E.D.M., N.C.S. acknowledge support by FCT - Funda\\ %V. Adibekyan
+V.A. and E.D.M. further acknowledge the support from FCT through Investigador FCT contracts IF/00650/2015/CP1273/CT0001 and IF/00849/2015/CP1273/CT0003.\\ %E. Delgado-Mena
+(Some of the) Observations in the paper made use of the High-Resolution Imaging instrument(s) ‘Alopeke (and/or Zorro). ‘Alopeke (and/or Zorro) was funded by the NASA Exoplanet Exploration Program and built at the NASA Ames Research Center by Steve B. Howell, Nic Scott, Elliott P. Horch, and Emmett Quigley. Data were reduced using a software pipeline originally written by Elliott Horch and Mark Everett. ‘Alopeke (and/or Zorro) was mounted on the Gemini North (and/or South) telescope of the international Gemini Observatory, a program of NSF’s OIR Lab, which is managed by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the National Science Foundation. on behalf of the Gemini partnership: the National Science Foundation (United States), National Research Council (Canada), Agencia Nacional de Investigación y Desarrollo (Chile), Ministerio de Ciencia, Tecnología e Innovación (Argentina), Ministério da Ciência, Tecnologia, Inovações e Comunicações (Brazil), and Korea Astronomy and Space Science Institute (Republic of Korea).\\ %S. B. Howell
+This research has been funded by the Spanish State Research Agency (AEI) Projects No.ESP2017-87676-C5-1-R and No. MDM-2017-0737 Unidad de Excelencia "Mar\\ %J. Lillo-Box
+D. D. acknowledges support from the TESS Guest Investigator Program grant 80NSSC19K1727 and NASA Exoplanet Research Program grant 18-2XRP18\_2-0136.\\ %Diana Dragomir
+B.V.R. thanks the Heising-Simons Foundation for support.\\ %Benjamin V. Rackham
+TD acknowledges support from MIT's Kavli Institute as a Kavli postdoctoral fellow\\ %Tansu Daylan
+AO acknowledges support from an STFC studentship.\\ %Ares Osborn
+SH acknowledges CNES funding through the grant 837319\\ %S. Hoyer
+This work was supported by Fundação para a Ciência e a Tecnologia (FCT) and Fundo Europeu de Desenvolvimento Regional (FEDER) via COMPETE2020 through the research grants UIDB/04434/2020, UIDP/04434/2020, PTDC/FIS-AST/32113/2017 \\ %Olivier D. S. Demangeon %Susana C.C. Barros
+DJAB acknowledges support by the UK Space Agency.\\ %D. J. A. Brown
 This research made use of \textsf{exoplanet} \citep{exoplanet:exoplanet} and its
 dependencies \citep{exoplanet:agol19, exoplanet:astropy13, exoplanet:astropy18,
 exoplanet:exoplanet, exoplanet:foremanmackey17, exoplanet:foremanmackey18,
@@ -999,12 +1076,33 @@ exoplanet:luger18, exoplanet:pymc3, exoplanet:theano}.
 \section{Author Affiliations}\label{sec:affiliations}
 % List of institutions
 $^{1}$NCCR/PlanetS, Centre for Space \& Habitability, University of Bern, Bern, Switzerland\\
-$^{2}$Department of Physics and Kavli Institute for Astrophysics and Space Research, MIT, 70 Vassar Street, Cambridge, MA 02139, USA\\
+$^{2}$Department of Physics and Kavli Institute for Astrophysics and Space Research, Massachusetts Institute of Technology, Cambridge, MA 02139, USA\\
 $^{3}$Centre for Exoplanets and Habitability, University of Warwick, Gibbet Hill Road, Coventry, CV4 7AL, UK\\
-$^{4}$Department of Physics, University of Warwick, Gibbet Hill Road, Coventry CV4 7AL, UK \\
+$^{4}$Department of Physics, University of Warwick, Gibbet Hill Road, Coventry CV4 7AL, UK\\
 $^{5}$Instituto de Astrof\'isica e Ci\^encias do Espa\c{c}o, Universidade do Porto, CAUP, Rua das Estrelas, 4150-762 Porto, Portugal\\
-$^{6}$Geneva Observatory, University of Geneva, Chemin des Mailettes 51, 1290 Versoix, Switzerland\\
-$^{7}$Departamento de F\'isica e Astronomia, Faculdade de Ci\^{e}ncias, Universidade do Porto, Rua do Campo Alegre, 4169-007 Porto, Portugal\\
+$^{6}$Harvard-Smithsonian Center for Astrophysics, 60 Garden St, Cambridge, MA, 02138, USA\\
+$^{7}$NASA Ames Research Center,Moffett Field, CA 94035, USA\\
+$^{8}$Astrophysics Group, Keele University, Staffs ST5 5BG, U.K. \\
+$^{9}$Centro de Astrobiologi\'ia (CAB,CSIC-INTA), Dep. de Astrof\'isica, ESAC campus, 28692, Villanueva de la Ca\~nada, Madrid, Spain\\
+$^{10}$Geneva Observatory, University of Geneva, Chemin des Mailettes 51, 1290 Versoix, Switzerland\\
+$^{11}$Departamento de F\'isica e Astronomia, Faculdade de Ci\^{e}ncias, Universidade do Porto, Rua do Campo Alegre, 4169-007 Porto, Portugal\\
+$^{12}$Dunlap Institute for Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario M5S 3H4, Canada\\
+$^{13}$Cerro Tololo Inter-American Observatory, Casilla 603, La Serena, Chile\\
+$^{14}$SETI Institute\\
+$^{15}$American Association of Variable Star Observers, 49 Bay State Road, Cambridge, MA 02138, USA\\
+$^{16}$International Center for Advanced Studies (ICAS) and ICIFI (CONICET), ECyT-UNSAM, Campus Miguelete, 25 de Mayo y Francia, (1650) Buenos Aires, Argentina.\\
+$^{17}$Department of Physics and Astronomy, University of New Mexico, 1919 Lomas Blvd NE, Albuquerque, NM 87131, USA\\
+$^{18}$Aix Marseille Univ, CNRS, CNES, LAM, Marseille, France\\
+$^{19}$Kavli Fellow\\
+$^{20}$Institute for Computational Science, University of Zurich,Winterthurerstr. 190, CH-8057 Zurich, Switzerland\\
+$^{21}$European Southern Observatory, Alonso de Cordova 3107, Vitacura, Santiago, Chile\\
+$^{22}$Department of Physics \& Astronomy, Swarthmore College, Swarthmore PA 19081, USA\\
+$^{23}$Department of Physics and Astronomy, The University of North Carolina at Chapel Hill, Chapel Hill, NC 27599-3255, USA\\
+$^{24}$Department of Astronomy, University of Maryland, College Park, MD 20742, USA\\
+$^{25}$Department of Earth, Atmospheric and Planetary Sciences, Massachusetts Institute of Technology, Cambridge, MA 02139, USA\\
+$^{26}$Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD 21218, USA\\
+$^{27}$Department of Physics \& Astronomy, Vanderbilt University, 6301 Stevenson Center Ln., Nashville, TN 37235, USA\\
+$^{28}$Department of Astrophysical Sciences, Princeton University, 4 Ivy Lane, Princeton, NJ 08544, USA\\
 
 \section{Extra tables}
 
@@ -1020,54 +1118,54 @@ Parameter & Prior & Posterior\\
 \hline
 \hline
 \multicolumn{3}{l}{\it Stellar parameters}\\
-Stellar surface temperature, \teff{} [K] &  $\mathcal{N}(5732.0,16.0)$  &   $ 5734.1^{+5.7}_{-3.9} $ \\
-Stellar Mass, $M_s$ [$M_{\odot}$] &  $\mathcal{N}(0.9968,0.0095)$  &   $ 0.997^{+0.0098}_{-0.0094} $ \\
-Stellar Radius, $R_s$ [$R_{\odot}$] &  $\mathcal{N}(1.0348,0.0256)$  &   $ 1.032 \pm 0.025 $ \\
+Stellar surface temperature, \teff{} [K] &  $\mathcal{N}(5732.0,50.0)$  & \TTeff{} \\
+Stellar Mass, $M_s$ [$M_{\odot}$] &  $\mathcal{N}(0.9968,0.06)$  & \Tmstar{} \\
+Stellar Radius, $R_s$ [$R_{\odot}$] &  $\mathcal{N}(0.968,0.018)$  & \Trstar{} \\
 \hline
 \multicolumn{3}{l}{\it Orbital parameters}\\
-Transit Epoch, $t_0$ [BJD-2457000] b &  $\mathcal{N}(1570.10189,0.1)$  &   $ 1570.1006 \pm 0.0044 $ \\
-Transit Epoch, $t_0$ [BJD-2457000] c &  $\mathcal{N}(1798.1334,1.0)$  &   $ 1798.18 \pm 0.18 $ \\
-Orbital Period, $P$ [d] b &  $\mathcal{N}_{\mathcal{U}}(2.540455,0.002124,2.35,2.6)$  &   $ 2.5408 \pm 0.00049 $ \\
-Orbital Period, $P$ [d] c &  $\mathcal{N}_{\mathcal{U}}(6.7285,0.05951,6.65,6.8)$  &   $ 6.744^{+0.0084}_{-0.0085} $ \\
-Orbital Eccentricity, $e$ b &  $\beta(0.867;3.03)^{\tnote{a}}$  &   $ 0.102^{+0.088}_{-0.068} $ \\
-Orbital Eccentricity, $e$ c &  $\beta(0.867;3.03)^{\tnote{a}}$  &   $ 0.05^{+0.076}_{-0.037} $ \\
-Argument of periasteron, $\Omega$ b &  $\mathcal{U}(-\pi,\pi)^{\tnote{b}}$  &   $ -0.35^{+0.99}_{-0.8} $ \\
-Argument of periasteron, $\Omega$ c &  $\mathcal{U}(-\pi,\pi)^{\tnote{b}}$  &   $ 0.8 \pm 1.1 $ \\
+Transit Epoch, $t_0$ [BJD-2457000] b &  $\mathcal{N}(1570.10189,0.1)$  &  \Ttzerozero{} \\
+Transit Epoch, $t_0$ [BJD-2457000] c &  $\mathcal{N}(1798.1334,1.0)$  & \Ttzeroone{} \\
+Orbital Period, $P$ [d] b &  $\mathcal{N}_{\mathcal{U}}(2.540455,0.002124,2.35,2.6)$  & \TPzero{} \\
+Orbital Period, $P$ [d] c &  $\mathcal{N}_{\mathcal{U}}(6.7285,0.05951,6.65,6.8)$  & \TPone{} \\
+Orbital Eccentricity, $e$ b &  $\beta(0.867;3.03)^{a}$  & \Tecczero{} \\
+Orbital Eccentricity, $e$ c &  $\beta(0.867;3.03)^{a}$  & \Teccone{} \\
+Argument of periasteron, $\Omega$ b &  $\mathcal{U}(-\pi,\pi)^{b}$  &  \Tomegazero{} \\
+Argument of periasteron, $\Omega$ c &  $\mathcal{U}(-\pi,\pi)^{b}$  & \Tomegaone{} \\
 \hline
 \multicolumn{3}{l}{\it Photometric parameters}\\
-log radius ratio [$\log{R_p/R_s}$] b &  $\mathcal{U}(-11.513,-2.3023)$  &   $ -3.932 \pm 0.067 $ \\
-Transit Impact Parameter b & $\mathcal{U}(0,1+R_p/R_s)^{\tnote{c}}$  &   $ 0.46^{+0.17}_{-0.25} $ \\
-Quadratic Limb Darkening $a_{\rm LD}$ &  $\mathcal{N}_{\mathcal{U}}(0.367,0.1,0.0,1.0)$  &   $ 0.38 \pm 0.1 $ \\
-Quadratic Limb Darkening $b_{\rm LD}$ &  $\mathcal{N}_{\mathcal{U}}(0.21,0.1,0.0,1.0)$  &   $ 0.208 \pm 0.097 $ \\
-Photometric jitter [$\log{\rm ppt}$] &  $\mathcal{N}(0.7294,5.0)$  &   $ -7.7^{+1.4}_{-2.1} $ \\
-Photometric GP power & $\mathcal{I}{0.014,0.006}^{\tnote{d}}$  &   $ 0.0116^{+0.0033}_{-0.0025} $ \\
-Photometric GP frequency [$d^{-1}$] & $\mathcal{I}{3.525,0.651}^{\tnote{d}}$  &   $ 3.79^{+0.46}_{-0.43} $ \\
-Photometric GP mean [ppt] & $\mathcal{I}{0.008,0.036}^{\tnote{d}}$  &   $ 0.012^{+0.035}_{-0.036} $ \\
+log radius ratio [$\log{R_p/R_s}$] b &  $\mathcal{U}(-11.513,-2.3023)$  & \Tlogror{} \\
+Transit Impact Parameter b & $\mathcal{U}(0,1+R_p/R_s)^{c}$  & \Tb{} \\
+Quadratic Limb Darkening $a_{\rm LD}$ &  $\mathcal{N}_{\mathcal{U}}(0.367,0.1,0.0,1.0)$  & \Tustartesszero{}\\
+Quadratic Limb Darkening $b_{\rm LD}$ &  $\mathcal{N}_{\mathcal{U}}(0.21,0.1,0.0,1.0)$  & \Tustartessone{} \\
+Photometric jitter [$\log{\rm ppt}$] &  $\mathcal{N}(0.7294,5.0)$  &  \Tphotlogerrcontr{} \\
+Photometric GP power & $\mathcal{I}(0.014,0.006)^{d}$  & \TphotSzero{} \\
+Photometric GP frequency [$d^{-1}$] & $\mathcal{I}(3.525,0.651)^{d}$  &   \Tphotwzero{} \\
+Photometric GP mean [ppt] & $\mathcal{I}(0.008,0.036)^{d}$  & \Tphotmean{} \\
 \hline
 \multicolumn{3}{l}{\harps{} parameters}\\
-log RV semi-amplitude, $\log{K}$ b &  $\mathcal{N}(0.3,5.0)$  &   $ 0.76 \pm 0.13 $ \\
-log RV semi-amplitude, $\log{K}$ c &  $\mathcal{N}(0.3,5.0)$  &   $ 1.27 \pm 0.11 $ \\
-RV trend - intercept at BJD=2458779.717 [\ms{}] &  $\mathcal{N}(0.0,0.1)$  &   $ 0.027 \pm 0.01 $ \\
-RV trend - gradient [\ms{}$d^{-1}$] &  $\mathcal{N}(0.0,1.0)$  &   $ -0.14 \pm 0.73 $ \\
-\harps{} log jitter RV [\ms{}] &  $\mathcal{N}(1.992,5.0)$  &   $ -0.9^{+1.0}_{-3.9} $ \\
-\harps{} log jitter S index &  $\mathcal{N}(6.527e-06,5.0)$  &   $ -13.0 \pm 0.8 $ \\
-\harps{} log jitter FWHM [\ms{}] &  $\mathcal{N}(20.525,5.0)$  &   $ -0.2 \pm 1.2 $ \\
-\harps{} mean S-index &  $\mathcal{N}(0.0,0.00941)$  &   $ -0.0002 \pm 0.0014 $ \\
-\harps{} mean FWHM [\ms{}] &  $\mathcal{N}(7287.75,7.5)$  &   $ 7287.0 \pm 1.2 $ \\
-\harps{} GP log amplitude RV &  $\mathcal{N}(2.984,8.0)$  &   $ 3.69 \pm 0.33 $ \\
-\harps{} GP log amplitude S-index &  $\mathcal{N}(-9.332,8.0)$  &   $ -9.63 \pm 0.33 $ \\
-\harps{} GP log amplitude FWHM &  $\mathcal{N}(4.03,8.0)$  &   $ 3.76^{+0.37}_{-0.35} $ \\
-\harps{} GP log rotation period, $\log{P_{\rm rot}}/\log{d}$ &  $\mathcal{N}_{\mathcal{U}}(3.024,0.2,1.099,4.382)$  &   $ 3.028 \pm 0.06 $ \\
-\harps{} GP log quality, $Q$ &  $\mathcal{N}(0.0,10.0)$  &   $ -3.2^{+3.4}_{-4.0} $ \\
-\harps{} GP log quality differential, $\delta Q$ &  $\mathcal{N}(0.0,5.0)$  &   $ 0.6 \pm 0.9 $ \\
-\harps{} GP $P_{\rm rot}$ - $P_{\rm rot}/2$ mix factor &  $\mathcal{U}(0,1)$  &   $ 0.033^{+0.053}_{-0.022} $ \\
+log RV semi-amplitude, $\log{K}$ b &  $\mathcal{N}(0.3,5.0)$  &   \TlogKzero{} \\
+log RV semi-amplitude, $\log{K}$ c &  $\mathcal{N}(0.3,5.0)$  &   \TlogKone{} \\
+RV trend - intercept at BJD=2458779.717 [\ms{}] &  $\mathcal{N}(0.0,0.1)$  & \Trvtrendzero{} \\
+RV trend - gradient [\ms{}$d^{-1}$] &  $\mathcal{N}(0.0,1.0)$  &   \Trvtrendone{} \\
+\harps{} log jitter RV [\ms{}] &  $\mathcal{N}(1.992,5.0)$  &   \Trvlogerrcontrzero{} \\
+\harps{} log jitter S index &  $\mathcal{N}(6.527e-06,5.0)$  &  \Trvlogerrcontrone{} \\
+\harps{} log jitter FWHM [\ms{}] &  $\mathcal{N}(20.525,5.0)$  &   \Trvlogerrcontrtwo{} \\
+\harps{} mean S-index &  $\mathcal{N}(0.0,0.00941)$  &  \Tmeans{} \\
+\harps{} mean FWHM [\ms{}] &  $\mathcal{N}(7287.75,7.5)$  &  \Tmeanfwhm{} \\
+\harps{} GP log amplitude RV &  $\mathcal{N}(2.984,8.0)$  &  \Tlogamprv{} \\
+\harps{} GP log amplitude S-index &  $\mathcal{N}(-9.332,8.0)$  & \Tlogamps{} \\
+\harps{} GP log amplitude FWHM &  $\mathcal{N}(4.03,8.0)$  & \Tlogampfwhm{}  \\
+\harps{} GP log rotation period, $\log{P_{\rm rot}}/\log{d}$ &  $\mathcal{N}_{\mathcal{U}}(3.024,0.2,1.099,4.382)$  & \Tlogperiod{} \\
+\harps{} GP log quality, $Q$ &  $\mathcal{N}(0.0,10.0)$  &  \TlogQzero{} \\
+\harps{} GP log quality differential, $\Delta Q$ &  $\mathcal{N}(0.0,5.0)$  & \TdeltaQ{}{} \\
+\harps{} GP $P_{\rm rot}$ - $P_{\rm rot}/2$ mix factor &  $\mathcal{U}(0,1)$  & \Tperiod{} \\
 \hline
 \hline
-\multicolumn{3}{l}{%
-  \begin{minipage}{14cm}%
-    $\mathcal{N}(\mu;\sigma^{2})$ is a normal distribution with mean $\mu$ and width $\sigma^{2}$, $\mathcal{U}(a;b)$ is a uniform distribution between $a$ and $b$, $\mathcal{N}_{\mathcal{U}}(\mu;\sigma^{2},a,b)$ is a normal distribution with mean $\mu$ and width $\sigma^{2}$ multiplied with a uniform distribution between $a$ and $b$, $\beta(a;b)$ is a Beta distribution with parameters $a$ and $b$, and $\mathcal{I}(\mu;\sigma^2)$ is a distribution directly interpolated from the output of a pre-trained distribution with mean $\mu$ and standard deviation $\sigma^2$ (although the distribution may not follow a normal distribution).  Posterior values and uncertainties represent the median and $1\sigma$ error boundaries. All other values (e.g. presented in Table \ref{tab:derived_pars}) are directly determined from these fitted quantities. $^{\tnote{a}}$Described in \citet{kipping2013parametrizing}.  $^{\tnote{b}}$Reparameterised in \texttt{exoplanet} to avoid discontinuities at $\pm\pi$. $^{\tnote{c}}$\texttt{exoplanet} reparameterization of \citet{espinoza2018efficient}. $^{\tnote{d}}$\texttt{PyMc3} Interpolation function of pre-trained GP.
-  \end{minipage}%
-}\\
+\multicolumn{3}{l}{
+  \begin{minipage}{14cm}
+    $\mathcal{N}(\mu;\sigma^{2})$ is a normal distribution with mean $\mu$ and width $\sigma^{2}$, $\mathcal{U}(a;b)$ is a uniform distribution between $a$ and $b$, $\mathcal{N}_{\mathcal{U}}(\mu;\sigma^{2},a,b)$ is a normal distribution with mean $\mu$ and width $\sigma^{2}$ multiplied with a uniform distribution between $a$ and $b$, $\beta(a;b)$ is a Beta distribution with parameters $a$ and $b$, and $\mathcal{I}(\mu;\sigma^2)$ is a distribution directly interpolated from the output of a pre-trained distribution with mean $\mu$ and standard deviation $\sigma^2$ (although the distribution may not follow a normal distribution).  Posterior values and uncertainties represent the median and $1\sigma$ error boundaries. All other values (e.g. presented in Table \ref{tab:derived_pars}) are directly determined from these fitted quantities. The prior uncertainties of input parameters $t_0$ and $P$ were inflated from the input data uncertainties by factors of: $t_{0,b} = 23 \times$, $t_{0,c} = 7 \times$, $P_b = 3 \times$, $P_c = 11 \time$. $^{a}$Described in \citet{kipping2013parametrizing}.  $^{b}$Reparameterised in \texttt{exoplanet} to avoid discontinuities at $\pm\pi$. $^{c}$\texttt{exoplanet} reparameterization of \citet{espinoza2018efficient}. $^{d}$\texttt{PyMc3} Interpolation function of pre-trained GP.
+  \end{minipage}
+} \\
 \end{tabular}
 %\tablefoot{}
 \end{center}
